@@ -1,7 +1,9 @@
 # Novera / innovera.uz
 
-Standalone corporate landing in Uzbek. Authored static files live in `dist/`;
-no Node dependencies or build step. INNASOFT and Barter projects are untouched.
+Standalone corporate landing in Uzbek, English and Russian. No Node dependencies.
+Template: `content/index.html`; translations: `content/translations.json`.
+Styles and scripts: `dist/assets/`. Generated pages: `dist/index.html`,
+`dist/en/index.html`, `dist/ru/index.html`. INNASOFT and Barter projects are untouched.
 
 ## Local preview
 
@@ -18,6 +20,17 @@ Open http://127.0.0.1:8092/. Refresh after editing files.
 python3 tools/check_site.py
 node --check dist/assets/site.js
 ```
+
+After changing text/template, regenerate all pages before preview/deployment:
+
+```sh
+python3 tools/build_locales.py
+```
+
+Do not edit generated HTML directly. The generator validates translation coverage,
+creates per-language canonical/hreflang metadata and a three-route sitemap.
+Dynamic form messages live in `dist/assets/messages.js`.
+Theme initially follows the OS and then remembers the explicit choice in localStorage.
 
 ## Design
 
@@ -48,9 +61,10 @@ No credentials belong in this repository.
 
 ## Verification status
 
-Local HTTP response, static asset/anchor checks and JS syntax are checked.
-Real-device/browser interaction tests, Lighthouse, DNS/TLS and the receiving
-mailbox remain release checks; no full WCAG or performance score is claimed.
+Local HTTP, static checks, and real in-app browser responsive/interaction checks
+are complete. See QA-NOTES.md for tested paths and remaining release checks.
+Native devices, Lighthouse, DNS/TLS and the receiving mailbox remain unchecked;
+no full WCAG or performance score is claimed. New image prompts: ARTWORK.md.
 
 ## Generated asset
 
