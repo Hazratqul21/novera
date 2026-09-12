@@ -1,0 +1,14 @@
+{
+  "uz": {
+    "title": "Novera — Web, mobil ilovalar va IT autsorsing",
+    "description": "Novera biznes uchun web platformalar, mobil ilovalar, integratsiya va AI yechimlarini yaratadi. IT autsorsing: g‘oyadan ishlab chiqish va rivojlantirishgacha."
+  },
+  "en": {
+    "title": "Novera — Web, Mobile Development & IT Outsourcing",
+    "description": "Novera builds web platforms, mobile apps, integrations and AI solutions for businesses. End-to-end software development, team extension and ongoing improvement."
+  },
+  "ru": {
+    "title": "Novera — Веб-разработка, мобильные приложения и IT-аутсорсинг",
+    "description": "Novera создаёт веб-платформы, мобильные приложения, интеграции и AI-решения для бизнеса. Разработка под ключ, усиление команды и развитие существующих систем."
+  }
+}

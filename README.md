@@ -18,6 +18,7 @@ Open http://127.0.0.1:8092/. Refresh after editing files.
 
 ```sh
 python3 tools/check_site.py
+python3 tools/check_seo.py
 node --check dist/assets/site.js
 ```
 
@@ -30,6 +31,8 @@ python3 tools/build_locales.py
 Do not edit generated HTML directly. The generator validates translation coverage,
 creates per-language canonical/hreflang metadata and a three-route sitemap.
 Dynamic form messages live in `dist/assets/messages.js`.
+Search metadata lives in `content/seo.json`. See `SEO-RELEASE.md` for the public
+audit, server corrections and Google Search Console release steps.
 Theme initially follows the OS and then remembers the explicit choice in localStorage.
 
 ## Design
