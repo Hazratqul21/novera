@@ -23,9 +23,7 @@
     if (saved !== 'dark' && saved !== 'light') applyTheme(event.matches ? 'dark' : 'light');
   });
   document.querySelectorAll('.languages a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (location.hash) link.href = link.pathname + location.hash;
-    });
+    link.addEventListener('click', () => { if (location.hash) link.href = link.pathname + location.hash; });
   });
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const form = document.querySelector('#brief-form');
@@ -37,12 +35,11 @@
   const sections = navLinks.map(link => document.querySelector(link.hash));
   const steps = [...document.querySelectorAll('.steps li')];
   const easeOut = getComputedStyle(document.documentElement).getPropertyValue('--ease-out').trim();
-  let keyboard = false;
-  let frame = 0;
+  let keyboard = false; let frame = 0;
 
   document.querySelector('#year').textContent = new Date().getFullYear();
-  form.hidden = false;
-  form.querySelectorAll('button').forEach(button => { button.hidden = false; });
+  if(form) { form.hidden = false; form.querySelectorAll('button').forEach(b => b.hidden = false); }
+
   document.addEventListener('keydown', () => { keyboard = true; });
   document.addEventListener('pointerdown', () => { keyboard = false; }, {passive:true});
   document.addEventListener('wheel', () => { keyboard = false; }, {passive:true});
@@ -54,7 +51,7 @@
       const target = hash === '#' ? document.body : document.getElementById(hash.slice(1));
       if (!target) return;
       event.preventDefault();
-      if (link.dataset.service) {
+      if (link.dataset.service && form) {
         const radio = [...form.querySelectorAll('input[name="service"]')].find(input => input.value === link.dataset.service);
         if (radio) radio.checked = true;
         status.textContent = '';
@@ -81,6 +78,7 @@
     const guide = header.getBoundingClientRect().bottom + 80;
     let active = -1;
     sections.forEach((section, index) => {
+      if(!section) return;
       const rect = section.getBoundingClientRect();
       if (rect.top <= guide && rect.bottom > guide) active = index;
     });
@@ -112,38 +110,68 @@
     }, {threshold:.12});
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   }
-  reduced.addEventListener('change', () => {
-    if(reduced.matches) document.getAnimations().forEach(animation => animation.cancel());
-  });
+  reduced.addEventListener('change', () => { if(reduced.matches) document.getAnimations().forEach(animation => animation.cancel()); });
 
-  function readBrief() {
-    const text = textarea.value.trim();
-    textarea.setCustomValidity(text ? '' : messages.required);
-    if (!form.reportValidity()) return null;
-    return {service:new FormData(form).get('service'),text};
+  // 1. LEAD FORM INTEGRATION
+  if (form) {
+    textarea.addEventListener('input', () => {textarea.setCustomValidity('');status.textContent='';});
+    textarea.addEventListener('invalid', () => { if (textarea.validity.valueMissing) textarea.setCustomValidity(messages.required); });
+
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnHtml = submitBtn.innerHTML;
+      const name = document.getElementById('brief-name').value.trim();
+      const contact = document.getElementById('brief-contact').value.trim();
+      const service = new FormData(form).get('service');
+      const text = textarea.value.trim();
+
+      submitBtn.textContent = '...'; submitBtn.disabled = true;
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/v1/lead', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, contact, details: `Сервис: ${service}\n\nОписание: ${text}` })
+        });
+        if (!response.ok) throw new Error();
+        status.style.color = 'var(--brand)'; status.textContent = messages.leadSuccess; form.reset();
+      } catch (err) { status.style.color = 'red'; status.textContent = messages.leadError;
+      } finally { submitBtn.innerHTML = originalBtnHtml; submitBtn.disabled = false; }
+    });
   }
-  textarea.addEventListener('input', () => {textarea.setCustomValidity('');status.textContent='';});
-  textarea.addEventListener('invalid', () => {
-    if (textarea.validity.valueMissing) textarea.setCustomValidity(messages.required);
-  });
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    const brief = readBrief();
-    if (!brief) return;
-    const subject = encodeURIComponent('Novera — ' + brief.service);
-    const body = encodeURIComponent(messages.greeting + '\n\n' + messages.direction + ': ' + brief.service + '\n\n' + brief.text);
-    window.location.href = 'mailto:info@innovera.uz?subject=' + subject + '&body=' + body;
-    status.textContent = messages.draft;
-  });
-  form.querySelector('.download-brief').addEventListener('click', () => {
-    const brief = readBrief();
-    if (!brief) return;
-    const content = 'NOVERA — ' + messages.brief + '\n\n' + messages.direction + ': ' + brief.service + '\n\n' + brief.text + '\n\ninfo@innovera.uz / +998 99 811 28 29\n' + messages.unsent + '\n';
-    const url = URL.createObjectURL(new Blob([content],{type:'text/plain;charset=utf-8'}));
-    const link = document.createElement('a');
-    link.href=url; link.download='novera-loyiha-brifi.txt';
-    document.body.append(link);link.click();link.remove();
-    setTimeout(()=>URL.revokeObjectURL(url),1000);
-    status.textContent=messages.saved;
-  });
+
+  // 2. AI ESTIMATOR INTEGRATION
+  const aiForm = document.getElementById('ai-calc-form');
+  const aiResult = document.getElementById('ai-calc-result');
+  if (aiForm) {
+    aiForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      const submitBtn = aiForm.querySelector('button[type="submit"]');
+      const originalBtnHtml = submitBtn.innerHTML;
+      submitBtn.textContent = messages.aiLoading; submitBtn.disabled = true;
+      aiResult.hidden = true; aiResult.style.opacity = '0';
+
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/v1/estimate', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ description: document.getElementById('ai-description').value.trim(), urgency: 'normal' })
+        });
+        if (!response.ok) throw new Error();
+        const data = await response.json();
+
+        // Здесь используется динамический перевод из messages.js
+        aiResult.innerHTML = `
+          <p><strong>${messages.aiBudget}</strong> ${data.estimated_price}</p>
+          <p><strong>${messages.aiTime}</strong> ${data.estimated_time}</p>
+          <p><strong>${messages.aiStack}</strong> ${data.tech_stack.join(', ')}</p>
+          <p style="margin-top:16px; font-size:14px; color:var(--muted);">${data.recommendation}</p>
+        `;
+        aiResult.hidden = false;
+        aiResult.animate([{ opacity: 0, transform: 'translateY(15px)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 500, easing: easeOut, fill: 'forwards' });
+      } catch (err) {
+        aiResult.innerHTML = `<p style="color: red;">${messages.aiError}</p>`;
+        aiResult.hidden = false; aiResult.style.opacity = '1';
+      } finally { submitBtn.innerHTML = originalBtnHtml; submitBtn.disabled = false; }
+    });
+  }
 })();

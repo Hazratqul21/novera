@@ -1,7 +1,11 @@
 {
-  "Novera — Biznesingiz uchun IT yechimlar": {
-    "en": "Novera — IT solutions for your business",
-    "ru": "Novera — IT-решения для вашего бизнеса"
+  "Novera — Web, mobil ilovalar va IT autsorsing": {
+    "en": "Novera — Web, Mobile Development & IT Outsourcing",
+    "ru": "Novera — Веб-разработка, мобильные приложения и IT-аутсорсинг"
+  },
+  "Novera biznes uchun web platformalar, mobil ilovalar, integratsiya va AI yechimlarini yaratadi. IT autsorsing: g‘oyadan ishlab chiqish va rivojlantirishgacha.": {
+    "en": "Novera builds web platforms, mobile apps, integrations and AI solutions for businesses. End-to-end software development, team extension and ongoing improvement.",
+    "ru": "Novera создаёт веб-платформы, мобильные приложения, интеграции и AI-решения для бизнеса. Разработка под ключ, усиление команды и развитие существующих систем."
   },
   "Asosiy mazmunga o‘tish": {
     "en": "Skip to content",
@@ -267,9 +271,9 @@
     "en": "Agreed scope, milestones and acceptance criteria.",
     "ru": "Согласованные объём, этапы и критерии приёмки."
   },
-  "Loyihani muhokama qilish ↗": {
-    "en": "Discuss your project ↗",
-    "ru": "Обсудить проект ↗"
+  "Loyihani muhokama qilish": {
+    "en": "Discuss your project",
+    "ru": "Обсудить проект"
   },
   "Jamoani kuchaytirish": {
     "en": "Team extension",
@@ -287,9 +291,9 @@
     "en": "A shared backlog, clear roles and regular delivery reviews.",
     "ru": "Общий бэклог, понятные роли и регулярная демонстрация результатов."
   },
-  "Jamoa ehtiyojini muhokama qilish ↗": {
-    "en": "Discuss your team’s needs ↗",
-    "ru": "Обсудить задачи команды ↗"
+  "Jamoa ehtiyojini muhokama qilish": {
+    "en": "Discuss your team’s needs",
+    "ru": "Обсудить задачи команды"
   },
   "Rivojlantirish": {
     "en": "Product evolution",
@@ -307,9 +311,9 @@
     "en": "Technical audit, prioritized work and incremental improvements.",
     "ru": "Технический аудит, приоритеты и поэтапные улучшения."
   },
-  "Tizimni muhokama qilish ↗": {
-    "en": "Discuss your system ↗",
-    "ru": "Обсудить систему ↗"
+  "Tizimni muhokama qilish": {
+    "en": "Discuss your system",
+    "ru": "Обсудить систему"
   },
   "TEXNOLOGIYA — VOSITA. MAQSAD — SIZNING BIZNESINGIZ.": {
     "en": "TECHNOLOGY IS THE TOOL. YOUR BUSINESS IS THE PURPOSE.",
@@ -363,9 +367,9 @@
     "en": "What we are doing, why it matters and what comes next — always clear, together.",
     "ru": "Вместе определяем, что делаем, зачем и какой шаг следующий."
   },
-  "Birinchi qadamni qo‘yamiz ↗": {
-    "en": "Take the first step ↗",
-    "ru": "Сделаем первый шаг ↗"
+  "Birinchi qadamni qo‘yamiz": {
+    "en": "Take the first step",
+    "ru": "Сделаем первый шаг"
   },
   "Tushunish": {
     "en": "Discovery",
@@ -519,14 +523,6 @@
     "en": "Tell us briefly about your challenge. We’ll explore the way forward together.",
     "ru": "Кратко опишите задачу. На первом разговоре вместе определим путь к решению."
   },
-  "Brifni yuborish uchun": {
-    "en": "To send your brief, email",
-    "ru": "Чтобы отправить бриф, напишите на"
-  },
-  "manziliga yozing.": {
-    "en": "with your project details.",
-    "ru": "и опишите вашу задачу."
-  },
   "Qaysi yo‘nalish sizga kerak?": {
     "en": "What do you need help with?",
     "ru": "Какое направление вам нужно?"
@@ -559,22 +555,6 @@
     "en": "Your idea, current challenge or desired solution…",
     "ru": "Ваша идея, текущая проблема или нужное решение…"
   },
-  "Maqsad va asosiy funksiyalarni yozing. Maxfiy ma’lumot yoki parol kiritmang.": {
-    "en": "Describe the goal and key features. Do not include confidential data or passwords.",
-    "ru": "Опишите цель и основные функции. Не указывайте конфиденциальные данные или пароли."
-  },
-  "Brifni emailda yuborish": {
-    "en": "Open email draft",
-    "ru": "Открыть письмо с брифом"
-  },
-  "Brifni fayl qilib saqlash ↓": {
-    "en": "Save brief as a file ↓",
-    "ru": "Сохранить бриф в файл ↓"
-  },
-  "Email ilovangiz ochiladi. Xat faqat siz tasdiqlab yuborganingizdan keyin jo‘natiladi.": {
-    "en": "Your email app will open. Nothing is sent until you review and send the message.",
-    "ru": "Откроется почтовое приложение. Письмо отправится только после вашего подтверждения."
-  },
   "G‘oyadan — yangi imkoniyatgacha.": {
     "en": "From an idea to new possibilities.",
     "ru": "От идеи к новым возможностям."
@@ -594,10 +574,6 @@
   "Yagona markazga bog‘langan modullar — integratsiya konsepsiyasi": {
     "en": "Modules connected to a central hub — an integration concept",
     "ru": "Модули, связанные с единым центром — концепция интеграции"
-  },
-  "Novera — web platformalar, mobil ilovalar, integratsiya va avtomatlashtirish. G‘oyangizni biznesingizga mos raqamli yechimga aylantiramiz.": {
-    "en": "Novera builds web platforms, mobile applications and connected business systems. A technology partner from discovery to launch.",
-    "ru": "Novera создаёт веб-платформы, мобильные приложения и связанные бизнес-системы. Технологический партнёр от идеи до запуска."
   },
   "Novera — Raqamli imkoniyatlarning yangi davri.": {
     "en": "Novera — Ideas engineered into possibilities.",
@@ -622,5 +598,69 @@
   "Web app": {
     "en": "Web app",
     "ru": "Веб-приложение"
+  },
+  "AI baholash": {
+    "en": "AI Estimator",
+    "ru": "AI Оценка"
+  },
+  "INTEGRATSIYA QILINGAN AI": {
+    "en": "INTEGRATED AI",
+    "ru": "ИНТЕГРИРОВАННЫЙ ИИ"
+  },
+  "Loyihani AI yordamida baholash.": {
+    "en": "Estimate project with AI.",
+    "ru": "Оцените проект с помощью ИИ."
+  },
+  "Maqsadingizni yozing. Bizning sun'iy intellekt tizimimiz real vaqt rejimida texnologiyalar stekini va taxminiy byudjetni hisoblab beradi.": {
+    "en": "Describe your goal. Our AI system will calculate the technology stack and estimated budget in real time.",
+    "ru": "Опишите вашу цель. Наша ИИ система в реальном времени рассчитает стек технологий и примерный бюджет."
+  },
+  "AI Baholash shakli": {
+    "en": "AI Estimator form",
+    "ru": "Форма оценки ИИ"
+  },
+  "Loyiha tafsilotlari": {
+    "en": "Project details",
+    "ru": "Детали проекта"
+  },
+  "Masalan: Logistika kompaniyasi uchun haydovchilarni kuzatish tizimi va CRM kerak...": {
+    "en": "For example: I need a driver tracking system and CRM for a logistics company...",
+    "ru": "Например: Нужна система отслеживания водителей и CRM для логистической компании..."
+  },
+  "Loyihani tahlil qilish": {
+    "en": "Analyze project",
+    "ru": "Анализировать проект"
+  },
+  "Ismingiz yoki kompaniya nomi": {
+    "en": "Your name or company name",
+    "ru": "Ваше имя или название компании"
+  },
+  "Ismingizni kiriting": {
+    "en": "Enter your name",
+    "ru": "Введите ваше имя"
+  },
+  "Aloqa ma'lumotlari": {
+    "en": "Contact information",
+    "ru": "Контактная информация"
+  },
+  "Telefon raqami yoki Email": {
+    "en": "Phone number or Email",
+    "ru": "Номер телефона или Email"
+  },
+  "Arizani yuborish": {
+    "en": "Submit request",
+    "ru": "Отправить заявку"
+  },
+  "Ma'lumotlaringiz xavfsizligi kafolatlanadi.": {
+    "en": "Your information security is guaranteed.",
+    "ru": "Безопасность ваших данных гарантирована."
+  },
+  "Brifni yuborish uchun": {
+    "en": "To send your brief, email",
+    "ru": "Чтобы отправить бриф, напишите на"
+  },
+  "manziliga yozing.": {
+    "en": "with your project details.",
+    "ru": "и опишите вашу задачу."
   }
 }

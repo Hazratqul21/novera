@@ -3,3 +3,22 @@
 .env.*
 __pycache__/
 *.pyc
+
+# Виртуальные окружения
+venv/
+.venv/
+env/
+
+# Настройки редакторов
+.idea/
+.vscode/
+
+# Кэш Python
+__pycache__/
+*.pyc
+
+# Секретные ключи (на будущее)
+.env
+
+
+.DS_Store

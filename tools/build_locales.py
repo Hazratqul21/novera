@@ -5,9 +5,9 @@ import json
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-source = (ROOT / 'content/index.html').read_text()
-dictionary = json.loads((ROOT / 'content/translations.json').read_text())
-seo = json.loads((ROOT / 'content/seo.json').read_text())
+source = (ROOT / 'content/index.html').read_text(encoding='utf-8')
+dictionary = json.loads((ROOT / 'content/translations.json').read_text(encoding='utf-8'))
+seo = json.loads((ROOT / 'content/seo.json').read_text(encoding='utf-8'))
 brand_labels = {'novera','Novera','UZ','EN','RU','NOVERA / DIGITAL ENGINEERING',
                 'CONNECTED BY DESIGN','01 / NOVERA','01 — DIGITAL PRODUCTS',
                 '02 — CONNECTED SYSTEMS','01 / END-TO-END','02 / TEAM EXTENSION','03 / EVOLUTION'}
@@ -59,11 +59,11 @@ for lang, route in routes.items():
     output = output.replace(f'data-lang="{lang}"',f'data-lang="{lang}" aria-current="page"')
     destination = ROOT / 'dist' / route.strip('/') / 'index.html'
     destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_text(output)
+    destination.write_text(output, encoding='utf-8')
 
 sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
 xml_alternates = ''.join(f'<xhtml:link rel="alternate" hreflang="{lang}" href="https://innovera.uz{route}"/>'
                          for lang, route in {**routes, 'x-default':'/'}.items())
 sitemap += ''.join(f'<url><loc>https://innovera.uz{route}</loc>{xml_alternates}</url>\n' for route in routes.values())
-(ROOT/'dist/sitemap.xml').write_text(sitemap+'</urlset>\n')
+(ROOT/'dist/sitemap.xml').write_text(sitemap+'</urlset>\n', encoding='utf-8')
 print('Built: /, /en/, /ru/')
