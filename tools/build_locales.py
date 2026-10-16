@@ -32,6 +32,8 @@ for lang, route in routes.items():
     for links in service_links:
         output = output.replace(f'href="{links["uz"]}"', f'href="{links[lang]}"')
     output = output.replace('lang="uz"', f'lang="{lang}"', 1)
+    if lang == 'ru':  # Russian pages render mostly Cyrillic: preload those font subsets instead.
+        output = output.replace('/assets/inter-latin.woff2', '/assets/inter-cyrillic.woff2').replace('/assets/unbounded-latin.woff2', '/assets/unbounded-cyrillic.woff2')
     output = output.replace('content="uz_UZ"', 'content="'+{'uz':'uz_UZ','en':'en_US','ru':'ru_RU'}[lang]+'"')
     output = output.replace('href="https://noveragroup.uz/"', f'href="https://noveragroup.uz{route}"')
     output = output.replace('content="https://noveragroup.uz/"', f'content="https://noveragroup.uz{route}"')

@@ -1,3 +1,5 @@
+// Mark JS before first paint so the phone header renders collapsed from the start (no shift).
+document.documentElement.classList.add('nav-js');
 (() => {
   let saved;
   try { saved = localStorage.getItem('novera-theme'); } catch (_) {}

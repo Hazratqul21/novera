@@ -31,10 +31,10 @@ tahrirlash to‘g‘ri. `dist/` dagi `.html` fayllar esa generatsiya qilinadi.
 | `theme.js` | `<head>`da: tanlangan yoki tizim mavzusini darhol qo‘yadi (miltillash bo‘lmasligi uchun) |
 | `site.js` | Menyu, reveal, forma yuborish (`/api/v1/lead`), AI baholash (`/api/v1/estimate`) |
 | `messages.js` | Forma xabarlari uchala tilda |
-| `inter-variable.woff2` | Inter (matn) |
+| `inter-latin.woff2`, `inter-cyrillic.woff2` | Inter (matn), og‘irlik o‘qi saqlangan, opsz 14 da qotirilgan; `unicode-range` bo‘yicha faqat keragi yuklanadi |
 | `unbounded-*.woff2` | Unbounded (sarlavhalar), latin / latin-ext / cyrillic bo‘laklari |
-| `novera-sculpture.jpg` | Hero rasmi (yashil-kumush skulptura) |
-| `digital-products.jpg`, `connected-systems.jpg` | Xizmat rasmlari |
+| `novera-sculpture-{600,900,1200}.webp` | Hero rasmi (`srcset`); `.jpg` asl nusxa |
+| `digital-products-*.webp`, `connected-systems-*.webp` | Xizmat rasmlari (`srcset`); `.jpg` faqat og:image uchun |
 
 CSS/JS o‘zgarganda `content/index.html`dagi `?v=` versiyasini oshiring
 (masalan `site.css?v=20261016i`).

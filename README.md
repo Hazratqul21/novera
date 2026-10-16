@@ -43,7 +43,7 @@ Theme initially follows the OS and then remembers the explicit choice in localSt
 
 Read-only reference: Desktop/Barterapp/src/index.css. Deep green #0e6444,
 ink #0d1a15, cool ground #f1f4f2, tonal green #d7ebe0 and gold #c08a1e.
-Inter variable font is self-hosted; license included alongside the font.
+Inter (latin and cyrillic subsets) and Unbounded are self-hosted; licenses included alongside the fonts.
 Apple-design guidance informs type hierarchy and direct press feedback.
 Material-inspired tonal surfaces and pill controls, not a replica of either brand.
 Scroll reveals use WAAPI transform/opacity, 600ms strong ease-out, once per item.

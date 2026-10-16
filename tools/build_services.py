@@ -58,6 +58,7 @@ def page(service, lang, data, parts):
     url = ORIGIN + service['slug'][lang]
     others = [x for x in data['services'] if x['id'] != service['id']]
     w, h = IMG[service['image']]
+    base = service['image'].removesuffix('.jpg')  # responsive WebP siblings; the JPEG stays for og:image
     header = parts['header']
     for code, path in service['slug'].items():  # language switcher points to this service in each language
         header = re.sub(rf'href="[^"]*"([^>]*data-lang="{code}")', f'href="{path}"\\1', header)
@@ -118,7 +119,7 @@ def page(service, lang, data, parts):
         <p class="lead">{e(s["lead"])}</p>
         <div class="hero-actions"><a class="button" href="{home}#boshlash">{e(ui["cta_btn"])} <span aria-hidden="true">↗</span></a></div>
       </div>
-      <figure class="svc-hero-art"><img src="{service["image"]}" alt="" width="{w}" height="{h}" decoding="async" fetchpriority="high"></figure>
+      <figure class="svc-hero-art"><img src="{base}-1200.webp" srcset="{base}-600.webp 600w, {base}-900.webp 900w, {base}-1200.webp 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 620px" alt="" width="{w}" height="{h}" decoding="async" fetchpriority="high"></figure>
     </section>
     <section class="section wrap" aria-labelledby="svc-build">
       <div class="section-head"><p class="eyebrow">{e(ui["eb_build"])}</p><h2 id="svc-build">{e(ui["build"])}</h2></div>

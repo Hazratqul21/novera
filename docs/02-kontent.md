@@ -65,4 +65,9 @@ Case qo‘shilgach `check_seo.py` URL sonini avtomatik hisobga oladi.
 ## 5. Rasm
 
 - `dist/assets/` ga qo‘ying, HTML’da aniq `width`/`height` bering.
+- WebP o‘lchamlarini yasash: `cwebp -q 80 -m 6 -resize 600 0 rasm.jpg -o rasm-600.webp`
+  (600, 900, 1200), keyin `srcset` + `sizes`. Xizmat sahifalari `services.json`dagi
+  `.jpg` yo‘lidan `-600/-900/-1200.webp` nomlarini o‘zi hosil qiladi.
+- Shriftga yangi belgi kerak bo‘lsa (masalan boshqa til), Inter subsetini
+  `pyftsubset` bilan qayta yasang va `site.css`dagi `unicode-range`ni moslang.
 - Yangi rasm g‘oyalari va avvalgi prompt: `ARTWORK.md`.
