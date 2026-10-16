@@ -22,7 +22,8 @@ Nima qilindi: Inter 352 KB → 45 KB lotin + 18 KB kirill subset; Unbounded va
 Inter tilga mos subseti preload (ru — kirill); hero va xizmat rasmlari WebP
 `srcset` (213 KB → 15–43 KB); `nav-js` klassi `theme.js`da birinchi paintdan oldin.
 
-Ochiq: nginx HTTP/2 va uzoqroq kesh — egasining ruxsati kerak.
+Nginx HTTP/2 va uzoq kesh yoqilgandan keyin (jonli, mobil): bosh sahifa va /ru/ —
+100, LCP 1.5–1.6s, CLS 0.002.
 
 ## Kutilayotgan ma’lumotlar
 

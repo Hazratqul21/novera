@@ -22,7 +22,9 @@ global o‘zgarish faqat egasining roziligi bilan.
 - CSP: `default-src 'self'`, skript faqat o‘zimiz va
   `static.cloudflareinsights.com`, `connect-src` o‘zimiz va
   `cloudflareinsights.com`. Inline skript/stil taqiqlangan.
-- Kesh: videolar 30 kun, boshqa statik fayllar 7 kun. HTTP/2 hozir o‘chiq.
+- HTTP/2 yoqilgan. Kesh: shriftlar 365 kun, videolar va css/js/rasmlar 30 kun.
+  HTML keshlanmaydi — CSS/JS o‘zgarsa `?v=` majburiy, rasm almashsa fayl nomini
+  o‘zgartiring (Cloudflare ham shu muddatda saqlaydi).
 
 Tahrir tartibi: nusxa (`~/backups/innovera/nginx-innovera.<sabab>.bak`) →
 tahrir → `sudo nginx -t` → `sudo systemctl reload nginx`.
