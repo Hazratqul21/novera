@@ -9,12 +9,14 @@
 
 ## Tezlik (Lighthouse, mobil)
 
-| | Oldin (16.10, jonli) | Keyin (lokal) |
-|---|---|---|
-| Bosh sahifa | 77, LCP 4.5s, CLS 0.136 | 98, LCP 2.3s, CLS 0.002 |
-| /ru/ | — | 95 |
-| Xizmat sahifasi | — | 99 |
-| Desktop | 96–97 | 100 |
+| | Oldin (16.10, jonli) | Keyin (lokal) | Keyin (jonli) |
+|---|---|---|---|
+| Bosh sahifa | 77, LCP 4.5s, CLS 0.136 | 98, LCP 2.3s | 92–93, LCP 2.5s, CLS 0 |
+| /ru/ | — | 95 | 90 |
+| Xizmat sahifasi | — | 99 | — |
+| Desktop | 96–97 | 100 | — |
+
+16.10.2026 serverga chiqdi.
 
 Nima qilindi: Inter 352 KB → 45 KB lotin + 18 KB kirill subset; Unbounded va
 Inter tilga mos subseti preload (ru — kirill); hero va xizmat rasmlari WebP
