@@ -1,9 +1,11 @@
-# Novera / innovera.uz
+# Novera / noveragroup.uz
+
+Full documentation (structure, content, build, deploy, server, rules): see [docs/](docs/README.md).
 
 Standalone corporate landing in Uzbek, English and Russian. No Node dependencies.
 Template: `content/index.html`; translations: `content/translations.json`.
 Styles and scripts: `dist/assets/`. Generated pages: `dist/index.html`,
-`dist/en/index.html`, `dist/ru/index.html`. INNASOFT and Barter projects are untouched.
+`dist/en/index.html`, `dist/ru/index.html`.
 
 ## Local preview
 
@@ -51,17 +53,15 @@ and native scrolling remain; no forced intro delay or scroll hijacking.
 ## Content and contact
 
 Only supplied company scope is claimed; no invented clients, metrics or awards.
-Confirmed contacts: info@innovera.uz and +998998112829.
-The brief form opens a prefilled mailto draft, not a server submission. It does
-not collect or persist user data. The visitor sends the draft themselves.
+Confirmed contacts: main@noveragroup.uz and +998998112829.
+The brief form posts to /api/v1/lead (backend/, delivered to a private Telegram chat);
+the AI estimate posts only the project description to /api/v1/estimate.
 Without JS, direct email and phone links remain available.
 
-## Deploy later
+## Deploy
 
-Deployment is intentionally deferred until the user supplies their SSH access.
-Serve ONLY `dist/` as the HTTPS document root; do not upload project/private files.
-Before replacing an existing site, inspect virtual-host configuration and back it
-up. Configure innovera.uz DNS, TLS and www redirect. Test mailto on an actual device.
+Live at https://noveragroup.uz (innovera.uz redirects there). Serve ONLY `dist/`
+as the document root. Steps, backups and rollback: docs/03-build-va-deploy.md.
 No credentials belong in this repository.
 
 ## Verification status
