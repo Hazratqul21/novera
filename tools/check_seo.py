@@ -6,7 +6,7 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-ORIGIN = 'https://innovera.uz'
+ORIGIN = 'https://noveragroup.uz'
 ROUTES = {'uz': '/', 'en': '/en/', 'ru': '/ru/'}
 EXPECTED = {lang: ORIGIN + route for lang, route in {**ROUTES, 'x-default': '/'}.items()}
 
@@ -55,20 +55,30 @@ def main():
         assert entities['WebPage']['url'] == ORIGIN + route
         assert entities['WebPage']['inLanguage'] == lang
         assert entities['Organization']['telephone'] == '+998998112829'
-        assert entities['Organization']['email'] == 'info@innovera.uz'
+        assert entities['Organization']['email'] == 'main@noveragroup.uz'
         assert not {'review', 'aggregateRating', 'address'} & entities['Organization'].keys()
     ns = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9', 'x': 'http://www.w3.org/1999/xhtml'}
     urls = ET.parse(ROOT / 'dist/sitemap.xml').findall('s:url', ns)
-    assert len(urls) == 3
-    assert {url.findtext('s:loc', namespaces=ns) for url in urls} == {ORIGIN + r for r in ROUTES.values()}
-    for url in urls:
-        links = url.findall('x:link', ns)
-        assert len(links) == 4
-        assert {a.attrib['hreflang']: a.attrib['href'] for a in links} == EXPECTED
+    services = json.loads((ROOT / 'content/services.json').read_text())['services']
+    pages = json.loads((ROOT / 'content/pages.json').read_text())
+    cases = json.loads((ROOT / 'content/cases.json').read_text())['cases']
+    case_base = {'uz': '/ishlar/', 'en': '/en/work/', 'ru': '/ru/raboty/'}
+    groups = ([ROUTES] + [s['slug'] for s in services] + [pages['about']['slug'], pages['privacy']['slug']]
+              + [{l: case_base[l] + c['slug'][l].strip('/') + '/' for l in ROUTES} for c in cases])
+    assert len(urls) == sum(len(g) for g in groups), 'sitemap URL count'
+    by_loc = {url.findtext('s:loc', namespaces=ns): url for url in urls}
+    for group in groups:
+        expected = {lang: ORIGIN + path for lang, path in {**group, 'x-default': group['uz']}.items()}
+        for path in group.values():
+            url = by_loc.get(ORIGIN + path)
+            assert url is not None, f'sitemap missing {path}'
+            links = url.findall('x:link', ns)
+            assert {a.attrib['hreflang']: a.attrib['href'] for a in links} == expected, f'hreflang {path}'
+            assert (ROOT / 'dist' / path.strip('/') / 'index.html').is_file(), f'page missing {path}'
     robots = (ROOT / 'dist/robots.txt').read_text()
     assert 'Sitemap: '+ORIGIN+'/sitemap.xml' in robots
     assert not any(line.strip().lower() == 'disallow: /' for line in robots.splitlines())
-    print('SEO CHECK: OK — 3 locales, metadata, canonical, hreflang, JSON-LD, sitemap, robots')
+    print('SEO CHECK: OK — 3 locales + service, about, privacy and case pages, metadata, canonical, hreflang, JSON-LD, sitemap, robots')
 
 
 if __name__ == '__main__':

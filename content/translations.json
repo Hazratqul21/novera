@@ -36,7 +36,7 @@
     "ru": "Подход"
   },
   "Savollar": {
-    "en": "FAQ",
+    "en": "Questions",
     "ru": "Вопросы"
   },
   "Keling, gaplashamiz": {
@@ -323,7 +323,7 @@
     "en": "More than working software.",
     "ru": "Не просто работает."
   },
-  "Ishingizni yengillashtiradigan.": {
+  "Ishingizni yengillash­tiradigan.": {
     "en": "Software that makes work easier.",
     "ru": "Помогает работать проще."
   },
@@ -662,5 +662,93 @@
   "manziliga yozing.": {
     "en": "with your project details.",
     "ru": "и опишите вашу задачу."
+  },
+  "Menyu": {
+    "en": "Menu",
+    "ru": "Меню"
+  },
+  "IT AUTSORSING VA DASTURLASH": {
+    "en": "IT OUTSOURCING & SOFTWARE DEVELOPMENT",
+    "ru": "IT-АУТСОРСИНГ И РАЗРАБОТКА"
+  },
+  "02 / HAMKORLIK FORMATLARI": {
+    "en": "02 / WAYS TO WORK TOGETHER",
+    "ru": "02 / ФОРМАТЫ СОТРУДНИЧЕСТВА"
+  },
+  "1-FORMAT": {
+    "en": "FORMAT 1",
+    "ru": "ФОРМАТ 1"
+  },
+  "2-FORMAT": {
+    "en": "FORMAT 2",
+    "ru": "ФОРМАТ 2"
+  },
+  "3-FORMAT": {
+    "en": "FORMAT 3",
+    "ru": "ФОРМАТ 3"
+  },
+  "03 / QANDAY ISHLAYMIZ": {
+    "en": "03 / HOW WE WORK",
+    "ru": "03 / КАК МЫ РАБОТАЕМ"
+  },
+  "04 / SAVOLLAR": {
+    "en": "04 / COMMON QUESTIONS",
+    "ru": "04 / ЧАСТЫЕ ВОПРОСЫ"
+  },
+  "05 / KEYINGI QADAM": {
+    "en": "05 / NEXT STEP",
+    "ru": "05 / СЛЕДУЮЩИЙ ШАГ"
+  },
+  "BOG‘LANGAN TIZIMLAR": {
+    "en": "CONNECTED SYSTEMS",
+    "ru": "СВЯЗАННЫЕ СИСТЕМЫ"
+  },
+  "Ma'lumotlaringiz faqat arizangizga javob berish uchun ishlatiladi.": {
+    "en": "We use your details only to respond to your request.",
+    "ru": "Мы используем ваши данные только для ответа на заявку."
+  },
+  "NOVERA": {
+    "en": "NOVERA",
+    "ru": "NOVERA"
+  },
+  "IT autsorsing va dasturlash: biznesingizning keyingi bosqichi uchun web, mobil va aqlli tizimlarni yaratamiz.": {
+    "en": "IT outsourcing and software development: we build the web, mobile and intelligent systems for the next stage of your business.",
+    "ru": "IT-аутсорсинг и разработка: создаём веб-платформы, мобильные приложения и интеллектуальные системы для следующего этапа вашего бизнеса."
+  },
+  "Nima qilamiz": {
+    "en": "What we do",
+    "ru": "Что мы делаем"
+  },
+  "Hamkorlik formatlari": {
+    "en": "Ways to work together",
+    "ru": "Форматы сотрудничества"
+  },
+  "Qanday ishlaymiz": {
+    "en": "How we work",
+    "ru": "Как мы работаем"
+  },
+  "Ishning ichidagi sifat": {
+    "en": "Quality beneath the surface",
+    "ru": "Качество в деталях"
+  },
+  "AI yordamida baholash": {
+    "en": "AI-assisted estimate",
+    "ru": "Оценка с помощью ИИ"
+  },
+  "Keyingi qadam": {
+    "en": "Next step",
+    "ru": "Следующий шаг"
+  },
+  "Kompaniya": {
+    "en": "Company",
+    "ru": "Компания"
+  },
+  "Biz haqimizda": {
+    "en": "About us",
+    "ru": "О нас"
+  },
+  "Maxfiylik siyosati": {
+    "en": "Privacy policy",
+    "ru": "Политика конфиденциальности"
   }
 }

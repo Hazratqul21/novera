@@ -25,7 +25,9 @@ node --check dist/assets/site.js
 After changing text/template, regenerate all pages before preview/deployment:
 
 ```sh
-python3 tools/build_locales.py
+python3 tools/build_locales.py   # /, /en/, /ru/
+python3 tools/build_services.py  # 12 service pages
+python3 tools/build_pages.py     # about, privacy, case studies (content/cases.json) + sitemap
 ```
 
 Do not edit generated HTML directly. The generator validates translation coverage,

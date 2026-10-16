@@ -1,0 +1,22 @@
+# Novera API. Listens only on the host loopback; nginx proxies /api/ to it.
+services:
+  api:
+    build: .
+    image: novera-api:latest
+    env_file: .env
+    ports:
+      - "127.0.0.1:8010:8010"
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    mem_limit: 256m
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"

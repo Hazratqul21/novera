@@ -25,7 +25,8 @@ class Check(HTMLParser):
             if value.startswith('#'):
                 if len(value) > 1: self.anchors.append(value[1:])
             elif value and not value.startswith(('http:', 'https:', 'mailto:', 'tel:', 'data:')):
-                target = ROOT / value.lstrip('/')
+                # Query strings (?v=...) are cache-busting, not part of the file name.
+                target = ROOT / value.split('?', 1)[0].split('#', 1)[0].lstrip('/')
                 if target.is_dir(): target /= 'index.html'
                 if not target.is_file(): self.errors.append('Missing asset: ' + value)
 
@@ -40,7 +41,7 @@ for locale in ('en','ru'):
     page.errors += ['Missing anchor: '+a for a in page.anchors if a not in page.ids]
     if page.headings != 1: page.errors.append('Expected one h1')
     if f'lang="{locale}"' not in document: page.errors.append('Language missing')
-    if f'href="https://innovera.uz/{locale}/"' not in document: page.errors.append('Canonical missing')
+    if f'href="https://noveragroup.uz/{locale}/"' not in document: page.errors.append('Canonical missing')
     check.errors += [locale+': '+error for error in page.errors]
 for css in ROOT.glob('assets/*.css'):
     text = css.read_text()

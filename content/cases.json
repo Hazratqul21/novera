@@ -1,0 +1,45 @@
+{
+  "_comment": "Real, client-approved case studies only. While 'cases' is empty nothing is rendered. Fields per case: slug {uz,en,ru}; client; year; cover (path under assets/, 1600x1000 webp); title, summary, sector {uz,en,ru}; services (ids from services.json); challenge, solution, result {uz,en,ru: [paragraphs]}; gallery [{src, alt {uz,en,ru}}] optional; quote {text {uz,en,ru}, author, role {uz,en,ru}} optional.",
+  "ui": {
+    "uz": {
+      "label": "Ishlar",
+      "title": "Tanlangan loyihalar.",
+      "crumb": "Ishlar",
+      "client": "Mijoz",
+      "sector": "Soha",
+      "services": "Xizmatlar",
+      "year": "Yil",
+      "challenge": "Vazifa",
+      "solution": "Yechim",
+      "result": "Natija",
+      "next": "Keyingi loyiha"
+    },
+    "en": {
+      "label": "Work",
+      "title": "Selected projects.",
+      "crumb": "Work",
+      "client": "Client",
+      "sector": "Industry",
+      "services": "Services",
+      "year": "Year",
+      "challenge": "Challenge",
+      "solution": "Solution",
+      "result": "Result",
+      "next": "Next project"
+    },
+    "ru": {
+      "label": "Работы",
+      "title": "Избранные проекты.",
+      "crumb": "Работы",
+      "client": "Клиент",
+      "sector": "Отрасль",
+      "services": "Услуги",
+      "year": "Год",
+      "challenge": "Задача",
+      "solution": "Решение",
+      "result": "Результат",
+      "next": "Следующий проект"
+    }
+  },
+  "cases": []
+}

@@ -22,3 +22,6 @@ __pycache__/
 
 
 .DS_Store
+# Templates are safe to commit; real keys live only in backend/.env on the server.
+!.env.example
+backend/.env

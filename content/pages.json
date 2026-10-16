@@ -1,0 +1,98 @@
+{
+  "_comment": "About and privacy pages for noveragroup.uz, rendered by tools/build_pages.py. Facts only: data flows match backend/ (Telegram delivery, optional Gemini estimate), Cloudflare in front of the site and nginx logs rotating after 14 days.",
+  "ui": {
+    "uz": {"home": "Bosh sahifa", "breadcrumb": "Sahifa yo‘li", "updated": "Oxirgi yangilanish: 16-oktabr, 2026", "cta_btn": "Ariza yuborish"},
+    "en": {"home": "Home", "breadcrumb": "Breadcrumb", "updated": "Last updated: 16 October 2026", "cta_btn": "Send a request"},
+    "ru": {"home": "Главная", "breadcrumb": "Навигационная цепочка", "updated": "Последнее обновление: 16 октября 2026", "cta_btn": "Отправить заявку"}
+  },
+  "about": {
+    "slug": {"uz": "/biz-haqimizda/", "en": "/en/about/", "ru": "/ru/o-nas/"},
+    "name": {"uz": "Biz haqimizda", "en": "About us", "ru": "О нас"},
+    "title": {
+      "uz": "Novera haqida — IT autsorsing va dasturiy ta’minot ishlab chiqish",
+      "en": "About Novera — IT Outsourcing and Software Development",
+      "ru": "О Novera — IT-аутсорсинг и разработка программного обеспечения"
+    },
+    "description": {
+      "uz": "Novera — web, mobil va aqlli tizimlarni loyihalab, ishlab chiqadigan IT autsorsing jamoasi: to‘liq loyiha, jamoani kuchaytirish va mavjud mahsulotni rivojlantirish.",
+      "en": "Novera is an IT outsourcing team that designs and builds web, mobile and intelligent systems: end-to-end projects, team extension and product evolution.",
+      "ru": "Novera — команда IT-аутсорсинга, которая проектирует и разрабатывает веб, мобильные и интеллектуальные системы: проекты под ключ, усиление команды и развитие продукта."
+    },
+    "headline": {
+      "uz": "Biznesingizning keyingi bosqichi uchun dasturiy ta’minot.",
+      "en": "Software for the next stage of your business.",
+      "ru": "Программное обеспечение для следующего этапа вашего бизнеса."
+    },
+    "lead": {
+      "uz": "Novera — IT autsorsing va dasturlash jamoasi. Web, mobil va aqlli tizimlarni g‘oyadan ishga tushirishgacha yaratamiz yoki mavjud jamoangizni kuchaytiramiz.",
+      "en": "Novera is an IT outsourcing and development team. We build web, mobile and intelligent systems from idea to launch, or strengthen the team you already have.",
+      "ru": "Novera — команда IT-аутсорсинга и разработки. Создаём веб, мобильные и интеллектуальные системы от идеи до запуска или усиливаем вашу текущую команду."
+    },
+    "principles_label": {"uz": "Tamoyillar", "en": "Principles", "ru": "Принципы"},
+    "principles_title": {
+      "uz": "Shunchaki ishlaydigan emas — ishingizni yengillash­tiradigan.",
+      "en": "Not just working — making your work easier.",
+      "ru": "Не просто работающее — облегчающее вашу работу."
+    },
+    "principles": {
+      "uz": [
+        ["Biznesdan boshlaymiz", "Avval maqsad va jarayon. Keyin texnologiya va kod."],
+        ["Inson uchun yaratamiz", "Murakkab tizim ortida ham tushunarli tajriba bo‘lishi kerak."],
+        ["Kelajakni hisobga olamiz", "Yangi vazifalar uchun kengaytiriladigan arxitektura."]
+      ],
+      "en": [
+        ["We start with the business", "Goals and processes first. Technology and code second."],
+        ["We build for people", "Even a complex system needs a clear experience behind it."],
+        ["We plan for the future", "Architecture that can be extended for new tasks."]
+      ],
+      "ru": [
+        ["Начинаем с бизнеса", "Сначала цель и процессы. Потом технологии и код."],
+        ["Создаём для людей", "Даже за сложной системой должен стоять понятный опыт."],
+        ["Думаем о будущем", "Архитектура, которую можно расширять под новые задачи."]
+      ]
+    },
+    "services_label": {"uz": "Nima qilamiz", "en": "What we do", "ru": "Что мы делаем"},
+    "formats_label": {"uz": "Hamkorlik formatlari", "en": "Ways to work together", "ru": "Форматы сотрудничества"},
+    "team_label": {"uz": "Jamoa", "en": "Team", "ru": "Команда"},
+    "team": []
+  },
+  "privacy": {
+    "slug": {"uz": "/maxfiylik/", "en": "/en/privacy/", "ru": "/ru/konfidentsialnost/"},
+    "name": {"uz": "Maxfiylik siyosati", "en": "Privacy policy", "ru": "Политика конфиденциальности"},
+    "title": {"uz": "Maxfiylik siyosati — Novera", "en": "Privacy Policy — Novera", "ru": "Политика конфиденциальности — Novera"},
+    "description": {
+      "uz": "Novera noveragroup.uz saytida qanday ma’lumot to‘playdi, undan qanday foydalanadi va qancha vaqt saqlaydi.",
+      "en": "What information Novera collects on noveragroup.uz, how it is used and how long it is kept.",
+      "ru": "Какие данные Novera собирает на сайте noveragroup.uz, как их использует и сколько хранит."
+    },
+    "sections": {
+      "uz": [
+        ["Kim mas’ul", ["noveragroup.uz sayti Novera’ga tegishli. Ma’lumotlaringiz bo‘yicha savollar uchun: main@noveragroup.uz."]],
+        ["Qanday ma’lumot to‘playmiz", ["Ariza yuborsangiz: ismingiz, telefon yoki email, tanlangan xizmat va vazifa tavsifi.", "AI baholash funksiyasidan foydalansangiz: siz kiritgan loyiha tavsifi.", "Saytga kirganingizda server texnik jurnalga IP manzil, brauzer turi, ochilgan sahifa va vaqtni yozadi.", "Sayt Cloudflare Web Analytics orqali umumiy tashrif statistikasini hisoblaydi. U cookie-fayl o‘rnatmaydi va sizni boshqa saytlarda kuzatmaydi. Brauzeringizda faqat tanlangan rang rejimi saqlanadi."]],
+        ["Nima uchun foydalanamiz", ["Ariza ma’lumotlari faqat murojaatingizga javob berish va taklif tayyorlash uchun ishlatiladi.", "Loyiha tavsifi faqat dastlabki taxminiy baho tayyorlash uchun ishlatiladi.", "Server jurnallari va statistika saytni himoya qilish, nosozliklarni aniqlash va saytni yaxshilash uchun kerak."]],
+        ["Ma’lumot qayerga boradi", ["Ariza ma’lumotlari Telegram orqali Novera jamoasining yopiq ish chatiga yuboriladi.", "AI baholash uchun loyiha tavsifi Google Gemini xizmatiga yuboriladi. Ism va kontaktlaringiz unga uzatilmaydi.", "Sayt trafigi xavfsizlik va tezlik uchun Cloudflare orqali o‘tadi.", "Ma’lumotlaringizni sotmaymiz va reklama uchun uchinchi shaxslarga bermaymiz."]],
+        ["Qancha saqlaymiz", ["Arizalar va yozishmalar muloqot yoki hamkorlik uchun zarur bo‘lgan muddat davomida saqlanadi.", "Server jurnallari 14 kundan keyin avtomatik o‘chiriladi."]],
+        ["Sizning huquqlaringiz", ["Biz haqingizda qanday ma’lumot saqlayotganimizni bilish, uni tuzatish yoki o‘chirishni so‘rash uchun main@noveragroup.uz manziliga yozing."]],
+        ["O‘zgarishlar", ["Siyosat yangilansa, ushbu sahifadagi sana o‘zgaradi."]]
+      ],
+      "en": [
+        ["Who is responsible", ["The noveragroup.uz website belongs to Novera. For questions about your data: main@noveragroup.uz."]],
+        ["What we collect", ["If you send a request: your name, phone or email, the selected service and your task description.", "If you use the AI estimate: the project description you enter.", "When you visit the site, the server writes the IP address, browser type, requested page and time to a technical log.", "The site counts overall visits with Cloudflare Web Analytics. It sets no cookies and does not track you across other sites. Your browser only stores the chosen colour mode."]],
+        ["Why we use it", ["Request data is used only to reply to you and prepare a proposal.", "The project description is used only to prepare a preliminary estimate.", "Server logs and statistics are needed to protect the site, investigate errors and improve the site."]],
+        ["Where the data goes", ["Request data is sent through Telegram to the Novera team’s private work chat.", "For the AI estimate, the project description is sent to Google Gemini. Your name and contact details are not sent to it.", "Site traffic passes through Cloudflare for security and speed.", "We do not sell your data or pass it to third parties for advertising."]],
+        ["How long we keep it", ["Requests and correspondence are kept for as long as needed for the conversation or cooperation.", "Server logs are deleted automatically after 14 days."]],
+        ["Your rights", ["To find out what data we hold about you, or to ask for it to be corrected or deleted, write to main@noveragroup.uz."]],
+        ["Changes", ["If this policy is updated, the date on this page changes."]]
+      ],
+      "ru": [
+        ["Кто отвечает", ["Сайт noveragroup.uz принадлежит Novera. По вопросам о ваших данных: main@noveragroup.uz."]],
+        ["Какие данные мы собираем", ["Если вы отправляете заявку: имя, телефон или email, выбранная услуга и описание задачи.", "Если вы используете AI-оценку: введённое вами описание проекта.", "При посещении сайта сервер записывает в технический журнал IP-адрес, тип браузера, открытую страницу и время.", "Сайт считает общую статистику посещений через Cloudflare Web Analytics. Он не устанавливает cookie и не отслеживает вас на других сайтах. В браузере сохраняется только выбранный цветовой режим."]],
+        ["Зачем мы их используем", ["Данные заявки используются только для ответа на ваше обращение и подготовки предложения.", "Описание проекта используется только для предварительной оценки.", "Серверные журналы и статистика нужны для защиты сайта, поиска ошибок и улучшения сайта."]],
+        ["Куда передаются данные", ["Данные заявки отправляются через Telegram в закрытый рабочий чат команды Novera.", "Для AI-оценки описание проекта отправляется в сервис Google Gemini. Имя и контакты ему не передаются.", "Трафик сайта проходит через Cloudflare для безопасности и скорости.", "Мы не продаём ваши данные и не передаём их третьим лицам для рекламы."]],
+        ["Сколько мы храним", ["Заявки и переписка хранятся столько, сколько нужно для общения или сотрудничества.", "Серверные журналы автоматически удаляются через 14 дней."]],
+        ["Ваши права", ["Чтобы узнать, какие данные о вас мы храним, или попросить исправить либо удалить их, напишите на main@noveragroup.uz."]],
+        ["Изменения", ["При обновлении политики дата на этой странице изменится."]]
+      ]
+    }
+  }
+}

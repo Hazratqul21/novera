@@ -28,6 +28,7 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const form = document.querySelector('#brief-form');
   const textarea = document.querySelector('#brief');
+  const pageLang = (document.documentElement.lang || 'uz').slice(0, 2);
   const status = document.querySelector('#form-status');
   const header = document.querySelector('.header');
   const progress = document.querySelector('.reading-progress');
@@ -73,7 +74,7 @@
   function updateScroll() {
     frame = 0;
     const max = document.documentElement.scrollHeight - innerHeight;
-    progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(1,Math.max(0,scrollY / max)) : 0) + ')';
+    if (progress) progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(1,Math.max(0,scrollY / max)) : 0) + ')';
     header.classList.toggle('is-scrolled', scrollY > 20);
     const guide = header.getBoundingClientRect().bottom + 80;
     let active = -1;
@@ -129,9 +130,10 @@
 
       submitBtn.textContent = '...'; submitBtn.disabled = true;
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/v1/lead', {
+        const response = await fetch('/api/v1/lead', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, contact, details: `Сервис: ${service}\n\nОписание: ${text}` })
+          body: JSON.stringify({ name, contact, service, details: text, lang: pageLang,
+            website: (form.querySelector('[name="website"]') || {}).value || '' })
         });
         if (!response.ok) throw new Error();
         status.style.color = 'var(--brand)'; status.textContent = messages.leadSuccess; form.reset();
@@ -152,26 +154,55 @@
       aiResult.hidden = true; aiResult.style.opacity = '0';
 
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/v1/estimate', {
+        const response = await fetch('/api/v1/estimate', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ description: document.getElementById('ai-description').value.trim(), urgency: 'normal' })
+          body: JSON.stringify({ description: document.getElementById('ai-description').value.trim(), lang: pageLang,
+            website: (aiForm.querySelector('[name="website"]') || {}).value || '' })
         });
         if (!response.ok) throw new Error();
         const data = await response.json();
 
-        // Здесь используется динамический перевод из messages.js
-        aiResult.innerHTML = `
-          <p><strong>${messages.aiBudget}</strong> ${data.estimated_price}</p>
-          <p><strong>${messages.aiTime}</strong> ${data.estimated_time}</p>
-          <p><strong>${messages.aiStack}</strong> ${data.tech_stack.join(', ')}</p>
-          <p style="margin-top:16px; font-size:14px; color:var(--muted);">${data.recommendation}</p>
-        `;
+        // Model output is untrusted text: build nodes, never innerHTML.
+        const row = (label, value, note) => {
+          const p = document.createElement('p');
+          if (note) { p.className = 'ai-note'; p.textContent = value; return p; }
+          const b = document.createElement('strong'); b.textContent = label + ' ';
+          p.append(b, document.createTextNode(String(value || '')));
+          return p;
+        };
+        const stack = Array.isArray(data.tech_stack) ? data.tech_stack.join(', ') : '';
+        aiResult.replaceChildren(
+          row(messages.aiBudget, data.estimated_price),
+          row(messages.aiTime, data.estimated_time),
+          row(messages.aiStack, stack),
+          row('', data.recommendation, true)
+        );
         aiResult.hidden = false;
         aiResult.animate([{ opacity: 0, transform: 'translateY(15px)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 500, easing: easeOut, fill: 'forwards' });
       } catch (err) {
-        aiResult.innerHTML = `<p style="color: red;">${messages.aiError}</p>`;
+        const p = document.createElement('p'); p.className = 'ai-error'; p.textContent = messages.aiError;
+        aiResult.replaceChildren(p);
         aiResult.hidden = false; aiResult.style.opacity = '1';
       } finally { submitBtn.innerHTML = originalBtnHtml; submitBtn.disabled = false; }
     });
   }
+
+  // Mobile navigation toggle (progressive enhancement: CSS collapses only under html.nav-js)
+  (() => {
+    const header = document.querySelector('.header');
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('main-nav');
+    if (!header || !toggle || !nav) return;
+    document.documentElement.classList.add('nav-js');
+    const setOpen = open => {
+      header.classList.toggle('nav-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    };
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    nav.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { setOpen(false); toggle.focus(); }
+    });
+    matchMedia('(min-width: 781px)').addEventListener('change', e => { if (e.matches) setOpen(false); });
+  })();
 })();

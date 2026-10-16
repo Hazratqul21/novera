@@ -1,0 +1,601 @@
+{
+  "_comment": "Service pages for noveragroup.uz. Only facts already on the site; no invented clients, prices, timelines or tech stack.",
+  "ui": {
+    "uz": {
+      "home": "Bosh sahifa",
+      "services": "Xizmatlar",
+      "eyebrow": "Xizmat",
+      "build": "Nimalarni yaratamiz",
+      "scope": "Ish tarkibi",
+      "process": "Qanday ishlaymiz",
+      "formats": "Hamkorlik formatlari",
+      "faq": "Savollar",
+      "when": "Qachon mos?",
+      "how": "Ishlash tartibi",
+      "cta_h": "Loyihangizni muhokama qilamiz",
+      "cta_p": "Qisqacha vazifangizni yozing. Birinchi suhbatdan yechim yo‘lini birgalikda aniqlaymiz.",
+      "cta_btn": "Ariza yuborish",
+      "other": "Boshqa xizmatlar",
+      "breadcrumb": "Sahifa yo‘li",
+      "eb_build": "Nima quramiz",
+      "eb_scope": "Tarkib",
+      "eb_process": "Jarayon",
+      "eb_formats": "Formatlar",
+      "eb_faq": "Savollar"
+    },
+    "en": {
+      "home": "Home",
+      "services": "Services",
+      "eyebrow": "Service",
+      "build": "What we build",
+      "scope": "What’s included",
+      "process": "How we work",
+      "formats": "Ways to work together",
+      "faq": "Questions",
+      "when": "When it fits",
+      "how": "How it works",
+      "cta_h": "Let’s discuss your project",
+      "cta_p": "Briefly describe your task. In the first conversation we’ll map out the way forward together.",
+      "cta_btn": "Send a request",
+      "other": "Other services",
+      "breadcrumb": "Breadcrumb",
+      "eb_build": "What we build",
+      "eb_scope": "Scope",
+      "eb_process": "Process",
+      "eb_formats": "Formats",
+      "eb_faq": "Questions"
+    },
+    "ru": {
+      "home": "Главная",
+      "services": "Услуги",
+      "eyebrow": "Услуга",
+      "build": "Что мы создаём",
+      "scope": "Состав работ",
+      "process": "Как мы работаем",
+      "formats": "Форматы сотрудничества",
+      "faq": "Вопросы",
+      "when": "Когда подходит",
+      "how": "Как устроена работа",
+      "cta_h": "Обсудим ваш проект",
+      "cta_p": "Кратко опишите задачу. На первом разговоре вместе определим путь решения.",
+      "cta_btn": "Отправить заявку",
+      "other": "Другие услуги",
+      "breadcrumb": "Навигационная цепочка",
+      "eb_build": "Что создаём",
+      "eb_scope": "Состав",
+      "eb_process": "Процесс",
+      "eb_formats": "Форматы",
+      "eb_faq": "Вопросы"
+    }
+  },
+  "services": [
+    {
+      "id": "web",
+      "slug": {
+        "uz": "/xizmatlar/web-platformalar/",
+        "en": "/en/services/web-platforms/",
+        "ru": "/ru/uslugi/veb-platformy/"
+      },
+      "image": "/assets/digital-products.jpg",
+      "uz": {
+        "name": "Web va platformalar",
+        "title": "Web platformalar va sayt yaratish — Novera",
+        "description": "Korporativ saytlar, e-commerce va web-ilovalar: UX/UI, frontend, backend, CMS va SEO asoslari bilan ishga tushirish. Novera — IT autsorsing.",
+        "h1": "Web platformalar va saytlar yaratish",
+        "lead": "Brendingizni ifodalaydigan saytlar va mijozlaringiz qaytib keladigan web-ilovalar. G‘oyadan ishga tushirishgacha bitta jamoa bilan.",
+        "kinds": [
+          [
+            "Korporativ sayt",
+            "Kompaniyangiz, xizmatlaringiz va aloqa yo‘llarini aniq tushuntiradigan sayt."
+          ],
+          [
+            "E-commerce",
+            "Mahsulotlar katalogi, buyurtma va to‘lov jarayonini o‘z ichiga olgan onlayn savdo."
+          ],
+          [
+            "Web-ilova",
+            "Mijozlaringiz yoki jamoangiz har kuni brauzerda ishlatadigan dastur."
+          ]
+        ],
+        "scope": [
+          [
+            "UX/UI va interaktiv prototip",
+            "Kod yozishdan oldin sahifalar tuzilishi va foydalanuvchi yo‘lini prototipda birga ko‘rib chiqamiz."
+          ],
+          [
+            "Frontend, backend va CMS",
+            "Interfeys, server qismi va kerak bo‘lsa kontentni o‘zingiz boshqarishingiz uchun CMS."
+          ],
+          [
+            "SEO asoslari va ishga tushirish",
+            "Sarlavhalar, metama’lumotlar, sitemap va texnik sozlamalar bilan saytni ishga tushiramiz."
+          ]
+        ],
+        "faq": [
+          [
+            "Saytni keyin o‘zimiz tahrirlay olamizmi?",
+            "Ha, agar kerak bo‘lsa. Kontentni o‘zingiz boshqarishingiz uchun CMS ulash ish tarkibida oldindan kelishiladi."
+          ]
+        ]
+      },
+      "en": {
+        "name": "Web & platforms",
+        "title": "Web Platform & Website Development — Novera",
+        "description": "Corporate websites, e-commerce and web applications: UX/UI, frontend, backend, CMS and SEO foundations through launch. Novera, IT outsourcing.",
+        "h1": "Web platform and website development",
+        "lead": "Websites that express your brand and web applications your customers come back to — from idea to launch with one team.",
+        "kinds": [
+          [
+            "Corporate website",
+            "A site that clearly explains your company, your services and how to reach you."
+          ],
+          [
+            "E-commerce",
+            "Online sales with a product catalogue, ordering and a payment flow."
+          ],
+          [
+            "Web application",
+            "Browser-based software your customers or your team use every day."
+          ]
+        ],
+        "scope": [
+          [
+            "UX/UI and interactive prototypes",
+            "Before any code is written, we review page structure and user journeys together in a prototype."
+          ],
+          [
+            "Frontend, backend and CMS",
+            "The interface, the server side and, where needed, a CMS so you can manage content yourself."
+          ],
+          [
+            "SEO foundations and launch",
+            "We launch with proper headings, metadata, a sitemap and technical setup."
+          ]
+        ],
+        "faq": [
+          [
+            "Will we be able to edit the site ourselves?",
+            "Yes, if you need to. Connecting a CMS so you can manage content is agreed in the scope up front."
+          ]
+        ]
+      },
+      "ru": {
+        "name": "Веб и платформы",
+        "title": "Разработка веб-платформ и сайтов — Novera",
+        "description": "Корпоративные сайты, e-commerce и веб-приложения: UX/UI, фронтенд, бэкенд, CMS и основы SEO до запуска. Novera — IT-аутсорсинг.",
+        "h1": "Разработка веб-платформ и сайтов",
+        "lead": "Сайты, отражающие ваш бренд, и веб-приложения, к которым возвращаются клиенты, — от идеи до запуска с одной командой.",
+        "kinds": [
+          [
+            "Корпоративный сайт",
+            "Сайт, который понятно рассказывает о компании, услугах и способах связи."
+          ],
+          [
+            "E-commerce",
+            "Онлайн-продажи с каталогом товаров, оформлением заказа и оплатой."
+          ],
+          [
+            "Веб-приложение",
+            "Программа в браузере, которой ежедневно пользуются ваши клиенты или команда."
+          ]
+        ],
+        "scope": [
+          [
+            "UX/UI и интерактивный прототип",
+            "До начала разработки вместе проверяем структуру страниц и путь пользователя на прототипе."
+          ],
+          [
+            "Фронтенд, бэкенд и CMS",
+            "Интерфейс, серверная часть и при необходимости CMS, чтобы вы сами управляли контентом."
+          ],
+          [
+            "Основы SEO и запуск",
+            "Запускаем сайт с корректными заголовками, метаданными, sitemap и технической настройкой."
+          ]
+        ],
+        "faq": [
+          [
+            "Сможем ли мы сами редактировать сайт?",
+            "Да, если это нужно. Подключение CMS для управления контентом согласуем в составе работ заранее."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "mobile",
+      "slug": {
+        "uz": "/xizmatlar/mobil-ilovalar/",
+        "en": "/en/services/mobile-apps/",
+        "ru": "/ru/uslugi/mobilnye-prilozheniya/"
+      },
+      "image": "/assets/digital-products.jpg",
+      "uz": {
+        "name": "Mobil ilovalar",
+        "title": "Mobil ilova yaratish (iOS va Android) — Novera",
+        "description": "iOS va Android uchun mobil ilovalar: API va bildirishnomalar, relizga tayyorlash va sinov. Dizayndan ishga tushirishgacha bitta jamoa.",
+        "h1": "iOS va Android uchun mobil ilovalar",
+        "lead": "Qulay, ravon va biznesingiz bilan birga o‘sadigan ilovalar. Dizayn, ishlab chiqish va relizgacha bitta jamoa bilan.",
+        "kinds": [
+          [
+            "Mijozlar uchun ilova",
+            "Xizmatlaringizdan telefonda foydalanish: buyurtma, shaxsiy kabinet va bildirishnomalar."
+          ],
+          [
+            "Ichki ish ilovasi",
+            "Xodimlaringiz ofisdan tashqarida ishlatadigan ilova."
+          ],
+          [
+            "Platformaga hamroh ilova",
+            "Mavjud tizimingiz bilan API orqali bitta ma’lumotlar oqimida ishlaydigan ilova."
+          ]
+        ],
+        "scope": [
+          [
+            "iOS va Android ilovalari",
+            "Ikkala platforma uchun bitta mahsulot mantiqi atrofida loyihalangan interfeys."
+          ],
+          [
+            "API va bildirishnomalar",
+            "Ilovani serveringiz va boshqa tizimlar bilan bog‘laymiz, bildirishnomalarni sozlaymiz."
+          ],
+          [
+            "Relizga tayyorlash va sinov",
+            "Qurilmalarda sinov, ilova do‘konlari talablariga moslash va nashrga tayyorlash."
+          ]
+        ],
+        "faq": [
+          [
+            "iOS va Android uchun alohida ilova kerakmi?",
+            "Bu funksiyalar, talablar va byudjetga bog‘liq. Brif bosqichida variantlarni taqqoslab, tavsiya beramiz."
+          ]
+        ]
+      },
+      "en": {
+        "name": "Mobile apps",
+        "title": "Mobile App Development (iOS & Android) — Novera",
+        "description": "Mobile apps for iOS and Android: APIs and notifications, release preparation and testing. One team from design to launch.",
+        "h1": "Mobile apps for iOS and Android",
+        "lead": "Intuitive, smooth apps built to grow with your business — design, development and release with one team.",
+        "kinds": [
+          [
+            "Customer app",
+            "Your services on the phone: ordering, a personal account and notifications."
+          ],
+          [
+            "Internal work app",
+            "An app your staff use away from the office."
+          ],
+          [
+            "Companion app for a platform",
+            "An app that shares one data flow with your existing system through an API."
+          ]
+        ],
+        "scope": [
+          [
+            "iOS and Android applications",
+            "One interface designed around a single product logic for both platforms."
+          ],
+          [
+            "APIs and notifications",
+            "We connect the app to your server and other systems and set up notifications."
+          ],
+          [
+            "Release preparation and testing",
+            "Testing on devices, meeting app store requirements and preparing for publication."
+          ]
+        ],
+        "faq": [
+          [
+            "Do we need separate apps for iOS and Android?",
+            "It depends on features, requirements and budget. During the brief we compare the options and give a recommendation."
+          ]
+        ]
+      },
+      "ru": {
+        "name": "Мобильные приложения",
+        "title": "Разработка мобильных приложений (iOS и Android) — Novera",
+        "description": "Мобильные приложения для iOS и Android: API и уведомления, подготовка к релизу и тестирование. Одна команда от дизайна до запуска.",
+        "h1": "Мобильные приложения для iOS и Android",
+        "lead": "Удобные и плавные приложения, которые растут вместе с бизнесом, — дизайн, разработка и релиз с одной командой.",
+        "kinds": [
+          [
+            "Приложение для клиентов",
+            "Ваши услуги в телефоне: заказ, личный кабинет и уведомления."
+          ],
+          [
+            "Рабочее приложение",
+            "Приложение, которым сотрудники пользуются вне офиса."
+          ],
+          [
+            "Приложение к платформе",
+            "Приложение, работающее с вашей системой в едином потоке данных через API."
+          ]
+        ],
+        "scope": [
+          [
+            "Приложения для iOS и Android",
+            "Интерфейс, спроектированный вокруг единой продуктовой логики для обеих платформ."
+          ],
+          [
+            "API и уведомления",
+            "Связываем приложение с вашим сервером и другими системами, настраиваем уведомления."
+          ],
+          [
+            "Подготовка к релизу и тестирование",
+            "Тестирование на устройствах, соответствие требованиям магазинов приложений и подготовка к публикации."
+          ]
+        ],
+        "faq": [
+          [
+            "Нужны ли отдельные приложения для iOS и Android?",
+            "Это зависит от функций, требований и бюджета. На этапе брифа сравним варианты и дадим рекомендацию."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "integration",
+      "slug": {
+        "uz": "/xizmatlar/integratsiya-avtomatlashtirish/",
+        "en": "/en/services/integration-automation/",
+        "ru": "/ru/uslugi/integratsiya-avtomatizatsiya/"
+      },
+      "image": "/assets/connected-systems.jpg",
+      "uz": {
+        "name": "Integratsiya va avtomatlashtirish",
+        "title": "Tizimlar integratsiyasi va jarayonlarni avtomatlashtirish — Novera",
+        "description": "CRM, ERP va to‘lov tizimlari integratsiyasi, botlar, ichki ish oqimlari va ma’lumotlarni sinxronlash. Novera — IT autsorsing.",
+        "h1": "Tizimlar integratsiyasi va jarayonlarni avtomatlashtirish",
+        "lead": "Tarqoq tizimlarni bog‘laymiz va takroriy ishlarni aniq, nazorat qilinadigan jarayonga aylantiramiz.",
+        "kinds": [
+          [
+            "Tizimlarni bog‘lash",
+            "CRM, ERP, to‘lov va hisob tizimlari o‘rtasida ma’lumot almashinuvi."
+          ],
+          [
+            "Ish oqimlarini avtomatlashtirish",
+            "Qo‘lda takrorlanadigan amallarni qoidalar asosida ishlaydigan jarayonga aylantirish."
+          ],
+          [
+            "Botlar",
+            "Mijozlar yoki jamoangiz uchun messenjerlardagi botlar."
+          ]
+        ],
+        "scope": [
+          [
+            "CRM, ERP va to‘lov integratsiyasi",
+            "Tizimlar o‘rtasidagi ma’lumot oqimini loyihalab, ularni API orqali bog‘laymiz."
+          ],
+          [
+            "Botlar va ichki ish oqimlari",
+            "Arizalar, bildirishnomalar va kelishuvlar kabi takroriy amallarni avtomatlashtiramiz."
+          ],
+          [
+            "Ma’lumotlarni sinxronlash",
+            "Bir xil ma’lumot turli tizimlarda bir-biriga zid bo‘lib qolmasligi uchun sinxronlash."
+          ]
+        ],
+        "faq": [
+          [
+            "Qaysi tizimlar bilan integratsiya qilasiz?",
+            "API yoki ma’lumot almashish imkoniyati bor tizimlar bilan: CRM, ERP, to‘lov tizimlari va ichki vositalar. Avval tizimning texnik imkoniyatlarini tekshiramiz."
+          ]
+        ]
+      },
+      "en": {
+        "name": "Integration & automation",
+        "title": "System Integration & Process Automation — Novera",
+        "description": "CRM, ERP and payment integrations, bots, internal workflows and data synchronisation. Novera, IT outsourcing.",
+        "h1": "System integration and process automation",
+        "lead": "We connect disconnected systems and turn repetitive tasks into clear, controllable workflows.",
+        "kinds": [
+          [
+            "Connecting systems",
+            "Data exchange between CRM, ERP, payment and accounting systems."
+          ],
+          [
+            "Workflow automation",
+            "Turning manual, repetitive steps into rule-based processes."
+          ],
+          [
+            "Bots",
+            "Messenger bots for your customers or your team."
+          ]
+        ],
+        "scope": [
+          [
+            "CRM, ERP and payment integration",
+            "We design the data flow between systems and connect them through APIs."
+          ],
+          [
+            "Bots and internal workflows",
+            "We automate repetitive steps such as requests, notifications and approvals."
+          ],
+          [
+            "Data synchronisation",
+            "Synchronisation so the same data never contradicts itself across systems."
+          ]
+        ],
+        "faq": [
+          [
+            "Which systems can you integrate with?",
+            "Systems that offer an API or a way to exchange data: CRMs, ERPs, payment systems and internal tools. We check the system’s technical capabilities first."
+          ]
+        ]
+      },
+      "ru": {
+        "name": "Интеграция и автоматизация",
+        "title": "Интеграция систем и автоматизация процессов — Novera",
+        "description": "Интеграция CRM, ERP и платёжных систем, боты, внутренние процессы и синхронизация данных. Novera — IT-аутсорсинг.",
+        "h1": "Интеграция систем и автоматизация процессов",
+        "lead": "Связываем разрозненные системы и превращаем рутинные задачи в понятные и управляемые процессы.",
+        "kinds": [
+          [
+            "Связка систем",
+            "Обмен данными между CRM, ERP, платёжными и учётными системами."
+          ],
+          [
+            "Автоматизация процессов",
+            "Превращение ручных повторяющихся действий в процессы по правилам."
+          ],
+          [
+            "Боты",
+            "Боты в мессенджерах для ваших клиентов или команды."
+          ]
+        ],
+        "scope": [
+          [
+            "Интеграция CRM, ERP и платежей",
+            "Проектируем поток данных между системами и связываем их через API."
+          ],
+          [
+            "Боты и внутренние процессы",
+            "Автоматизируем повторяющиеся действия: заявки, уведомления, согласования."
+          ],
+          [
+            "Синхронизация данных",
+            "Синхронизация, чтобы одни и те же данные не расходились между системами."
+          ]
+        ],
+        "faq": [
+          [
+            "С какими системами вы интегрируетесь?",
+            "С системами, у которых есть API или способ обмена данными: CRM, ERP, платёжные системы и внутренние инструменты. Сначала проверяем технические возможности системы."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "ai",
+      "slug": {
+        "uz": "/xizmatlar/ai-data/",
+        "en": "/en/services/ai-data/",
+        "ru": "/ru/uslugi/ii-dannye/"
+      },
+      "image": "/assets/connected-systems.jpg",
+      "uz": {
+        "name": "AI va data yechimlari",
+        "title": "AI yordamchilar va ma’lumotlar tahlili — Novera",
+        "description": "Bilim bazasiga ulangan AI yordamchilar, tahlil va hisobotlar. Inson nazorati va sifat baholash bilan. Novera — IT autsorsing.",
+        "h1": "AI yordamchilar va ma’lumotlar tahlili",
+        "lead": "Ma’lumotlardan foydali xulosalar va jamoangiz vazifalariga mos AI yordamchilar — natijasi inson nazorati ostida.",
+        "kinds": [
+          [
+            "Bilim bazasi yordamchisi",
+            "Hujjatlaringiz va ichki bilimlar asosida savollarga javob beradigan yordamchi."
+          ],
+          [
+            "Tahlil va hisobotlar",
+            "Tarqoq ma’lumotlarni qaror qabul qilish uchun tushunarli ko‘rsatkichlarga aylantirish."
+          ],
+          [
+            "Jarayonga ulangan AI",
+            "Mavjud ish oqimingiz ichida ishlaydigan va natijasi tekshiriladigan AI."
+          ]
+        ],
+        "scope": [
+          [
+            "Bilim bazasiga ulangan yordamchi",
+            "Yordamchi faqat siz bergan manbalarga tayanadi va javobining manbasini ko‘rsatadi."
+          ],
+          [
+            "Tahlil va hisobotlar",
+            "Ma’lumot manbalarini birlashtirib, muntazam hisobot va ko‘rsatkichlar tayyorlaymiz."
+          ],
+          [
+            "Inson nazorati va sifat baholash",
+            "Muhim qarorlarni odam tasdiqlaydi, javoblar sifati esa muntazam baholanadi."
+          ]
+        ],
+        "faq": [
+          [
+            "AI noto‘g‘ri javob bersa nima bo‘ladi?",
+            "Shuning uchun inson nazorati va sifat baholashni yechimning bir qismi sifatida loyihalaymiz: muhim natijalarni odam tekshiradi."
+          ]
+        ]
+      },
+      "en": {
+        "name": "AI & data solutions",
+        "title": "AI Assistants & Data Analytics — Novera",
+        "description": "AI assistants connected to your knowledge base, analytics and reporting — with human oversight and quality evaluation. Novera, IT outsourcing.",
+        "h1": "AI assistants and data analytics",
+        "lead": "Actionable insights from your data and AI assistants tailored to your team’s tasks — with people in control of the outcome.",
+        "kinds": [
+          [
+            "Knowledge-base assistant",
+            "An assistant that answers questions from your documents and internal knowledge."
+          ],
+          [
+            "Analytics and reporting",
+            "Turning scattered data into clear indicators for decision-making."
+          ],
+          [
+            "AI inside your workflow",
+            "AI that works within your existing process, with results that get checked."
+          ]
+        ],
+        "scope": [
+          [
+            "Knowledge-base assistants",
+            "The assistant relies only on the sources you provide and shows where each answer comes from."
+          ],
+          [
+            "Analytics and reporting",
+            "We combine data sources and prepare regular reports and indicators."
+          ],
+          [
+            "Human oversight and quality evaluation",
+            "People approve important decisions, and answer quality is evaluated regularly."
+          ]
+        ],
+        "faq": [
+          [
+            "What happens if the AI gives a wrong answer?",
+            "That is why we design human oversight and quality evaluation into the solution: important outputs are checked by a person."
+          ]
+        ]
+      },
+      "ru": {
+        "name": "ИИ и данные",
+        "title": "ИИ-ассистенты и анализ данных — Novera",
+        "description": "ИИ-ассистенты на базе ваших знаний, аналитика и отчёты — с контролем человеком и оценкой качества. Novera — IT-аутсорсинг.",
+        "h1": "ИИ-ассистенты и анализ данных",
+        "lead": "Полезные выводы из данных и ИИ-помощники под задачи вашей команды — результат остаётся под контролем человека.",
+        "kinds": [
+          [
+            "Ассистент по базе знаний",
+            "Помощник, который отвечает на вопросы по вашим документам и внутренним знаниям."
+          ],
+          [
+            "Аналитика и отчёты",
+            "Превращение разрозненных данных в понятные показатели для решений."
+          ],
+          [
+            "ИИ внутри процесса",
+            "ИИ, работающий в вашем текущем процессе, с проверкой результатов."
+          ]
+        ],
+        "scope": [
+          [
+            "Помощник на базе знаний",
+            "Ассистент опирается только на предоставленные вами источники и показывает, откуда взят ответ."
+          ],
+          [
+            "Аналитика и отчёты",
+            "Объединяем источники данных и готовим регулярные отчёты и показатели."
+          ],
+          [
+            "Контроль человеком и оценка качества",
+            "Важные решения подтверждает человек, качество ответов регулярно оценивается."
+          ]
+        ],
+        "faq": [
+          [
+            "Что будет, если ИИ ответит неверно?",
+            "Поэтому контроль человеком и оценку качества мы закладываем в решение: важные результаты проверяет человек."
+          ]
+        ]
+      }
+    }
+  ]
+}
