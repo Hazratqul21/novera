@@ -46,7 +46,7 @@ def home_parts(lang):
         'skip': re.search(r'<a class="skip"[^>]*>[^<]*</a>', page).group(0),
         'progress': re.search(r'<div class="reading-progress"[^>]*></div>', page).group(0),
         'header': link_home(element(page, r'<header class="header wrap">')),
-        'footer': link_home(element(page, r'<footer class="wrap">')),
+        'footer': link_home(element(page, r'<footer class="site-footer">')),
         'steps': element(page, r'<ol class="steps">'),
         'formats': link_home(element(page, r'<div class="engagement-grid">')),
         'faq': re.findall(r'<details>.*?</details>', element(page, r'<section id="savollar"'), re.S),

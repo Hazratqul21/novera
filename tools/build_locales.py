@@ -9,7 +9,18 @@ source = (ROOT / 'content/index.html').read_text(encoding='utf-8')
 dictionary = json.loads((ROOT / 'content/translations.json').read_text(encoding='utf-8'))
 seo = json.loads((ROOT / 'content/seo.json').read_text(encoding='utf-8'))
 # Service page URLs per language: uz slugs in the template are swapped for en/ru slugs.
-service_links = [s['slug'] for s in json.loads((ROOT / 'content/services.json').read_text(encoding='utf-8'))['services']]
+services_data = json.loads((ROOT / 'content/services.json').read_text(encoding='utf-8'))
+service_links = [s['slug'] for s in services_data['services']]
+
+
+def mega_menu(lang):
+    """Desktop mega menu for the services link: picture, name and one line each.
+    It lives in the header, so build_services copies it into every inner page."""
+    items = ''.join(
+        f'<li><a class="mega__item" href="{s["slug"][lang]}"><img src="{s["image"].removesuffix(".jpg")}-600.webp" width="96" height="64" alt="" loading="lazy" decoding="async">'
+        f'<span><b>{escape(s[lang]["name"])}</b><small>{escape(s[lang]["lead"].split("—")[0].split(". ")[0].rstrip(" ,."))}</small></span></a></li>'
+        for s in services_data['services'])
+    return f'<div class="mega" id="mega-services" hidden><div class="wrap mega__inner"><ul class="mega__list">{items}</ul></div></div>'
 brand_labels = {'novera','Novera','UZ','EN','RU','NOVERA / DIGITAL ENGINEERING',
                 'CONNECTED BY DESIGN','01 / NOVERA','01 — DIGITAL PRODUCTS',
                 '02 — CONNECTED SYSTEMS','01 / END-TO-END','02 / TEAM EXTENSION','03 / EVOLUTION'}
@@ -33,7 +44,7 @@ for lang, route in routes.items():
         output = output.replace(f'href="{links["uz"]}"', f'href="{links[lang]}"')
     output = output.replace('lang="uz"', f'lang="{lang}"', 1)
     if lang == 'ru':  # Russian pages render mostly Cyrillic: preload those font subsets instead.
-        output = output.replace('/assets/inter-latin.woff2', '/assets/inter-cyrillic.woff2').replace('/assets/unbounded-latin.woff2', '/assets/unbounded-cyrillic.woff2')
+        output = output.replace('/assets/playfair-latin.woff2', '/assets/playfair-cyrillic.woff2').replace('/assets/onest-latin.woff2', '/assets/onest-cyrillic.woff2')
     output = output.replace('content="uz_UZ"', 'content="'+{'uz':'uz_UZ','en':'en_US','ru':'ru_RU'}[lang]+'"')
     output = output.replace('href="https://noveragroup.uz/"', f'href="https://noveragroup.uz{route}"')
     output = output.replace('content="https://noveragroup.uz/"', f'content="https://noveragroup.uz{route}"')
@@ -63,6 +74,8 @@ for lang, route in routes.items():
     output = output.replace('</head>', alternates+'\n<meta property="og:site_name" content="Novera">\n'
                             +'<script type="application/ld+json">'+structured+'</script>\n</head>')
     output = output.replace(f'data-lang="{lang}"',f'data-lang="{lang}" aria-current="page"')
+    output = output.replace('<a href="#yechimlar">', '<a href="#yechimlar" data-mega="mega-services">', 1)
+    output = output.replace('</header>', mega_menu(lang) + '\n  </header>', 1)
     destination = ROOT / 'dist' / route.strip('/') / 'index.html'
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(output, encoding='utf-8')

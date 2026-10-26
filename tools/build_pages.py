@@ -236,6 +236,15 @@ def main():
         alt = ''.join(f'<xhtml:link rel="alternate" hreflang="{l}" href="{ORIGIN}{p}"/>' for l, p in {**g, 'x-default': g['uz']}.items())
         xml += [f'<url><loc>{ORIGIN}{p}</loc>{alt}</url>' for p in g.values()]
     (DIST / 'sitemap.xml').write_text('\n'.join(xml) + '\n</urlset>\n', encoding='utf-8')
+    # Small per-language index for the Ctrl/Cmd+K command palette (assets/v2.js).
+    index = {}
+    for lang, home in HOME.items():
+        rows = [{'t': s[lang]['name'], 'd': s[lang]['lead'], 'u': s['slug'][lang], 'k': 'service'} for s in services['services']]
+        rows += [{'t': data[key]['name'][lang], 'd': data[key]['description'][lang], 'u': data[key]['slug'][lang], 'k': 'page'} for key in ('about', 'privacy')]
+        rows += [{'t': c['title'][lang], 'd': c['summary'][lang], 'u': case_slugs(c)[lang], 'k': 'work'} for c in cases['cases']]
+        rows.append({'t': services['ui'][lang]['cta_btn'], 'd': 'main@noveragroup.uz', 'u': home + '#boshlash', 'k': 'contact'})
+        index[lang] = rows
+    (DIST / 'assets/search.json').write_text(json.dumps(index, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     print(f'Pages built: about, privacy, {len(cases["cases"])} case studies; sitemap: {len(all_groups) * 3} URLs')
 
 

@@ -136,8 +136,8 @@
             website: (form.querySelector('[name="website"]') || {}).value || '' })
         });
         if (!response.ok) throw new Error();
-        status.style.color = 'var(--brand)'; status.textContent = messages.leadSuccess; form.reset();
-      } catch (err) { status.style.color = 'red'; status.textContent = messages.leadError;
+        status.style.color = 'var(--brand)'; status.textContent = messages.leadSuccess; form.reset(); if (window.siteToast) window.siteToast(messages.leadSuccess, 'success');
+      } catch (err) { status.style.color = 'red'; status.textContent = messages.leadError; if (window.siteToast) window.siteToast(messages.leadError, 'error');
       } finally { submitBtn.innerHTML = originalBtnHtml; submitBtn.disabled = false; }
     });
   }
