@@ -8,15 +8,15 @@
   const L = {
     uz: { search: 'Qidirish', searchPh: 'Sahifa yoki xizmatni qidiring…', empty: 'Hech narsa topilmadi.', hint: 'Enter: ochish. Esc: yopish.',
           kinds: { service: 'Xizmat', work: 'Loyiha', page: 'Sahifa', contact: 'Aloqa', action: 'Amal' }, theme: 'Yorug‘/tungi rejim',
-          sound: 'Ovoz effektlari', soundOn: 'Ovoz: yoqilgan', soundOff: 'Ovoz: o‘chiq', top: 'Sahifa boshiga', city: 'Toshkent',
+          sound: 'Ovoz effektlari', soundOn: 'Ovoz: yoqilgan', soundOff: 'Ovoz: o‘chiq', top: 'Sahifa boshiga', city: 'Toshkent', close: 'Yopish',
           required: 'Bu maydonni to‘ldiring.', contact: 'Telefon raqami yoki email kiriting.' },
     en: { search: 'Search', searchPh: 'Search pages or services…', empty: 'Nothing found.', hint: 'Enter: open. Esc: close.',
           kinds: { service: 'Service', work: 'Project', page: 'Page', contact: 'Contact', action: 'Action' }, theme: 'Light/dark mode',
-          sound: 'Sound effects', soundOn: 'Sound: on', soundOff: 'Sound: off', top: 'Back to top', city: 'Tashkent',
+          sound: 'Sound effects', soundOn: 'Sound: on', soundOff: 'Sound: off', top: 'Back to top', city: 'Tashkent', close: 'Close',
           required: 'Please fill in this field.', contact: 'Enter a phone number or email.' },
     ru: { search: 'Поиск', searchPh: 'Найдите страницу или услугу…', empty: 'Ничего не найдено.', hint: 'Enter: открыть. Esc: закрыть.',
           kinds: { service: 'Услуга', work: 'Проект', page: 'Страница', contact: 'Контакты', action: 'Действие' }, theme: 'Светлая/тёмная тема',
-          sound: 'Звуковые эффекты', soundOn: 'Звук: вкл.', soundOff: 'Звук: выкл.', top: 'Наверх', city: 'Ташкент',
+          sound: 'Звуковые эффекты', soundOn: 'Звук: вкл.', soundOff: 'Звук: выкл.', top: 'Наверх', city: 'Ташкент', close: 'Закрыть',
           required: 'Заполните это поле.', contact: 'Введите телефон или email.' },
   }[lang];
   if (!L) return;
@@ -203,5 +203,34 @@
       h1.replaceChildren(...parts); h1.classList.add('is-split');
       requestAnimationFrame(() => requestAnimationFrame(() => h1.classList.add('is-split-in')));
     }
+  }
+
+  /* ---------- Showreel: muted loop in the frame; the button opens the full film with sound.
+     Browsers only allow sound after a click, so the film never starts with sound on its own. ---------- */
+  const reel = document.querySelector('.reel');
+  if (reel) {
+    const loop = reel.querySelector('.reel__loop');
+    const playBtn = reel.querySelector('.reel__play');
+    const saveData = navigator.connection && navigator.connection.saveData;
+    if (loop && fine.matches && motionOK() && !saveData && 'IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting && !document.hidden) { loop.preload = 'auto'; loop.play().catch(() => {}); } else loop.pause();
+      }, { threshold: 0.25 }).observe(loop);
+    }
+    const film = el('video', { class: 'reel-player__video', 'data-reel': '', controls: true, playsinline: true, preload: 'none' });
+    const closeBtn = el('button', { class: 'reel-player__close', type: 'button', 'aria-label': L.close, text: '×' });
+    const player = el('dialog', { class: 'reel-player', 'aria-label': playBtn.textContent.trim() }, film, closeBtn);
+    document.body.append(player);
+    playBtn.addEventListener('click', () => {
+      if (!film.src) film.src = playBtn.dataset.reelSrc;
+      loop?.pause();
+      player.showModal();
+      film.currentTime = 0;
+      film.play().catch(() => {});
+      closeBtn.focus();
+    });
+    closeBtn.addEventListener('click', () => player.close());
+    player.addEventListener('click', e => { if (e.target === player) player.close(); });
+    player.addEventListener('close', () => { film.pause(); playBtn.focus(); });
   }
 })();

@@ -13,6 +13,27 @@ services_data = json.loads((ROOT / 'content/services.json').read_text(encoding='
 service_links = [s['slug'] for s in services_data['services']]
 
 
+REEL_TEXT = {'uz': ('Novera shoureeli', 'Shoureelni ko‘rish'), 'en': ('Novera showreel', 'Watch the showreel'),
+             'ru': ('Шоурил Novera', 'Смотреть шоурил')}
+
+
+def reel_section(lang):
+    """Showreel frame under the hero. Rendered only once the film exists in dist/assets:
+    novera-showreel.mp4 (full, with sound), optional novera-showreel-loop.mp4 (short muted loop)
+    and novera-showreel-poster.webp (poster; the sculpture is used until one is supplied)."""
+    assets = ROOT / 'dist/assets'
+    if not (assets / 'novera-showreel.mp4').is_file():
+        return ''
+    loop = 'novera-showreel-loop.mp4' if (assets / 'novera-showreel-loop.mp4').is_file() else 'novera-showreel.mp4'
+    poster = 'novera-showreel-poster.webp' if (assets / 'novera-showreel-poster.webp').is_file() else 'novera-sculpture-1200.webp'
+    label, button = REEL_TEXT[lang]
+    return (f'\n    <section class="reel" aria-label="{escape(label)}"><div class="wrap"><div class="reel__frame">'
+            f'<video class="reel__loop" data-reel muted loop playsinline preload="none" width="1920" height="1080" poster="/assets/{poster}" aria-hidden="true">'
+            f'<source src="/assets/{loop}" type="video/mp4"></video>'
+            f'<button class="reel__play" type="button" data-reel-src="/assets/novera-showreel.mp4"><span class="reel__icon" aria-hidden="true"></span>'
+            f'<span>{escape(button)}</span></button></div></div></section>')
+
+
 def mega_menu(lang):
     """Desktop mega menu for the services link: picture, name and one line each.
     It lives in the header, so build_services copies it into every inner page."""
@@ -76,6 +97,8 @@ for lang, route in routes.items():
     output = output.replace(f'data-lang="{lang}"',f'data-lang="{lang}" aria-current="page"')
     output = output.replace('<a href="#yechimlar">', '<a href="#yechimlar" data-mega="mega-services">', 1)
     output = output.replace('</header>', mega_menu(lang) + '\n  </header>', 1)
+    hero_end = output.index('</section>', output.index('class="hero hero-v2"')) + len('</section>')
+    output = output[:hero_end] + reel_section(lang) + output[hero_end:]
     destination = ROOT / 'dist' / route.strip('/') / 'index.html'
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(output, encoding='utf-8')

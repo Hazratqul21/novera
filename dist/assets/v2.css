@@ -210,3 +210,21 @@ footer.site-footer{ padding-top:64px; }
 .home-v2 .service .tags{ margin-top:16px; }
 /* One tagline in the hero is enough (hero-note); the caption on the sculpture card was a second one. */
 .hero-v2 .art-bottom{ display:none; }
+
+/* ---------- Showreel frame + full-screen player (section is added when a film is supplied) ---------- */
+.reel{ padding-top:clamp(40px,6vw,96px); }
+.reel__frame{ position:relative; overflow:hidden; aspect-ratio:16/9; border-radius:clamp(16px,1.8vw,28px); background:var(--forest); box-shadow:0 40px 120px -40px rgba(11,31,23,.45); }
+.reel__loop{ display:block; width:100%; height:100%; object-fit:cover; }
+.reel__play{ position:absolute; inset:0; margin:auto; width:max-content; height:max-content; display:inline-flex; align-items:center; gap:14px;
+  padding:12px 26px 12px 12px; border:0; border-radius:999px; background:rgba(241,244,240,.92); color:var(--forest); font:inherit; font-size:17px; font-weight:500; cursor:pointer;
+  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); box-shadow:0 20px 60px rgba(7,20,14,.35); transition:transform .3s cubic-bezier(.23,1,.32,1), background-color .2s; }
+.reel__play:hover{ transform:scale(1.04); background:#fff; }
+.reel__play:focus-visible{ outline:3px solid var(--mint); outline-offset:4px; }
+.reel__icon{ width:48px; height:48px; border-radius:50%; background:var(--brand); position:relative; flex:none; }
+.reel__icon::before{ content:""; position:absolute; left:19px; top:15px; border-style:solid; border-width:9px 0 9px 14px; border-color:transparent transparent transparent #fff; }
+.reel-player{ width:100vw; height:100vh; max-width:none; max-height:none; margin:0; padding:clamp(12px,3vw,48px); border:0; background:#050d09; }
+.reel-player[open]{ display:flex; align-items:center; justify-content:center; }
+.reel-player::backdrop{ background:#050d09; }
+.reel-player__video{ width:100%; max-height:100%; aspect-ratio:16/9; background:#000; border-radius:12px; }
+.reel-player__close{ position:absolute; top:16px; right:16px; width:48px; height:48px; border-radius:50%; border:1px solid rgba(238,244,239,.3); background:rgba(238,244,239,.08); color:#fff; font-size:26px; cursor:pointer; }
+@media (max-width:600px){ .reel__play{ font-size:15px; padding:8px 18px 8px 8px; } .reel__icon{ width:40px; height:40px; } .reel__icon::before{ left:16px; top:12px; border-width:8px 0 8px 12px; } }
