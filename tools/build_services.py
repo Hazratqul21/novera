@@ -82,7 +82,7 @@ def page(service, lang, data, parts):
     kinds = ''.join(f'<article class="svc-kind"><h3>{e(t)}</h3><p>{e(d)}</p></article>' for t, d in s['kinds'])
     scope = ''.join(f'<li><strong>{e(t)}</strong><span>{e(d)}</span></li>' for t, d in s['scope'])
     own_faq = ''.join(f'<details><summary>{e(q)}<span aria-hidden="true">+</span></summary><p>{e(a)}</p></details>' for q, a in s['faq'])
-    other_links = ''.join(f'<li><a href="{x["slug"][lang]}">{e(x[lang]["name"])} <span aria-hidden="true">↗</span></a></li>' for x in others)
+    other_links = ''.join(f'<li><a href="{x["slug"][lang]}">{e(x[lang]["name"])}</a></li>' for x in others)
     return f'''<!doctype html>
 <html lang="{lang}">
 <head>
@@ -117,7 +117,7 @@ def page(service, lang, data, parts):
         <p class="eyebrow">{e(ui["eyebrow"])}</p>
         <h1>{e(s["h1"])}</h1>
         <p class="lead">{e(s["lead"])}</p>
-        <div class="hero-actions"><a class="button" href="{home}#boshlash">{e(ui["cta_btn"])} <span aria-hidden="true">↗</span></a></div>
+        <div class="hero-actions"><a class="button" href="{home}#boshlash">{e(ui["cta_btn"])}</a></div>
       </div>
       <figure class="svc-hero-art"><img src="{base}-1200.webp" srcset="{base}-600.webp 600w, {base}-900.webp 900w, {base}-1200.webp 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 620px" alt="" width="{w}" height="{h}" decoding="async" fetchpriority="high"></figure>
     </section>
@@ -143,7 +143,7 @@ def page(service, lang, data, parts):
     </section>
     <section class="contact wrap svc-cta" aria-labelledby="svc-cta-title">
       <div><h2 id="svc-cta-title">{e(ui["cta_h"])}</h2><p>{e(ui["cta_p"])}</p></div>
-      <div class="svc-cta-actions"><a class="button" href="{home}#boshlash">{e(ui["cta_btn"])} <span aria-hidden="true">↗</span></a>
+      <div class="svc-cta-actions"><a class="button" href="{home}#boshlash">{e(ui["cta_btn"])}</a>
         <a class="text-link" href="mailto:main@noveragroup.uz">main@noveragroup.uz</a></div>
     </section>
     <nav class="svc-others wrap" aria-labelledby="svc-others-title">

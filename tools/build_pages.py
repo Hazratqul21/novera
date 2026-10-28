@@ -82,7 +82,7 @@ def cta(services, lang):
     ui = services['ui'][lang]
     return f'''    <section class="contact wrap svc-cta" aria-labelledby="cta-title">
       <div><h2 id="cta-title">{e(ui["cta_h"])}</h2><p>{e(ui["cta_p"])}</p></div>
-      <div class="svc-cta-actions"><a class="button" href="{HOME[lang]}#boshlash">{e(ui["cta_btn"])} <span aria-hidden="true">↗</span></a>
+      <div class="svc-cta-actions"><a class="button" href="{HOME[lang]}#boshlash">{e(ui["cta_btn"])}</a>
         <a class="text-link" href="mailto:main@noveragroup.uz">main@noveragroup.uz</a></div>
     </section>'''
 
@@ -92,7 +92,7 @@ def about(data, services, lang, parts):
     slugs, url = page['slug'], ORIGIN + page['slug'][lang]
     crumbs = [(ui['home'], HOME[lang]), (page['name'][lang], slugs[lang])]
     principles = ''.join(f'<article><h3>{e(h)}</h3><p>{e(p)}</p></article>' for h, p in page['principles'][lang])
-    links = ''.join(f'<li><a href="{s["slug"][lang]}">{e(s[lang]["name"])} <span aria-hidden="true">↗</span></a></li>'
+    links = ''.join(f'<li><a href="{s["slug"][lang]}">{e(s[lang]["name"])}</a></li>'
                     for s in services['services'])
     team = ''
     if page['team']:

@@ -25,8 +25,8 @@
 body{ background:var(--ground); color:var(--ink); }
 h1,h2,.statement h2{ font-family:var(--display); font-weight:500; letter-spacing:-.015em; line-height:1.02; }
 h3{ font-family:var(--display); font-weight:600; letter-spacing:-.005em; }
-/* The authored second line of a heading (<span>) is the italic accent; split-word wrappers are not. */
-h2>span:not(.split-w),.hero h1>span{ font-style:italic; font-weight:400; color:var(--brand); }
+/* Headings read as one voice: the authored second line is a line break, not a coloured accent. */
+h2 span{ color:inherit; font-style:normal; }
 .statement h2{ color:#fff; }
 .statement em{ font-style:italic; font-weight:400; }
 .wordmark{ font-family:"Novera Wordmark", "Onest", sans-serif; }
@@ -94,12 +94,25 @@ h2>span:not(.split-w),.hero h1>span{ font-style:italic; font-weight:400; color:v
 
 /* ---------- Editorial sections ---------- */
 .section-head h2{ font-size:clamp(40px,5.4vw,92px); }
-.service{ border-radius:22px; box-shadow:0 0 0 1px var(--line); }
-.service h3{ font-size:clamp(24px,2vw,32px); }
-.feature{ background:var(--forest); }
+/* Services as an editorial index: ruled rows, not a grid of identical cards. */
+.home-v2 .services{ display:block; margin-top:clamp(48px,6vw,88px); border-top:1px solid var(--ink); }
+.home-v2 .service,.home-v2 .feature{ background:none; color:inherit; border-radius:0; box-shadow:none; transform:none;
+  display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:20px clamp(32px,5vw,96px); align-items:start;
+  padding:clamp(28px,3.4vw,48px) 0; border-bottom:1px solid var(--line); }
+.home-v2 .service>div{ grid-column:1; }
+.home-v2 .service h3{ margin:0 0 14px; font-size:clamp(30px,3.4vw,54px); line-height:1.02; letter-spacing:-.02em; }
+.home-v2 .service h3 a:hover{ color:var(--brand); }
+.home-v2 .service p{ color:var(--muted); max-width:46ch; }
+.home-v2 .service .tags span{ color:var(--muted); border-color:var(--line); }
+.home-v2 .service-scope{ grid-column:2; grid-row:1 / span 2; margin:6px 0 0; padding:0; list-style:none; border-top:1px solid var(--line); }
+.home-v2 .service-scope li{ padding:12px 0; border-bottom:1px solid var(--line); color:var(--ink); }
+.home-v2 .service-link{ grid-column:1; justify-content:flex-start; border-top:0; padding:0; margin:0; min-height:44px; color:var(--brand); font-weight:500; }
+@media (max-width:900px){ .home-v2 .service,.home-v2 .feature{ grid-template-columns:1fr; } .home-v2 .service-scope,.home-v2 .service-link{ grid-column:1; grid-row:auto; } }
+/* Engagement formats: three ruled columns. */
+.home-v2 .engagement-grid article{ background:none; border-radius:0; box-shadow:none; padding:24px 0 0; border-top:2px solid var(--ink); }
 .statement{ background:var(--forest); position:relative; overflow:hidden; }
 .statement h2{ font-size:clamp(40px,5.6vw,96px); }
-.statement em{ color:var(--mint); }
+.statement em{ color:inherit; }
 .steps li.is-current span{ color:var(--brand); }
 .steps li{ transition:opacity .4s ease; }
 .contact{ border-radius:32px; }
@@ -187,10 +200,13 @@ footer.site-footer{ padding-top:64px; }
 .hero-v2 .art-bottom{ color:#33433b; }
 .hero-v2 .art-bottom strong{ color:#0b1f17; }
 
-/* Dark feature card: light text on forest (AA contrast). */
-.feature p,.feature .service-scope li,.feature .tags span{ color:var(--mist); }
-.feature .tags span{ border-color:rgba(238,244,239,.25); }
-.feature h3,.feature h3 a{ color:#fff; }
-.feature .service-link{ color:var(--mint); border-color:rgba(238,244,239,.16); }
 /* Labels and small headings that site.css pinned to Inter now use Onest. */
 .eyebrow,.legal-body .legal-section h2,.case-story.wrap h2{ font-family:"Onest", system-ui, sans-serif; }
+/* Split-word wrappers inherit the headline colour (site.css tints ".hero h1 span"). */
+.hero-v2 h1 span{ color:inherit; }
+/* Explicit rows so the action link never overlaps the description or tags. */
+.home-v2 .service>div{ grid-row:1; }
+.home-v2 .service-link{ grid-row:2; align-self:start; margin-top:4px; }
+.home-v2 .service .tags{ margin-top:16px; }
+/* One tagline in the hero is enough (hero-note); the caption on the sculpture card was a second one. */
+.hero-v2 .art-bottom{ display:none; }

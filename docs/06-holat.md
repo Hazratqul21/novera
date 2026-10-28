@@ -41,3 +41,17 @@ Nginx HTTP/2 va uzoq kesh yoqilgandan keyin (jonli, mobil): bosh sahifa va /ru/ 
   Ctrl/⌘+K qidiruv (`dist/assets/search.json`, build_pages), jonli validatsiya + toast, marquee, tilt, split sarlavhalar,
   back-to-top, Toshkent soati, ovoz (sukut bo‘yicha o‘chiq), View Transitions, skeleton.
 - Lighthouse (jonli): /ru/ mobil 95, desktop 99; / mobil 93; a11y/BP/SEO 100.
+
+## Dizayn tanqidi va tuzatishlar (28.10.2026)
+
+Tekshiruv mezoni: "andaza" alomatlari (har sarlavha ustidagi yorliq, tugmaga yopishtirilgan strelka,
+sarlavhada bitta qatorni rang/kursiv bilan ajratish, bir xil kartochkalar to‘plami, har bo‘limda fade-up).
+
+- Bo‘lim yorliqlari (eyebrow) olib tashlandi: sarlavha va menyu bo‘limni allaqachon nomlaydi.
+- Tugma va havolalar matnidagi ↗ → ↓ strelkalar olib tashlandi; tugma shakli o‘zi harakatni bildiradi.
+- Asosiy chaqiruv butun sahifada bir xil nomlandi ("Loyihani muhokama qilish").
+- Harakat bitta joyda: hero (yuklanish ketma-ketligi). Har bo‘limdagi fade-up, har sarlavhadagi
+  so‘zma-so‘z animatsiya va ko‘p kartochkalardagi tilt olib tashlandi.
+- Raqamli markerlar faqat haqiqiy ketma-ketlikda qoldi (jarayon qadamlari).
+- Keyingi qadamda qilmaslik kerak: yangi bo‘limga avtomatik eyebrow, strelka yoki scroll fade-up qo‘shish.
+- Novera: xizmatlar kartochkalar o‘rniga editorial indeks qatorlari; sarlavhalarning ikkinchi qatori endi rangli kursiv aksent emas; haykal ustidagi qo‘shimcha shior olib tashlandi.

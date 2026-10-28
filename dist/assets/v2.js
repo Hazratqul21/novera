@@ -6,15 +6,15 @@
   const root = document.documentElement;
   const lang = (root.lang || 'uz').slice(0, 2);
   const L = {
-    uz: { search: 'Qidirish', searchPh: 'Sahifa yoki xizmatni qidiring…', empty: 'Hech narsa topilmadi.', hint: 'Enter — ochish · Esc — yopish',
+    uz: { search: 'Qidirish', searchPh: 'Sahifa yoki xizmatni qidiring…', empty: 'Hech narsa topilmadi.', hint: 'Enter: ochish. Esc: yopish.',
           kinds: { service: 'Xizmat', work: 'Loyiha', page: 'Sahifa', contact: 'Aloqa', action: 'Amal' }, theme: 'Yorug‘/tungi rejim',
           sound: 'Ovoz effektlari', soundOn: 'Ovoz: yoqilgan', soundOff: 'Ovoz: o‘chiq', top: 'Sahifa boshiga', city: 'Toshkent',
           required: 'Bu maydonni to‘ldiring.', contact: 'Telefon raqami yoki email kiriting.' },
-    en: { search: 'Search', searchPh: 'Search pages or services…', empty: 'Nothing found.', hint: 'Enter — open · Esc — close',
+    en: { search: 'Search', searchPh: 'Search pages or services…', empty: 'Nothing found.', hint: 'Enter: open. Esc: close.',
           kinds: { service: 'Service', work: 'Project', page: 'Page', contact: 'Contact', action: 'Action' }, theme: 'Light/dark mode',
           sound: 'Sound effects', soundOn: 'Sound: on', soundOff: 'Sound: off', top: 'Back to top', city: 'Tashkent',
           required: 'Please fill in this field.', contact: 'Enter a phone number or email.' },
-    ru: { search: 'Поиск', searchPh: 'Найдите страницу или услугу…', empty: 'Ничего не найдено.', hint: 'Enter — открыть · Esc — закрыть',
+    ru: { search: 'Поиск', searchPh: 'Найдите страницу или услугу…', empty: 'Ничего не найдено.', hint: 'Enter: открыть. Esc: закрыть.',
           kinds: { service: 'Услуга', work: 'Проект', page: 'Страница', contact: 'Контакты', action: 'Действие' }, theme: 'Светлая/тёмная тема',
           sound: 'Звуковые эффекты', soundOn: 'Звук: вкл.', soundOff: 'Звук: выкл.', top: 'Наверх', city: 'Ташкент',
           required: 'Заполните это поле.', contact: 'Введите телефон или email.' },
@@ -192,31 +192,16 @@
       });
       hero.addEventListener('pointerleave', () => { art.style.transform = ''; });
     }
-    /* ---------- Tilt + glow on cards ---------- */
-    document.querySelectorAll('.service, .engagement-grid article, .service-story, .quality-list article').forEach(card => {
-      card.classList.add('tilt');
-      card.addEventListener('pointermove', e => {
-        const r = card.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-        card.style.setProperty('--mx', `${(x * 100).toFixed(1)}%`); card.style.setProperty('--my', `${(y * 100).toFixed(1)}%`);
-        card.style.transform = `perspective(900px) rotateX(${((0.5 - y) * 5).toFixed(2)}deg) rotateY(${((x - 0.5) * 7).toFixed(2)}deg)`;
-      });
-      card.addEventListener('pointerleave', () => { card.style.transform = ''; });
-    });
-    /* ---------- Split-word headings ---------- */
-    if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('is-split-in'); io.unobserve(en.target); } }), { threshold: 0.35 });
-      document.querySelectorAll('.section-head h2, .process-intro h2, .statement h2, .faq h2, .quality h2, .contact h2').forEach(h => {
-        let i = 0;
-        const split = node => [...node.childNodes].flatMap(n => {
-          if (n.nodeType === 3) return n.textContent.split(/(\s+)/).map(w => {
-            if (!w.trim()) return document.createTextNode(w);
-            const s = el('span', { class: 'split-w' }, el('span', { text: w })); s.style.setProperty('--i', i++); return s;
-          });
-          if (n.nodeName === 'BR') return [n.cloneNode()];
-          const c = n.cloneNode(false); c.append(...split(n)); return [c];
-        });
-        h.replaceChildren(...split(h)); h.classList.add('is-split'); io.observe(h);
-      });
+    /* ---------- One orchestrated moment: the hero headline rises word by word on load ---------- */
+    const h1 = document.querySelector('.hero-v2 h1');
+    if (h1) {
+      let i = 0;
+      const parts = [...h1.childNodes].flatMap(n => n.nodeType !== 3 ? [n.cloneNode(true)] : n.textContent.split(/(\s+)/).map(w => {
+        if (!w.trim()) return document.createTextNode(w);
+        const s = el('span', { class: 'split-w' }, el('span', { text: w })); s.style.setProperty('--i', i++); return s;
+      }));
+      h1.replaceChildren(...parts); h1.classList.add('is-split');
+      requestAnimationFrame(() => requestAnimationFrame(() => h1.classList.add('is-split-in')));
     }
   }
 })();

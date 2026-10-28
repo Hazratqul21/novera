@@ -109,7 +109,7 @@
         observer.unobserve(entry.target);
       });
     }, {threshold:.12});
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // Sections appear as they are; the hero carries the page's one entrance (v2.js).
   }
   reduced.addEventListener('change', () => { if(reduced.matches) document.getAnimations().forEach(animation => animation.cancel()); });
 
