@@ -52,15 +52,15 @@ def odoo_url(path: str) -> str:
 UI = {
     'uz': {'menu': ['Xizmatlar', 'Formatlar', 'Yondashuv', 'Savollar', 'Biz haqimizda'], 'cta': 'Loyihani muhokama qilish',
            'footer': T('IT autsorsing va dasturlash: biznesingizning keyingi bosqichi uchun web, mobil va aqlli tizimlarni yaratamiz.', 'uz'),
-           'city': 'Toshkent, O‘zbekiston', 'privacy': 'Maxfiylik siyosati', 'more': 'Batafsil',
+           'city': 'Toshkent, O‘zbekiston', 'privacy': 'Maxfiylik siyosati', 'legal': '«NOVERA» MCHJ', 'tin': 'STIR 313 278 248', 'more': 'Batafsil',
            'nf_h': 'Sahifa topilmadi', 'nf_p': 'Havola eskirgan bo‘lishi mumkin. Bosh sahifadan boshlang.', 'nf_btn': 'Bosh sahifaga'},
     'en': {'menu': ['Services', 'Formats', 'Approach', 'Questions', 'About'], 'cta': T('Loyihani muhokama qilish', 'en'),
            'footer': T('IT autsorsing va dasturlash: biznesingizning keyingi bosqichi uchun web, mobil va aqlli tizimlarni yaratamiz.', 'en'),
-           'city': 'Tashkent, Uzbekistan', 'privacy': T('Maxfiylik siyosati', 'en'), 'more': 'Learn more',
+           'city': 'Tashkent, Uzbekistan', 'privacy': T('Maxfiylik siyosati', 'en'), 'legal': 'NOVERA LLC', 'tin': 'TIN 313 278 248', 'more': 'Learn more',
            'nf_h': 'Page not found', 'nf_p': 'The link may be out of date. Start from the home page.', 'nf_btn': 'Home page'},
     'ru': {'menu': ['Услуги', 'Форматы', 'Подход', 'Вопросы', 'О нас'], 'cta': T('Loyihani muhokama qilish', 'ru'),
            'footer': T('IT autsorsing va dasturlash: biznesingizning keyingi bosqichi uchun web, mobil va aqlli tizimlarni yaratamiz.', 'ru'),
-           'city': 'Ташкент, Узбекистан', 'privacy': T('Maxfiylik siyosati', 'ru'), 'more': 'Подробнее',
+           'city': 'Ташкент, Узбекистан', 'privacy': T('Maxfiylik siyosati', 'ru'), 'legal': 'ООО «NOVERA»', 'tin': 'ИНН 313 278 248', 'more': 'Подробнее',
            'nf_h': 'Страница не найдена', 'nf_p': 'Возможно, ссылка устарела. Начните с главной страницы.', 'nf_btn': 'На главную'},
 }
 

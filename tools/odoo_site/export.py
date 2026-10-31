@@ -33,7 +33,8 @@ ROOT = HERE.parents[1]
 OUT = ROOT / 'dist'   # dist/assets is hand-written source; the .html pages are generated here
 SITE = 'https://noveragroup.uz'
 ORG = {'@type': 'Organization', 'name': 'Novera', 'url': SITE + '/', 'logo': SITE + '/assets/favicon.svg',
-       'telephone': '+998998112829', 'email': 'main@noveragroup.uz'}
+       'telephone': '+998998112829', 'email': 'main@noveragroup.uz',
+       'legalName': '«NOVERA» MCHJ', 'taxID': '313278248'}
 VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr'}
 DROP_ATTRS = re.compile(r'^(data-oe-|data-website-id$|data-main-object$|onerror$|data-extra-items|contenteditable$)')
 WORDMARK = '<span class="s_nv_word">novera<span aria-hidden="true">✳</span></span>'
