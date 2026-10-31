@@ -1,0 +1,29 @@
+// Novera: builder "Theme > Code" rules
+.s_nv_word { font-family: "Inter", "Onest", sans-serif; font-weight: 600; font-size: 1.45rem; letter-spacing: -.02em; color: inherit;
+  span { color: var(--o-color-1); margin-left: .05em; } }
+.o_cc5 .s_nv_word span, footer .s_nv_word span { color: var(--o-color-2); }
+.s_nv_hero { min-height: 88vh; display: flex; align-items: center; }
+.s_nv_hero h1 { letter-spacing: -.02em; line-height: 1.02; }
+.s_nv_sculpture { display: block; margin-inline: auto; max-height: 72vh; filter: drop-shadow(0 30px 60px rgba(0,0,0,.45)); }
+.s_nv_serif { font-family: var(--o-theme-headings-font, "Playfair Display"), serif; line-height: 1.15; }
+.s_nv_chip { background: #fff !important; color: #0b1f17 !important; border: 1px solid rgba(11,31,23,.14); font-size: .9rem; padding: .55em .9em; }
+.s_nv_measure { max-width: 44rem; }
+.s_nv_measure_h { max-width: 20ch; }
+.s_nv_muted { color: #4d5c55 !important; }
+.o_cc5 .s_nv_muted { color: #b9c9c0 !important; }
+.s_nv_card { border: 1px solid rgba(11,31,23,.1) !important; transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s; overflow: hidden; }
+.s_nv_card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(11,31,23,.10); }
+.s_nv_link { font-weight: 500; color: var(--o-color-1); border-bottom: 1px solid currentColor; }
+.s_nv_num { font-family: var(--o-theme-headings-font, "Playfair Display"), serif; color: var(--o-color-1); }
+.s_nv_icon { width: 3rem; height: 3rem; display: inline-flex; align-items: center; justify-content: center; background: #fff; color: var(--o-color-1); }
+.s_nv_artwork { max-height: 520px; object-fit: cover; }
+.s_nv_formimg { min-height: 320px; background-size: cover; }
+.s_nv_result { border-top: 1px solid rgba(255,255,255,.2); padding-top: 1rem; }
+.s_nv_lang .nav-link { font-size: .85rem; color: #4d5c55 !important; }
+.s_nv_lang .nav-link.active, .s_nv_lang .nav-link:hover { color: #0b1f17 !important; }
+.s_card.o_cc4, .s_card.o_cc5 {
+  .card-body { background-color: transparent !important; color: inherit !important; }
+  h2, h3, .card-title, .card-text, dd { color: inherit !important; }
+}
+.s_nv_faq { summary { list-style: none; cursor: pointer; } summary::-webkit-details-marker { display: none; } }
+@media (prefers-reduced-motion: reduce) { .s_nv_card { transition: none; } .s_nv_card:hover { transform: none; } }

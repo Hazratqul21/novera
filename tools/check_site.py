@@ -46,8 +46,11 @@ for locale in ('en','ru'):
 for css in ROOT.glob('assets/*.css'):
     text = css.read_text()
     for url in re.findall(r'url\([\'"]?([^\)\'"\s]+)', text):
-        if not (css.parent / url).is_file(): check.errors.append('Missing CSS asset: ' + url)
-    if re.search(r'transition\s*:\s*all', text): check.errors.append('Avoid transition: all')
+        if url.startswith('data:'): continue
+        target = ROOT / url.lstrip('/') if url.startswith('/') else css.parent / url
+        if not target.is_file(): check.errors.append('Missing CSS asset: ' + url)
+    # builder.css is compiled by the Odoo website builder (tools/odoo_site); its Bootstrap transitions are vendor code.
+    if css.name != 'builder.css' and re.search(r'transition\s*:\s*all', text): check.errors.append('Avoid transition: all')
 ET.parse(ROOT / 'sitemap.xml')
 def luminance(color):
     values = [int(color[i:i+2],16)/255 for i in (1,3,5)]

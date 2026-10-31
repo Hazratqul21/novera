@@ -1,0 +1,23 @@
+/* What Odoo's frontend JS would do, done with CSS for the static export
+   (see tools/odoo_site/export.py). Appended to dist/assets/builder.css. */
+@font-face{ font-family:"Playfair Display"; font-style:normal; font-weight:400 800; font-display:swap;
+  src:url("playfair-latin.woff2") format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face{ font-family:"Playfair Display"; font-style:normal; font-weight:400 800; font-display:swap;
+  src:url("playfair-cyrillic.woff2") format("woff2"); unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+@font-face{ font-family:"Onest"; font-style:normal; font-weight:300 700; font-display:swap;
+  src:url("onest-latin.woff2") format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face{ font-family:"Onest"; font-style:normal; font-weight:300 700; font-display:swap;
+  src:url("onest-cyrillic.woff2") format("woff2"); unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+@font-face{ font-family:"Inter"; font-style:normal; font-weight:100 900; font-display:block; src:url("inter-wordmark.woff2") format("woff2"); }
+
+header#top{ position:sticky; top:0; z-index:1030; transition:box-shadow .3s; }
+header#top.o_header_is_scrolled{ box-shadow:0 1px 0 rgba(11,31,23,.08), 0 8px 24px rgba(11,31,23,.06); }
+.navbar-brand.logo{ display:inline-flex; align-items:center; color:#0b1f17; text-decoration:none; }
+
+.o_animate.o_nv_visible{ visibility:visible; }
+@media (prefers-reduced-motion: reduce){ .o_animate{ visibility:visible !important; animation:none !important; } }
+
+.offcanvas-backdrop{ position:fixed; inset:0; z-index:1040; background:#0b1f17; opacity:.5; }
+#form-status:empty{ display:none; }

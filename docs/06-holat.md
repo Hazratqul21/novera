@@ -55,3 +55,19 @@ sarlavhada bitta qatorni rang/kursiv bilan ajratish, bir xil kartochkalar to‘p
 - Raqamli markerlar faqat haqiqiy ketma-ketlikda qoldi (jarayon qadamlari).
 - Keyingi qadamda qilmaslik kerak: yangi bo‘limga avtomatik eyebrow, strelka yoki scroll fade-up qo‘shish.
 - Novera: xizmatlar kartochkalar o‘rniga editorial indeks qatorlari; sarlavhalarning ikkinchi qatori endi rangli kursiv aksent emas; haykal ustidagi qo‘shimcha shior olib tashlandi.
+
+## Odoo website builder bilan qayta chizish (31.10.2026, lokal, deploy qilinmagan)
+
+Dizayn Odoo website builder bloklari bilan chizildi; sayt avvalgidek statik, Odoo faqat lokal chizish quroli.
+
+- Lokal Odoo 20: `novsite-odoo` (127.0.0.1:8078, baza `novsite`).
+- Manba: `tools/odoo_site/` — `gen.py` (content/*.json va translations.json → 3 tilda 22 sahifa),
+  `odoo.py setup|pages`, `custom.scss`, `static.css`, `export.py` (Odoo render → `dist/*.html`), `serve.py`.
+- Yangi assetlar: `dist/assets/builder.css` (generatsiya), `builder.js`, `forms.js` (ariza → `/api/v1/lead`,
+  AI baho → `/api/v1/estimate`, avvalgi format), `messages.js` saqlandi.
+- URL’lar o‘zgarmadi (21 + 404). `check_site.py` va `check_seo.py` o‘tadi.
+- Lighthouse (lokal, siqishsiz): Performance 93–96, Accessibility/Best Practices/SEO 100.
+- Eski `build_locales.py` / `build_services.py` / `build_pages.py` endi ishlatilmaydi: ular yangi sahifalarni
+  eski dizayn bilan qayta yozib yuboradi.
+
+Ish tartibi: `python3 tools/odoo_site/odoo.py pages && python3 tools/odoo_site/export.py && python3 tools/check_site.py && python3 tools/check_seo.py`
