@@ -316,6 +316,9 @@ def localize(html: str, page: dict, group: dict) -> str:
     poster = re.search(r'<video[^>]*poster="([^"]+)"', html)
     if poster:
         meta += f'\n        <link rel="preload" as="image" href="{poster[1]}" fetchpriority="high"/>'
+    ribbon = re.search(r'<img[^>]*src="(/assets/novera-ribbon-942\.webp)"[^>]*srcset="([^"]+)" sizes="([^"]+)"', html)
+    if ribbon and 'data-ribbon' in html:
+        meta += f'\n        <link rel="preload" as="image" href="{ribbon[1]}" imagesrcset="{ribbon[2]}" imagesizes="{ribbon[3]}" fetchpriority="high"/>'
     return html.replace('{HEADMETA}', meta if page['path'] != '/404.html' else '\n        <meta name="robots" content="noindex"/>', 1)
 
 

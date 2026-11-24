@@ -141,3 +141,39 @@ header#top.o_header_is_scrolled > nav.navbar{ box-shadow:0 14px 38px -16px rgba(
 .mx-finale-title, .sh-card-text h3, .sh-hero h1{ font-weight:500; }
 header#top .btn_cta{ border-radius:999px; }
 .s_nv_sculpture{ border-radius:28px; }
+
+/* Hero: the ribbon stands free over the mist and turns slightly with the pointer (builder.js) */
+.s_nv_hero{ min-height:100vh; }
+.s_nv_stage{ perspective:1100px; }
+.s_nv_ribbon{ display:block; width:100%; height:auto; filter:drop-shadow(0 50px 50px rgba(0,0,0,.45)); }
+.s_nv_stage .s_nv_ribbon{ transition:transform .5s cubic-bezier(.2,.8,.2,1); animation:nv-float 7s ease-in-out infinite; }
+@keyframes nv-float{ 50%{ translate:0 -16px; } }
+.s_nv_pagehead h1{ letter-spacing:-.02em; }
+/* Service panels */
+.fx-ap-tone-1{ --ap-tone:#DCE7E0; } .fx-ap-tone-2{ --ap-tone:#CFEBDD; } .fx-ap-tone-3{ --ap-tone:#E8E3D4; } .fx-ap-tone-4{ --ap-tone:#BFE3D0; }
+.fx-ap-body h3{ font-weight:500; }
+/* Tiles, steps, soft cards */
+.s_nv_tile{ height:100%; padding:30px 26px; border-radius:24px; background:#fff; }
+.s_nv_tile .s_nv_icon{ background:#E1EEE7; border-radius:14px !important; }
+.s_nv_soft{ background:#EAF1EC !important; }
+.s_nv_step .s_nv_num{ font-size:clamp(2.6rem,5vw,4.6rem); line-height:1; }
+.s_nv_step h3{ font-size:1.7rem; }
+.s_comparisons .card{ border-radius:28px; }
+.s_nv_ctacard{ border-radius:32px !important; }
+.s_nv_ctacard textarea{ border-radius:16px; padding:1rem; }
+.s_nv_chip{ border-radius:999px; }
+/* Contact picture */
+.s_nv_formimg{ background:#0B1F17; display:flex; align-items:center; justify-content:center; padding:48px; }
+.s_nv_formimg img{ max-width:460px; }
+.form-check-input{ border-color:#64736a; }
+/* Footer */
+footer#bottom, footer#bottom #footer, footer#bottom .o_footer_copyright, footer#bottom #footer .s_text_block{ background:#0B1F17 !important; color:#DCE6E0 !important; border-color:rgba(255,255,255,.14) !important; }
+footer#bottom .o_we_shape{ display:none; }
+footer#bottom p, footer#bottom b, footer#bottom span{ color:#DCE6E0 !important; }
+footer#bottom a:not(.btn){ color:#8FE3B8 !important; }
+footer#bottom .btn{ color:#0B1F17 !important; }
+footer#bottom .s_nv_foot{ font-size:clamp(5rem,21vw,19rem); line-height:.85; letter-spacing:-.06em; color:#F1F4F0 !important; overflow:hidden; padding-bottom:.12em; white-space:nowrap; }
+footer#bottom .s_nv_foot span{ color:#8FE3B8 !important; }
+@media (prefers-reduced-motion: reduce){ .s_nv_stage .s_nv_ribbon{ animation:none; } }
+.s_nv_soft .card-body{ background:transparent !important; border-radius:inherit; }
+@media (max-width:991.98px){ .s_nv_hero{ min-height:0; } .s_nv_formimg img{ max-width:260px; } }

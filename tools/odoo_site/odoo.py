@@ -37,7 +37,7 @@ THEME_VALUES = {
     'font': "'Onest'", 'headings-font': "'Playfair Display'", 'navbar-font': "'Onest'",
     'buttons-font': "'Onest'", 'google-fonts': "('Playfair Display', 'Onest')",
     'header-bg-blur': '14px', 'logo-height': '2rem',
-    'btn-border-radius': '4px', 'btn-border-radius-sm': '4px', 'btn-border-radius-lg': '4px',
+    'btn-border-radius': '999px', 'btn-border-radius-sm': '999px', 'btn-border-radius-lg': '999px',
     'btn-padding-y-lg': '0.95rem', 'btn-padding-x-lg': '1.75rem', 'btn-font-weight': '500',
     'headings-font-weight': '500', 'display-1-font-size': '5.5rem', 'h1-font-size': '3.75rem',
     'h2-font-size': '2.9rem', 'footer-template': "'descriptive'", 'footer': '5', 'copyright': '5',
@@ -52,7 +52,7 @@ VIEWS_ON = ['website.header_visibility_fixed', 'website.header_language_selector
 MENU = [('Ishlar', '#m-work'), ('Xizmatlar', '#m-services'), ('Formatlar', '#m-formats'), ('Yondashuv', '#m-approach'),
         ('Savollar', '#m-faq'), ('Biz haqimizda', '#m-about')]
 FOOTER_ROWS = '''<div class="row">
-<div class="col-lg-12 pt64 pb24"><p class="h3 mb-0 s_nv_word">novera<span aria-hidden="true">✳</span></p></div>
+<div class="col-lg-12 pt64 pb24"><p class="mb-0 s_nv_word s_nv_foot">novera<span aria-hidden="true">✳</span></p></div>
 <div class="col-lg-5 pb48"><p data-i18n="footer">IT autsorsing va dasturlash: biznesingizning keyingi bosqichi uchun web, mobil va aqlli tizimlarni yaratamiz.</p>
 <p><a href="#m-contact" class="btn btn-lg btn-secondary" data-i18n="cta">Loyihani muhokama qilish</a></p></div>
 <div class="col-lg-3 offset-lg-1 pb48"><ul class="list-unstyled"><li><a href="#m-work" data-i18n="menu0">Ishlar</a></li><li><a href="#m-services" data-i18n="menu1">Xizmatlar</a></li><li><a href="#m-approach" data-i18n="menu3">Yondashuv</a></li><li><a href="#m-about" data-i18n="menu5">Biz haqimizda</a></li><li><a href="#m-privacy" data-i18n="privacy">Maxfiylik siyosati</a></li></ul></div>

@@ -98,3 +98,16 @@
     });
   });
 })();
+
+/* Hero ribbon: turns a little towards the pointer. */
+(() => {
+  const img = document.querySelector('[data-ribbon]');
+  if (!img || !matchMedia('(hover: hover) and (pointer: fine)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const host = img.closest('section');
+  host.addEventListener('pointermove', e => {
+    const r = host.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+    img.style.transform = `rotateY(${x * 18}deg) rotateX(${-y * 12}deg)`;
+  });
+  host.addEventListener('pointerleave', () => { img.style.transform = ''; });
+})();

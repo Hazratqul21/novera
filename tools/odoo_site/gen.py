@@ -94,7 +94,7 @@ def hero_band(title, lead='', crumbs=(), extra=''):
         items = ''.join(f'<li class="breadcrumb-item"><a href="{a(u)}" class="text-reset">{t(n)}</a></li>' for n, u in crumbs)
         nav = f'<nav aria-label="breadcrumb"><ol class="breadcrumb mb-4 small">{items}</ol></nav>'
     lead_html = f'<p class="lead mb-0 s_nv_measure">{t(lead)}</p>' if lead else ''
-    return f'''<section class="s_title s_nv_pagehead o_cc o_cc5 pt128 pb96" data-snippet="s_title" data-name="Title">
+    return f'''<section class="s_title s_nv_pagehead o_cc o_cc5 pt192 pb96 s_nv_mist" data-snippet="s_title" data-name="Title">
   <div class="container">{nav}<h1 class="display-3 mb-4 s_nv_measure_h" id="hero-title">{t(title)}</h1>{lead_html}{extra}</div>
 </section>'''
 
@@ -266,30 +266,27 @@ def case(c, lang, nxt):
     return body, f"{c['title'][lang]} — Novera", c['summary'][lang]
 
 
+def aperture(lang):
+    """Aperture (Alloy) Accordion with the four services; first panel open."""
+    panels = ''
+    for i, k in enumerate(SVC_ORDER):
+        sv, opened = SVC[k], i == 0
+        panels += f'''<article class="fx-ap-panel fx-ap-tone-{i + 1}{' is-open' if opened else ''}">
+<span class="fx-ap-pane" aria-hidden="true"/>
+<button type="button" class="fx-ap-trigger" id="ap-{k}" aria-controls="ap-{k}-body" aria-expanded="{'true' if opened else 'false'}">
+<span class="fx-ap-spine">{t(sv[lang]['name'])}</span><span class="fx-ap-mark" aria-hidden="true"/></button>
+<img class="fx-ap-art" src="/assets/svc-{k}.webp" alt="" loading="lazy" width="800" height="800"/>
+<div class="fx-ap-body" id="ap-{k}-body" role="region" aria-labelledby="ap-{k}"{'' if opened else ' inert="inert"'}>
+<h3>{t(sv[lang]['name'])}</h3><p>{t(sv[lang]['lead'])}</p><a class="fx-ap-link" href="{a(sv['slug'][lang])}">{t(UI[lang]['more'])}</a></div></article>'''
+    return f'<div class="fx-aperture">{panels}</div>'
+
+
 # -- home --------------------------------------------------------------------
 def home(lang):
     L, u = links(lang), UI[lang]
     tr = lambda s: T(s, lang)
     directions = ''.join(f'<span class="s_badge badge s_nv_chip me-2 mb-2 fw-normal">{t(tr(d))}</span>'
                          for d in ('Web platformalar', 'Mobil ilovalar', 'Biznes tizimlari', 'AI & Data', 'Integratsiya'))
-    bullets = {'web': ('UX/UI va interaktiv prototip', 'Frontend, backend va CMS', 'SEO asoslari va ishga tushirish'),
-               'mobile': ('iOS va Android ilovalari', 'API va bildirishnomalar', 'Relizga tayyorlash va sinov'),
-               'integration': ('CRM, ERP va to‘lov integratsiyasi', 'Botlar va ichki ish oqimlari', 'Ma’lumotlarni sinxronlash'),
-               'ai': ('Bilim bazasiga ulangan yordamchi', 'Tahlil va hisobotlar', 'Inson nazorati va sifat baholash')}
-    leads = {'web': 'Brendingizni ifodalaydigan saytlar. Mijozlaringiz qaytib keladigan web-ilovalar.',
-             'mobile': 'iOS va Android uchun qulay, ravon va biznesingiz bilan birga o‘sadigan ilovalar.',
-             'integration': 'Tarqoq tizimlarni bog‘laymiz. Takroriy ishlarni aniq jarayonga aylantiramiz.',
-             'ai': 'Ma’lumotlardan foydali xulosalar. Jamoangiz vazifalariga mos AI yordamchilar.'}
-    images = {'web': 'digital-products', 'mobile': 'digital-products', 'integration': 'connected-systems', 'ai': 'connected-systems'}
-    svc_cards = ''
-    for i, k in enumerate(SVC_ORDER):
-        s = SVC[k]
-        items = ''.join(f'<li class="d-flex gap-2 py-1"><span class="text-o-color-1">{ICONS["check"]}</span>{t(tr(b))}</li>' for b in bullets[k])
-        img = (f'<figure class="o_card_img_wrapper ratio ratio-16x9 mb-0"><img class="o_card_img card-img-top" src="/assets/{images[k]}-900.webp" '
-               f'srcset="{srcset(images[k])}" sizes="(min-width: 992px) 50vw, 100vw" alt="" loading="lazy"/></figure>') if i in (0, 2) else ''
-        svc_cards += f'''<div class="col-lg-6 pt16 pb16"><a href="{a(s['slug'][lang])}" class="s_card card o_cc o_cc1 h-100 text-reset text-decoration-none s_nv_card" data-snippet="s_card">{img}
-<div class="card-body p-4 p-lg-5"><h3 class="card-title h3-fs">{t(s[lang]['name'])}</h3><p class="card-text">{t(tr(leads[k]))}</p><ul class="list-unstyled mb-4">{items}</ul>
-<span class="s_nv_link">{t(u['more'])}</span></div></a></div>'''
     formats = [('To‘liq loyiha', 'G‘oyadan dizayn, dasturlash va ishga tushirishgacha bitta hamkor bilan.', 'Yangi mahsulot yoki platformani yaratishda.', 'Kelishilgan hajm, bosqichlar va qabul mezonlari.', 'Loyihani muhokama qilish'),
                ('Jamoani kuchaytirish', 'Mavjud jamoangizga kerakli texnik kompetensiya va qo‘shimcha ishlab chiqish quvvati.', 'Ichki jamoa bor, lekin resurs yoki tajriba yetishmaydi.', 'Birgalikdagi backlog, rollar va muntazam natija ko‘rigi.', 'Jamoa ehtiyojini muhokama qilish'),
                ('Rivojlantirish', 'Mavjud mahsulotni audit qilish, integratsiya qo‘shish va texnik qarzni kamaytirish.', 'Tizim ishlayapti, keyingi bosqichga tayyorlash kerak.', 'Texnik audit, ustuvor vazifalar va bosqichli yaxshilash.', 'Tizimni muhokama qilish')]
@@ -301,8 +298,8 @@ def home(lang):
         ('Biznesdan boshlaymiz', 'Avval maqsad va jarayon. Keyin texnologiya va kod.'),
         ('Inson uchun yaratamiz', 'Murakkab tizim ortida ham tushunarli tajriba bo‘lishi kerak.'),
         ('Kelajakni hisobga olamiz', 'Yangi vazifalar uchun kengaytiriladigan arxitektura.')))
-    quality = ''.join(f'''<div class="col-lg-3 col-md-6 pt16 pb16"><span class="s_nv_icon rounded mb-3" aria-hidden="true">{ICONS[ic]}</span>
-<h3 class="h5-fs">{t(tr(h))}</h3><p class="mb-0">{t(tr(p))}</p></div>''' for ic, h, p in (
+    quality = ''.join(f'''<div class="col-lg-3 col-md-6 pt16 pb16"><div class="s_nv_tile"><span class="s_nv_icon rounded mb-3" aria-hidden="true">{ICONS[ic]}</span>
+<h3 class="h5-fs">{t(tr(h))}</h3><p class="mb-0">{t(tr(p))}</p></div></div>''' for ic, h, p in (
         ('screen', 'Har ekranga mos', 'Telefon, planshet va desktop uchun alohida o‘ylangan tajriba.'),
         ('eye', 'Qulay va tushunarli', 'Aniq navigatsiya, o‘qiladigan matn va klaviatura bilan boshqarish.'),
         ('bolt', 'Yengil va tezkor', 'Optimallashtirilgan media va vazifaga mos texnik yechimlar.'),
@@ -320,23 +317,20 @@ def home(lang):
     rows = ''.join(f'''<div class="col-lg-12 pt32 pb24 border-bottom"><a href="{a(case_url(c, lang))}" class="row text-reset text-decoration-none align-items-baseline s_nv_row">
 <div class="col-12 col-lg-8"><h3 class="display-5-fs mb-0">{t(c['short'][lang])}</h3></div><div class="col-12 col-lg-4 text-lg-end"><span class="s_nv_muted">{t(c['sector'][lang])}</span></div></a></div>''' for c in CASES['cases'] if c['slug']['uz'] not in FEATURED)
     body = preloader() + f'''
-<section class="s_split_intro o_cc o_cc5 pt128 pb96 s_nv_hero" data-snippet="s_split_intro" data-name="Split Intro">
+<section class="s_split_intro o_cc o_cc5 pt128 pb96 s_nv_hero s_nv_mist" data-snippet="s_split_intro" data-name="Split Intro">
   <div class="container"><div class="row align-items-center">
     <div class="col-lg-6 pb48 o_animate o_anim_fade_in o_anim_from_bottom">
       <h1 class="display-1 mb-4" id="hero-title">{two_lines('Katta g‘oyalar.', 'Aniq yechimlar.', lang)}</h1>
       <p class="lead mb-5 s_nv_measure">{t(tr('IT autsorsing va dasturlash: biznesingizning keyingi bosqichi uchun web, mobil va aqlli tizimlarni yaratamiz.'))}</p>
       <div class="d-flex flex-wrap align-items-center gap-3">{metal_btn('#boshlash', u['cta'])}{glass_btn('#ishlar', u['menu'][0])}</div>
     </div>
-    <div class="col-lg-6 o_animate o_anim_fade_in">
-      <img src="/assets/novera-sculpture-900.webp" srcset="{srcset('novera-sculpture')}" sizes="(min-width: 992px) 50vw, 100vw" class="img img-fluid s_nv_sculpture" alt="{a(tr('Bog‘langan tizimlarni ifodalovchi yashil va kumush rangli abstrakt haykal'))}" fetchpriority="high"/>
+    <div class="col-lg-6 s_nv_stage">
+      <img src="/assets/novera-ribbon-942.webp" srcset="/assets/novera-ribbon-600.webp 600w, /assets/novera-ribbon-942.webp 942w" sizes="(min-width: 992px) 48vw, 92vw" class="img img-fluid s_nv_ribbon" data-ribbon="1" alt="{a(tr('Bog‘langan tizimlarni ifodalovchi yashil va kumush rangli abstrakt haykal'))}" fetchpriority="high"/>
     </div>
   </div></div>
 </section>
-<section class="s_text_highlight o_cc o_cc2 pt64 pb64" data-snippet="s_text_highlight" data-name="Text Highlight">
-  <div class="container"><div class="row align-items-center">
-    <div class="col-lg-6"><p class="h2-fs mb-3 mb-lg-0 s_nv_serif">{two_lines('Strategiya. Dizayn. Dasturlash.', 'Bitta yaxlit yondashuv.', lang)}</p></div>
-    <div class="col-lg-6 text-lg-end">{directions}</div>
-  </div></div>
+<section class="s_text_highlight pt128 pb32" data-snippet="s_text_highlight" data-name="Text Highlight">
+  <div class="container"><p class="sh-statement">{t(PAGES_JSON['about']['lead'][lang])}</p><div class="mt-5">{directions}</div></div>
 </section>
 <section class="s_title_split pt128 pb48" id="ishlar" data-snippet="s_title_split" data-name="Title Split"><div class="container"><div class="row"><div class="col-lg-7"><h2 class="display-3-fs">{t(CASES['ui'][lang]['title'])}</h2></div>
 <div class="col-lg-4 offset-lg-1 d-flex align-items-end"><p class="lead mb-0">{t(u['work_p'])}</p></div></div></div></section>
@@ -346,7 +340,7 @@ def home(lang):
   <div class="container">
     <div class="row mb-4"><div class="col-lg-7"><h2 class="display-4-fs">{two_lines('Vazifa sizniki.', 'Yechim — birgalikda.', lang)}</h2></div>
     <div class="col-lg-4 offset-lg-1 d-flex align-items-end"><p class="lead mb-0">{t(tr('Bir sahifali saytdan murakkab platformagacha. Texnologiyani vazifangizga qarab tanlaymiz.'))}</p></div></div>
-    <div class="row">{svc_cards}</div>
+    {aperture(lang)}
   </div>
 </section>
 <section class="s_comparisons o_cc o_cc2 pt96 pb96" id="hamkorlik" data-snippet="s_comparisons" data-name="Comparisons">
@@ -382,7 +376,7 @@ def home(lang):
 {faq(two_lines('Boshlashdan', 'oldin.', lang), qa, 'savollar')}
 <section class="s_website_form_cover o_cc o_cc2" id="boshlash" data-snippet="s_website_form_cover">
   <div class="container-fluid"><div class="row s_nb_column_fixed">
-    <div class="col-lg-5 oe_img_bg o_bg_img_center pt128 pb128 s_nv_formimg" style="background-image: url('/assets/novera-sculpture-1200.webp');"/>
+    <div class="col-lg-5 s_nv_formimg"><img src="/assets/novera-ribbon-600.webp" alt="" loading="lazy" class="s_nv_ribbon"/></div>
     <div class="col-lg-7 pt80 pb80 px-4 px-lg-5">
       <h2 class="display-4-fs">{two_lines('G‘oyangiz bor.', 'Endi unga yo‘l ochamiz.', lang)}</h2>
       <p class="lead">{t(tr('Qisqacha vazifangizni yozing. Birinchi suhbatdan yechim yo‘lini birgalikda aniqlaymiz.'))}</p>
@@ -408,10 +402,10 @@ def service(s, lang):
     ui, d = SERVICES['ui'][lang], s[lang]
     image = 'digital-products' if s['id'] in ('web', 'mobile') else 'connected-systems'
     body = hero_band(d['h1'], d['lead'], ((ui['home'], HOME[lang]), (ui['services'], links(lang)['services'])),
-                     f'<p class="mt-5 mb-0"><a href="{a(links(lang)["contact"])}" class="btn btn-lg btn-secondary">{t(UI[lang]["cta"])}</a></p>')
+                     f'<p class="mt-5 mb-0"><a href="{a(links(lang)["contact"])}" class="btn btn-lg btn-light">{t(UI[lang]["cta"])}</a></p>')
     body += f'''<section class="s_picture o_cc o_cc5 pb96" data-snippet="s_picture"><div class="container">
 <img src="/assets/{image}-1200.webp" srcset="{srcset(image)}" sizes="100vw" alt="" class="img img-fluid rounded w-100 s_nv_artwork"/></div></section>'''
-    body += cards(t(ui['build']), d['kinds'], cc='o_cc1', inner='o_cc2')
+    body += cards(t(ui['build']), d['kinds'], cc='o_cc1', inner='s_nv_soft')
     body += cards(t(ui['scope']), d['scope'], cc='o_cc2')
     body += timeline(lang, t(ui['process']))
     if d.get('faq'):
@@ -428,7 +422,7 @@ def service(s, lang):
 def about(lang):
     p, ui = PAGES_JSON['about'], PAGES_JSON['ui'][lang]
     body = hero_band(p['headline'][lang], p['lead'][lang], ((ui['home'], HOME[lang]),))
-    body += cards(t(p['principles_title'][lang]), p['principles'][lang], cc='o_cc1', inner='o_cc2')
+    body += cards(t(p['principles_title'][lang]), p['principles'][lang], cc='o_cc1', inner='s_nv_soft')
     svc = ''.join(f'''<div class="col-lg-3 col-md-6 pt16 pb16"><a href="{a(SVC[k]['slug'][lang])}" class="s_card card o_cc o_cc1 h-100 border-0 text-reset text-decoration-none s_nv_card" data-snippet="s_card">
 <div class="card-body p-4"><h3 class="h5-fs">{t(SVC[k][lang]['name'])}</h3><p class="mb-0">{t(SVC[k][lang]['lead'])}</p></div></a></div>''' for k in SVC_ORDER)
     body += f'<section class="s_cards_grid o_cc o_cc2 pt96 pb80" data-snippet="s_cards_grid"><div class="container"><h2 class="display-5-fs mb-4">{t(p["services_label"][lang])}</h2><div class="row">{svc}</div></div></section>'
