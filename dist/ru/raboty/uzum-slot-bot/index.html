@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="Telegram-бот через Uzum Seller API в фоне отслеживает свободные слоты сдачи на склад и сразу сообщает продавцу о найденном слоте."/>
+        <title>Бот бронирования слотов для продавцов Uzum Market — Novera</title>
+    
+        <link rel="canonical" href="https://noveragroup.uz/ru/raboty/uzum-slot-bot/"/>
+        <link rel="alternate" hreflang="uz" href="https://noveragroup.uz/ishlar/uzum-slot-bot/"/>
+        <link rel="alternate" hreflang="en" href="https://noveragroup.uz/en/work/uzum-slot-bot/"/>
+        <link rel="alternate" hreflang="ru" href="https://noveragroup.uz/ru/raboty/uzum-slot-bot/"/>
+        <link rel="alternate" hreflang="x-default" href="https://noveragroup.uz/ishlar/uzum-slot-bot/"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:site_name" content="Novera"/>
+        <meta property="og:locale" content="ru_RU"/>
+        <meta property="og:title" content="Бот бронирования слотов для продавцов Uzum Market — Novera"/>
+        <meta property="og:description" content="Telegram-бот через Uzum Seller API в фоне отслеживает свободные слоты сдачи на склад и сразу сообщает продавцу о найденном слоте."/>
+        <meta property="og:url" content="https://noveragroup.uz/ru/raboty/uzum-slot-bot/"/>
+        <meta property="og:image" content="https://noveragroup.uz/assets/novera-sculpture.jpg"/>
+        <meta name="twitter:card" content="summary_large_image"/>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "name": "Novera", "url": "https://noveragroup.uz/", "logo": "https://noveragroup.uz/assets/favicon.svg", "telephone": "+998998112829", "email": "main@noveragroup.uz", "legalName": "«NOVERA» MCHJ", "taxID": "313278248"}, {"@type": "WebPage", "url": "https://noveragroup.uz/ru/raboty/uzum-slot-bot/", "name": "Бот бронирования слотов для продавцов Uzum Market — Novera", "description": "Telegram-бот через Uzum Seller API в фоне отслеживает свободные слоты сдачи на склад и сразу сообщает продавцу о найденном слоте.", "inLanguage": "ru", "isPartOf": {"@type": "WebSite", "name": "Novera", "url": "https://noveragroup.uz/"}}]}</script>
+        <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
+        <link rel="stylesheet" href="/assets/builder.css?v=7bcbb06b26"/>
+        <script src="/assets/messages.js?v=6ca6ba4f38" defer="defer"></script>
+        <script src="/assets/builder.js?v=f6dbe8b778" defer="defer"></script>
+        <script src="/assets/forms.js?v=b76ad6eb7d" defer="defer"></script>
+        <script src="/assets/fx.js?v=fa85409b9c" defer="defer"></script>
+        <script src="/assets/mist.js?v=85e4485253" defer="defer"></script>
+        <script src="/assets/lenis-1.3.26.min.js" defer="defer"></script>
+        <script src="/assets/motion.js?v=92a8971216" defer="defer"></script>
+        <script src="/assets/show.js?v=cf2f1822dd" defer="defer"></script>
+    </head>
+    <body class="o_id_1353 o_website_url_s_ru_raboty_uzum_slot_bot">
+        <div class="" id="wrapwrap">
+            <a class="o_skip_to_content btn btn-primary rounded-0 visually-hidden-focusable position-absolute start-0" href="#wrap">Skip to Content</a>
+                <header class="o_header_fixed" id="top" data-anchor="true" data-name="Header">
+    <nav class="navbar navbar-expand-lg navbar-light o_colored_level o_cc d-none d-lg-block" data-name="Navbar" aria-label="Main">
+            <div class="o_main_nav container" id="o_main_nav">
+    <a class="navbar-brand logo me-4" data-name="Navbar Logo" href="/"><span class="s_nv_word">novera<span aria-hidden="true">✳</span></span></a>
+    <ul class="nav navbar-nav top_menu me-auto" role="menu" id="top_menu">
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" role="menuitem" href="/ru/#ishlar">
+            <span>Работы</span>
+        </a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" role="menuitem" href="/ru/#yechimlar">
+            <span>Услуги</span>
+        </a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" role="menuitem" href="/ru/#hamkorlik">
+            <span>Форматы</span>
+        </a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" role="menuitem" href="/ru/#yondashuv">
+            <span>Подход</span>
+        </a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" role="menuitem" href="/ru/#savollar">
+            <span>Вопросы</span>
+        </a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" role="menuitem" href="/ru/o-nas/">
+            <span>О нас</span>
+        </a>
+    </li>
+    </ul>
+                <ul class="navbar-nav align-items-center gap-2 flex-shrink-0 justify-content-end ps-3"><li class="nav-item d-flex s_nv_lang" aria-label="Language"><a href="/ishlar/uzum-slot-bot/" lang="uz" hreflang="uz" class="nav-link px-1">UZ</a><a href="/en/work/uzum-slot-bot/" lang="en" hreflang="en" class="nav-link px-1">EN</a><a href="/ru/raboty/uzum-slot-bot/" lang="ru" hreflang="ru" class="nav-link px-1 fw-semibold active" aria-current="true">RU</a></li>
+        <li class="">
+            <div class="oe_structure oe_structure_solo">
+                <section class="oe_unremovable oe_unmovable s_text_block" data-snippet="s_text_block" data-name="Text">
+                    <div class="container">
+                        <a class="oe_unremovable btn btn-primary btn_cta" href="/ru/#boshlash">Обсудить проект</a>
+                    </div>
+                </section>
+            </div>
+        </li>
+                </ul>
+            </div>
+    </nav>
+    <nav class="navbar navbar-light o_colored_level o_cc o_header_mobile d-block d-lg-none" data-name="Navbar" aria-label="Mobile">
+        <div class="o_main_nav container flex-wrap justify-content-between">
+            <div class="d-flex flex-grow-1">
+    <a class="navbar-brand logo" data-name="Navbar Logo" href="/"><span class="s_nv_word">novera<span aria-hidden="true">✳</span></span></a>
+                <ul class="o_header_mobile_buttons_wrap navbar-nav d-flex flex-row align-items-center gap-2 mb-0 ms-auto"><li class="nav-item d-flex s_nv_lang" aria-label="Language"><a href="/ishlar/uzum-slot-bot/" lang="uz" hreflang="uz" class="nav-link px-1">UZ</a><a href="/en/work/uzum-slot-bot/" lang="en" hreflang="en" class="nav-link px-1">EN</a><a href="/ru/raboty/uzum-slot-bot/" lang="ru" hreflang="ru" class="nav-link px-1 fw-semibold active" aria-current="true">RU</a></li></ul>
+            </div>
+            <button class="nav-link btn p-2 o_not_editable" type="button" data-bs-toggle="offcanvas" data-bs-target="#top_menu_collapse_mobile" aria-controls="top_menu_collapse_mobile" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end o_navbar_mobile" id="top_menu_collapse_mobile">
+                <div class="offcanvas-header justify-content-end o_not_editable">
+                    <button class="nav-link btn-close" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body d-flex flex-column justify-content-between h-100 w-100 pt-0">
+                    <ul class="navbar-nav">
+                        <li>
+    <ul class="nav navbar-nav top_menu o_mega_menu_is_offcanvas mx-n3" role="menu">
+    <li class="nav-item border-top px-0" role="presentation">
+        <a class="nav-link p-3 text-wrap" role="menuitem" href="/ru/#ishlar">
+            <span>Работы</span>
+        </a>
+    </li>
+    <li class="nav-item border-top px-0" role="presentation">
+        <a class="nav-link p-3 text-wrap" role="menuitem" href="/ru/#yechimlar">
+            <span>Услуги</span>
+        </a>
+    </li>
+    <li class="nav-item border-top px-0" role="presentation">
+        <a class="nav-link p-3 text-wrap" role="menuitem" href="/ru/#hamkorlik">
+            <span>Форматы</span>
+        </a>
+    </li>
+    <li class="nav-item border-top px-0" role="presentation">
+        <a class="nav-link p-3 text-wrap" role="menuitem" href="/ru/#yondashuv">
+            <span>Подход</span>
+        </a>
+    </li>
+    <li class="nav-item border-top px-0" role="presentation">
+        <a class="nav-link p-3 text-wrap" role="menuitem" href="/ru/#savollar">
+            <span>Вопросы</span>
+        </a>
+    </li>
+    <li class="nav-item border-top border-bottom px-0" role="presentation">
+        <a class="nav-link p-3 text-wrap" role="menuitem" href="/ru/o-nas/">
+            <span>О нас</span>
+        </a>
+    </li>
+    </ul>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav gap-2 mt-3 w-100">
+        <li class="">
+            <div class="oe_structure oe_structure_solo">
+                <section class="oe_unremovable oe_unmovable s_text_block" data-snippet="s_text_block" data-name="Text">
+                    <div class="container">
+                        <a class="oe_unremovable btn btn-primary btn_cta w-100" href="/ru/#boshlash">Обсудить проект</a>
+                    </div>
+                </section>
+            </div>
+        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    </header>
+                <main class="">
+                    <div class="oe_structure" id="wrap">
+<section class="sh-hero sh-t-plain" data-snippet="s_title" data-name="Title"><div class="container">
+<nav aria-label="breadcrumb"><ol class="breadcrumb mb-4 small"><li class="breadcrumb-item"><a href="/ru/#ishlar">Работы</a></li></ol></nav>
+<h1 id="hero-title">Бот бронирования слотов для продавцов Uzum Market</h1><p class="lead mb-0">Telegram-бот через Uzum Seller API в фоне отслеживает свободные слоты сдачи на склад и сразу сообщает продавцу о найденном слоте.</p><dl class="row mt-5 mb-0 s_nv_meta"><div class="col-6 col-lg-3 pt16"><dt class="small fw-normal">Клиент</dt><dd class="mb-0">Продавцы Uzum Market</dd></div><div class="col-6 col-lg-3 pt16"><dt class="small fw-normal">Отрасль</dt><dd class="mb-0">E-commerce, логистика</dd></div><div class="col-6 col-lg-3 pt16"><dt class="small fw-normal">Статус</dt><dd class="mb-0">Разработан</dd></div><div class="col-6 col-lg-3 pt16"><dt class="small fw-normal">Год</dt><dd class="mb-0">2026</dd></div></dl></div></section><section class="s_title_split pt64 pb32" data-snippet="s_title_split" data-name="Title Split"><div class="container"><div class="row border-top pt48">
+<div class="col-lg-4"><h2 class="h3-fs">Задача</h2></div><div class="col-lg-7 offset-lg-1"><p class="lead">Чтобы сдать товар на склад маркетплейса, нужен забронированный слот, а свободные слоты быстро заканчиваются. Продавцам приходилось вручную проверять их снова и снова.</p></div></div></div></section><section class="s_title_split pt64 pb32" data-snippet="s_title_split" data-name="Title Split"><div class="container"><div class="row border-top pt48">
+<div class="col-lg-4"><h2 class="h3-fs">Решение</h2></div><div class="col-lg-7 offset-lg-1"><p class="lead">Продавец регистрируется со своим токеном Uzum Seller API и создаёт задачу с ID магазина и номером накладной.</p><p class="lead">Фоновый проверяльщик регулярно ищет свободные слоты и сразу пишет в Telegram, когда слот найден.</p><p class="lead">Задачи и их статус управляются прямо в боте.</p></div></div></div></section><section class="s_title_split pt64 pb32" data-snippet="s_title_split" data-name="Title Split"><div class="container"><div class="row border-top pt48">
+<div class="col-lg-4"><h2 class="h3-fs">Результат</h2></div><div class="col-lg-7 offset-lg-1"><p class="lead">Продавцу больше не нужно следить за слотами вручную: бот делает это за него и сообщает в нужный момент.</p></div></div></div></section><section class="s_cards_grid o_cc o_cc2 pt96 pb80" data-snippet="s_cards_grid" data-name="Cards Grid">
+  <div class="container"><h2 class="display-5-fs mb-4">Ждать слот — работа бота.</h2><div class="row"><div class="col-lg-4 col-md-6 pt16 pb16"><div class="s_card card o_cc o_cc1 h-100 border-0" data-snippet="s_card">
+<div class="card-body p-4"><h3 class="card-title h5-fs">Uzum Seller API</h3><p class="card-text mb-0">Работа с официальным API по токену продавца.</p></div></div></div><div class="col-lg-4 col-md-6 pt16 pb16"><div class="s_card card o_cc o_cc1 h-100 border-0" data-snippet="s_card">
+<div class="card-body p-4"><h3 class="card-title h5-fs">Фоновая проверка</h3><p class="card-text mb-0">Свободные слоты ищутся постоянно.</p></div></div></div><div class="col-lg-4 col-md-6 pt16 pb16"><div class="s_card card o_cc o_cc1 h-100 border-0" data-snippet="s_card">
+<div class="card-body p-4"><h3 class="card-title h5-fs">Несколько задач</h3><p class="card-text mb-0">Отдельная задача и статус для каждой накладной.</p></div></div></div><div class="col-lg-4 col-md-6 pt16 pb16"><div class="s_card card o_cc o_cc1 h-100 border-0" data-snippet="s_card">
+<div class="card-body p-4"><h3 class="card-title h5-fs">Мгновенное уведомление</h3><p class="card-text mb-0">Сообщение в Telegram, как только найден слот.</p></div></div></div></div></div>
+</section><section class="s_text_block pt64 pb32" data-snippet="s_text_block"><div class="container"><div class="row border-top pt48">
+<div class="col-lg-4"><h2 class="h3-fs">Технологии</h2></div><div class="col-lg-7 offset-lg-1 fs-5"><span class="s_badge badge s_nv_badge me-2 mb-2 fw-normal">Python</span><span class="s_badge badge s_nv_badge me-2 mb-2 fw-normal">aiogram</span><span class="s_badge badge s_nv_badge me-2 mb-2 fw-normal">SQLite</span><span class="s_badge badge s_nv_badge me-2 mb-2 fw-normal">Uzum Seller API</span></div></div></div></section>
+<section class="s_projects_list pt48 pb96" data-snippet="s_projects_list"><div class="container">
+<a class="sh-next sh-t-plain" href="/ru/raboty/uchet-kluba/"><span><small>Следующий проект</small><b>Учёт доходов и расходов для бильярдного клуба</b></span><span class="sh-next-art"></span></a></div></section><section class="s_cta_box o_cc o_cc5 pt128 pb128 mx-finale s_nv_mist" data-snippet="s_cta_box" data-name="Call to Action"><div class="container">
+<h2 class="mx-finale-title">Обсудим ваш проект</h2><div class="mx-finale-row"><p class="lead">Кратко опишите задачу. На первом разговоре вместе определим путь решения.</p><a class="fx-eye fx-eye--light" href="/ru/#boshlash" data-magnetic="0.25"><span>Отправить заявку</span><span class="fx-eyes" aria-hidden="true"><span class="fx-eye-ball"><span class="fx-eye-pupil"></span></span><span class="fx-eye-ball"><span class="fx-eye-pupil"></span></span></span></a></div></div></section>
+</div>
+        <div class="oe_unremovable" id="o_shared_blocks"></div>
+                </main>
+                <footer class="o_footer o_colored_level o_cc" id="bottom" data-anchor="true" data-name="Footer">
+                    <div class="oe_structure oe_structure_solo border text-break s-a5440c6" id="footer">
+            <section class="s_text_block" data-snippet="s_text_block" data-name="Container">
+            <div class="o_we_shape o_html_builder_Bold_21 o_shape_show_mobile s-c6a5c85"></div>
+                <div class="container s_allow_columns">
+                    <div class="row">
+<div class="col-lg-12 pt64 pb24"><p class="h3 mb-0 s_nv_word">novera<span aria-hidden="true">✳</span></p></div>
+<div class="col-lg-5 pb48"><p>IT-аутсорсинг и разработка: создаём веб-платформы, мобильные приложения и интеллектуальные системы для следующего этапа вашего бизнеса.</p>
+<p><a class="btn btn-lg btn-secondary" href="/ru/#boshlash">Обсудить проект</a></p></div>
+<div class="col-lg-3 offset-lg-1 pb48"><ul class="list-unstyled"><li><a href="/ru/#ishlar">Работы</a></li><li><a href="/ru/#yechimlar">Услуги</a></li><li><a href="/ru/#yondashuv">Подход</a></li><li><a href="/ru/o-nas/">О нас</a></li><li><a href="/ru/konfidentsialnost/">Политика конфиденциальности</a></li></ul></div>
+<div class="col-lg-3 pb48"><p><b>Ташкент, Узбекистан</b></p><ul class="list-unstyled mb-2"><li><a href="tel:+998998112829">+998 99 811 28 29</a></li><li><a href="mailto:main@noveragroup.uz">main@noveragroup.uz</a></li></ul><p class="small mb-0 mt-3"><span>ООО «NOVERA»</span><br/><span>ИНН 313 278 248</span></p></div>
+</div></div>
+            </section>
+        </div>
+    <div class="o_footer_copyright o_colored_level o_cc" data-name="Copyright">
+                        <div class="container py-3">
+                            <div class="row row-gap-2">
+                                <div class="col-md text-center text-muted d-flex flex-column-reverse gap-2 text-md-start" name="footer_copyright_col">
+                                    <span class="o_footer_copyright_name small">
+            Copyright &copy; <span>Novera</span>
+        </span>
+        </div>
+                                <div class="col-md text-center o_not_editable small mt-auto mb-0 text-md-end">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </body>
+</html>

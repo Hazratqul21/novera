@@ -71,3 +71,9 @@ Dizayn Odoo website builder bloklari bilan chizildi; sayt avvalgidek statik, Odo
   eski dizayn bilan qayta yozib yuboradi.
 
 Ish tartibi: `python3 tools/odoo_site/odoo.py pages && python3 tools/odoo_site/export.py && python3 tools/check_site.py && python3 tools/check_seo.py`
+
+## Loyihalar va yangi harakat (24.11.2026, lokal)
+
+- `content/cases.json`: 11 loyiha (egasining roziligi bilan, 24.11.2026), sahifalar `/ishlar/`, `/en/work/`, `/ru/raboty/`.
+- Yangi: `dist/assets/{fx,mist,motion,show}.js`, `dist/assets/work/`, `tools/odoo_site/{fx,motion,show}.css`.
+- Kirish sahnasi: yulduz aylanib chiqadi, keyin "deraza"ga aylanadi; seansda bir marta, har qanday harakat o‘tkazib yuboradi.

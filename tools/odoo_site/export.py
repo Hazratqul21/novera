@@ -19,6 +19,7 @@ import subprocess
 import sys
 import urllib.request
 from html import escape
+from html.entities import name2codepoint
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -158,7 +159,12 @@ class Rewriter(HTMLParser):
                             '\n        <link rel="stylesheet" href="/assets/builder.css?v={css}"/>'
                             '\n        <script src="/assets/messages.js?v={messages}" defer="defer"></script>'
                             '\n        <script src="/assets/builder.js?v={js}" defer="defer"></script>'
-                            '\n        <script src="/assets/forms.js?v={forms}" defer="defer"></script>\n    ')
+                            '\n        <script src="/assets/forms.js?v={forms}" defer="defer"></script>'
+                            '\n        <script src="/assets/fx.js?v={fx}" defer="defer"></script>'
+                            '\n        <script src="/assets/mist.js?v={mist}" defer="defer"></script>'
+                            '\n        <script src="/assets/lenis-1.3.26.min.js" defer="defer"></script>'
+                            '\n        <script src="/assets/motion.js?v={motion}" defer="defer"></script>'
+                            '\n        <script src="/assets/show.js?v={show}" defer="defer"></script>\n    ')
         if tag not in VOID:
             self.out.append(f'</{tag}>')
 
@@ -175,7 +181,8 @@ class Rewriter(HTMLParser):
 
     def handle_entityref(self, name):
         if not (self.skip or self.in_brand):
-            self.out.append(f'&{name};')
+            # "ATT&CK" is text, not an entity
+            self.out.append(f'&{name};' if name in name2codepoint else f'&amp;{name}')
 
     def handle_charref(self, name):
         if not (self.skip or self.in_brand):
@@ -254,6 +261,15 @@ def purge(css_path: Path, html_files: list[Path]):
         config.unlink(missing_ok=True)
 
 
+def minify_css(css: str) -> str:
+    """Comments and layout whitespace out; strings and url() contents are left alone."""
+    css = re.sub(r'/\*.*?\*/', '', css, flags=re.S)
+    css = re.sub(r'\s+', ' ', css)
+    css = re.sub(r'\s*([{};,>])\s*', r'\1', css)
+    css = re.sub(r'([^\s(]):\s+', r'\1:', css)
+    return css.replace(';}', '}').strip()
+
+
 def version(path: Path) -> str:
     return hashlib.sha1(path.read_bytes()).hexdigest()[:10]
 
@@ -262,7 +278,7 @@ def localize(html: str, page: dict, group: dict) -> str:
     """Header/footer are shared in Odoo (Russian); give each page its language."""
     lang, L, u = page['lang'], links(page['lang']), UI[page['lang']]
     html = re.sub(r'<html lang="[^"]*"', f'<html lang="{lang}"', html, count=1)
-    keys = ['services', 'formats', 'approach', 'faq', 'about']
+    keys = ['work', 'services', 'formats', 'approach', 'faq', 'about']
     for i, key in enumerate(keys):
         html = re.sub(rf'(href="/?#m-{key}"[^>]*>\s*<span>)[^<]*(</span>)', rf'\g<1>{u["menu"][i]}\g<2>', html)
     html = re.sub(r'href="/?#m-(\w+)"', lambda m: f'href="{L[m[1]]}"', html)
@@ -348,12 +364,13 @@ def main():
 
     # one render-blocking stylesheet: Odoo theme, former inline styles, static-export fixes
     parts = [(css_dir / 'site-theme.css').read_text(encoding='utf-8'), (css_dir / 'site-inline.css').read_text(encoding='utf-8'),
-             (HERE / 'static.css').read_text(encoding='utf-8')]
-    (css_dir / 'builder.css').write_text('\n'.join(parts), encoding='utf-8')
+             *((HERE / f).read_text(encoding='utf-8') for f in ('static.css', 'fx.css', 'motion.css', 'show.css'))]
+    (css_dir / 'builder.css').write_text('\n'.join(map(minify_css, parts)), encoding='utf-8')
     for n in ('site-theme.css', 'site-inline.css'):
         (css_dir / n).unlink()
     versions = {'css': version(css_dir / 'builder.css'), 'js': version(OUT / 'assets/builder.js'),
-                'forms': version(OUT / 'assets/forms.js'), 'messages': version(OUT / 'assets/messages.js')}
+                'forms': version(OUT / 'assets/forms.js'), 'messages': version(OUT / 'assets/messages.js'),
+                **{n: version(OUT / f'assets/{n}.js') for n in ('fx', 'mist', 'motion', 'show')}}
     for page in written:
         html = page.read_text(encoding='utf-8')
         for key, value in versions.items():

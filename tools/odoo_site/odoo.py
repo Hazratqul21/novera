@@ -49,13 +49,13 @@ VIEWS_OFF = ['website.header_search_box', 'website.header_text_element', 'websit
 VIEWS_ON = ['website.header_visibility_fixed', 'website.header_language_selector_code',
             'website.template_footer_descriptive']
 # Menu targets are placeholders: export.py swaps in each language's label and URL.
-MENU = [('Xizmatlar', '#m-services'), ('Formatlar', '#m-formats'), ('Yondashuv', '#m-approach'),
+MENU = [('Ishlar', '#m-work'), ('Xizmatlar', '#m-services'), ('Formatlar', '#m-formats'), ('Yondashuv', '#m-approach'),
         ('Savollar', '#m-faq'), ('Biz haqimizda', '#m-about')]
 FOOTER_ROWS = '''<div class="row">
 <div class="col-lg-12 pt64 pb24"><p class="h3 mb-0 s_nv_word">novera<span aria-hidden="true">✳</span></p></div>
 <div class="col-lg-5 pb48"><p data-i18n="footer">IT autsorsing va dasturlash: biznesingizning keyingi bosqichi uchun web, mobil va aqlli tizimlarni yaratamiz.</p>
 <p><a href="#m-contact" class="btn btn-lg btn-secondary" data-i18n="cta">Loyihani muhokama qilish</a></p></div>
-<div class="col-lg-3 offset-lg-1 pb48"><ul class="list-unstyled"><li><a href="#m-services" data-i18n="menu0">Xizmatlar</a></li><li><a href="#m-approach" data-i18n="menu2">Yondashuv</a></li><li><a href="#m-about" data-i18n="menu4">Biz haqimizda</a></li><li><a href="#m-privacy" data-i18n="privacy">Maxfiylik siyosati</a></li></ul></div>
+<div class="col-lg-3 offset-lg-1 pb48"><ul class="list-unstyled"><li><a href="#m-work" data-i18n="menu0">Ishlar</a></li><li><a href="#m-services" data-i18n="menu1">Xizmatlar</a></li><li><a href="#m-approach" data-i18n="menu3">Yondashuv</a></li><li><a href="#m-about" data-i18n="menu5">Biz haqimizda</a></li><li><a href="#m-privacy" data-i18n="privacy">Maxfiylik siyosati</a></li></ul></div>
 <div class="col-lg-3 pb48"><p><b data-i18n="city">Toshkent, O‘zbekiston</b></p><ul class="list-unstyled mb-2"><li><a href="tel:+998998112829">+998 99 811 28 29</a></li><li><a href="mailto:main@noveragroup.uz">main@noveragroup.uz</a></li></ul><p class="small mb-0 mt-3"><span data-i18n="legal">«NOVERA» MCHJ</span><br/><span data-i18n="tin">STIR 313 278 248</span></p></div>
 </div></div>
             '''

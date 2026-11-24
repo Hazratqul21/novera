@@ -50,15 +50,15 @@ def odoo_url(path: str) -> str:
 
 
 UI = {
-    'uz': {'menu': ['Xizmatlar', 'Formatlar', 'Yondashuv', 'Savollar', 'Biz haqimizda'], 'cta': 'Loyihani muhokama qilish',
+    'uz': {'open': 'Loyihani ko‘rish', 'visit': 'Saytni ochish', 'gallery': 'Ekranlar', 'work_p': 'Biz loyihalab, ishga tushirgan haqiqiy tizimlar: vazifa, yechim va natija.', 'menu': ['Ishlar', 'Xizmatlar', 'Formatlar', 'Yondashuv', 'Savollar', 'Biz haqimizda'], 'cta': 'Loyihani muhokama qilish',
            'footer': T('IT autsorsing va dasturlash: biznesingizning keyingi bosqichi uchun web, mobil va aqlli tizimlarni yaratamiz.', 'uz'),
            'city': 'Toshkent, O‘zbekiston', 'privacy': 'Maxfiylik siyosati', 'legal': '«NOVERA» MCHJ', 'tin': 'STIR 313 278 248', 'more': 'Batafsil',
            'nf_h': 'Sahifa topilmadi', 'nf_p': 'Havola eskirgan bo‘lishi mumkin. Bosh sahifadan boshlang.', 'nf_btn': 'Bosh sahifaga'},
-    'en': {'menu': ['Services', 'Formats', 'Approach', 'Questions', 'About'], 'cta': T('Loyihani muhokama qilish', 'en'),
+    'en': {'open': 'View project', 'visit': 'Visit the site', 'gallery': 'Screens', 'work_p': 'Real systems we designed and launched: the challenge, the solution and the result.', 'menu': ['Work', 'Services', 'Formats', 'Approach', 'Questions', 'About'], 'cta': T('Loyihani muhokama qilish', 'en'),
            'footer': T('IT autsorsing va dasturlash: biznesingizning keyingi bosqichi uchun web, mobil va aqlli tizimlarni yaratamiz.', 'en'),
            'city': 'Tashkent, Uzbekistan', 'privacy': T('Maxfiylik siyosati', 'en'), 'legal': 'NOVERA LLC', 'tin': 'TIN 313 278 248', 'more': 'Learn more',
            'nf_h': 'Page not found', 'nf_p': 'The link may be out of date. Start from the home page.', 'nf_btn': 'Home page'},
-    'ru': {'menu': ['Услуги', 'Форматы', 'Подход', 'Вопросы', 'О нас'], 'cta': T('Loyihani muhokama qilish', 'ru'),
+    'ru': {'open': 'Смотреть проект', 'visit': 'Открыть сайт', 'gallery': 'Экраны', 'work_p': 'Реальные системы, которые мы спроектировали и запустили: задача, решение и результат.', 'menu': ['Работы', 'Услуги', 'Форматы', 'Подход', 'Вопросы', 'О нас'], 'cta': T('Loyihani muhokama qilish', 'ru'),
            'footer': T('IT autsorsing va dasturlash: biznesingizning keyingi bosqichi uchun web, mobil va aqlli tizimlarni yaratamiz.', 'ru'),
            'city': 'Ташкент, Узбекистан', 'privacy': T('Maxfiylik siyosati', 'ru'), 'legal': 'ООО «NOVERA»', 'tin': 'ИНН 313 278 248', 'more': 'Подробнее',
            'nf_h': 'Страница не найдена', 'nf_p': 'Возможно, ссылка устарела. Начните с главной страницы.', 'nf_btn': 'На главную'},
@@ -75,7 +75,7 @@ ICONS = {
 
 def links(lang):
     home = HOME[lang]
-    return {'services': home + '#yechimlar', 'formats': home + '#hamkorlik', 'approach': home + '#yondashuv',
+    return {'work': home + '#ishlar', 'services': home + '#yechimlar', 'formats': home + '#hamkorlik', 'approach': home + '#yondashuv',
             'faq': home + '#savollar', 'about': PAGES_JSON['about']['slug'][lang], 'contact': home + '#boshlash',
             'privacy': PAGES_JSON['privacy']['slug'][lang], 'home': home}
 
@@ -101,13 +101,8 @@ def hero_band(title, lead='', crumbs=(), extra=''):
 
 def cta_band(lang):
     ui = SERVICES['ui'][lang]
-    return f'''<section class="s_cta_box pt80 pb96" data-snippet="s_cta_box" data-name="Box Call to Action">
-  <div class="container"><div class="s_card card o_cc o_cc5 border-0 s_nv_ctacard" data-snippet="s_card">
-    <div class="card-body p-4 p-lg-5 d-lg-flex align-items-center justify-content-between gap-5">
-      <div><h2 class="card-title display-5-fs">{t(ui['cta_h'])}</h2><p class="card-text lead mb-4 mb-lg-0">{t(ui['cta_p'])}</p></div>
-      <a href="{a(links(lang)['contact'])}" class="btn btn-lg btn-secondary flex-shrink-0">{t(ui['cta_btn'])}</a>
-    </div></div></div>
-</section>'''
+    return f'''<section class="s_cta_box o_cc o_cc5 pt128 pb128 mx-finale s_nv_mist" data-snippet="s_cta_box" data-name="Call to Action"><div class="container">
+<h2 class="mx-finale-title">{t(ui['cta_h'])}</h2><div class="mx-finale-row"><p class="lead">{t(ui['cta_p'])}</p>{eye_btn(links(lang)['contact'], ui['cta_btn'], light=True)}</div></div></section>'''
 
 
 def faq(title, items, anchor=''):
@@ -155,6 +150,120 @@ def timeline(lang, title_html, lead='', anchor='', cta=''):
   <div class="container"><div class="row mb-5"><div class="col-lg-7"><h2 class="display-4-fs">{title_html}</h2>{lead_html}</div>
   <div class="col-lg-4 offset-lg-1 d-flex align-items-end justify-content-lg-end">{cta}</div></div>{rows}</div>
 </section>'''
+
+
+# -- projects and interactive pieces ------------------------------------------------
+CASES = json.loads((ROOT / 'content/cases.json').read_text())
+CASE_BASE = {'ru': '/ru/raboty/', 'uz': '/ishlar/', 'en': '/en/work/'}
+FEATURED = ('ijara-tolovlari', 'inna-ai', 'hubfield', 'ohma-katalog', 'gofrokarton-erp', 'kiberqalqon', 'barter-marketpleysi', 'cad-ai')
+TONE = {'ijara-tolovlari': 'ijara', 'inna-ai': 'inna', 'gofrokarton-erp': 'erp', 'kiberqalqon': 'kiber',
+        'barter-marketpleysi': 'barter', 'cad-ai': 'cad', 'ohma-katalog': 'ohma', 'hubfield': 'hub'}
+SPARKLE = 'M12 1.8C14.2 8.7 15.3 9.8 22.2 12 15.3 14.2 14.2 15.3 12 22.2 9.8 15.3 8.7 14.2 1.8 12 8.7 9.8 9.8 8.7 12 1.8Z'
+
+STAR = 'M30.00 2.00L34.78 18.45L49.80 10.20L41.55 25.22L58.00 30.00L41.55 34.78L49.80 49.80L34.78 41.55L30.00 58.00L25.22 41.55L10.20 49.80L18.45 34.78L2.00 30.00L18.45 25.22L10.20 10.20L25.22 18.45z'
+
+
+def preloader():
+    """Opening scene: the star spins in, then becomes a window the camera flies through (CSS in fx.css)."""
+    word = ''.join(f'<b>{ch}</b>' for ch in 'novera')
+    return (f'<div class="fx-preloader" aria-hidden="true"><svg viewBox="0 0 60 60"><g class="fx-in-zoom">'
+            f'<path class="fx-in-wall" fill-rule="evenodd" d="M-1500-1500h3000v3000h-3000z{STAR}"/></g>'
+            f'<path class="fx-in-fill" d="{STAR}"/><path class="fx-in-star" d="{STAR}"/></svg><div class="fx-in-word">{word}</div></div>')
+
+
+def case_url(case, lang):
+    return CASE_BASE[lang] + case['slug'][lang] + '/'
+
+
+def metal_btn(href, label):
+    """Liquid Metal Button+: chrome ring medallion, flowing chrome edge, frosted face."""
+    stops = ''.join(f'<stop offset="{o}%" stop-color="{c}"/>' for o, c in
+                    ((0, '#FFFFFF'), (28, '#7A879B'), (43, '#D7E4F5'), (54, '#FFFFFF'), (65, '#FFFFFF'), (84, '#7A879B'), (100, '#FFFFFF')))
+    return f'''<a href="{a(href)}" class="mo-orbit fx-metal" data-hover-tone="light">
+<svg class="fx-defs" width="0" height="0" aria-hidden="true"><defs><linearGradient id="fx-orbit-icon" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(45 .5 .5)">{stops}</linearGradient></defs></svg>
+<span class="orb-face"><span class="orb-decoration orb-wake fx-layer" aria-hidden="true"/><span class="orb-decoration fx-layer fx-metal-glass" aria-hidden="true"/>
+<span class="orb-decoration orb-edge orb-edge-glow fx-layer" aria-hidden="true"/><span class="orb-decoration orb-edge fx-layer" aria-hidden="true"/>
+<span class="orb-decoration orb-edge orb-edge-ridge fx-layer" aria-hidden="true"/><span class="orb-decoration orb-hover-edge fx-layer" aria-hidden="true"/>
+<span class="orb-medallion" aria-hidden="true"><span class="orb-disc"/><span class="orb-decoration orb-fallback"/><canvas class="orb-decoration fx-metal-canvas"/>
+<span class="orb-glyph"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="{SPARKLE}" fill="url(#fx-orbit-icon)"/></svg></span></span>
+<span class="orb-label">{t(label)}</span></span></a>'''
+
+
+def glass_btn(href, label):
+    """Liquid Glass Buttons, clear material on a dark surface, chevron icon."""
+    return f'''<a href="{a(href)}" class="ml-optical-button fx-glass" data-material="clear" data-surface="dark">
+<span class="ml-optical-face"><span class="ml-optical-body" aria-hidden="true"><span class="ml-optical-surface"><span class="ml-optical-tint"/><span class="ml-optical-shoulder"/>
+<span class="ml-optical-reflection"/><span class="ml-optical-caustic"/><span class="ml-optical-pointer-light"/></span>
+<span class="ml-optical-rim"/><span class="ml-optical-rim ml-optical-edge-light"/><span class="ml-optical-rim ml-optical-counter-light"/><span class="ml-optical-bottom"/></span>
+<span class="ml-optical-label">{t(label)}</span><span class="ml-optical-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6.5 5.5 5.5-5.5 5.5"/></svg></span></span></a>'''
+
+
+def eye_btn(href, label, light=False):
+    """Eye Follow Button: two eyes that follow the pointer and blink."""
+    eye = '<span class="fx-eye-ball"><span class="fx-eye-pupil"/></span>'
+    return (f'<a href="{a(href)}" class="fx-eye{" fx-eye--light" if light else ""}" data-magnetic="0.25"><span>{t(label)}</span>'
+            f'<span class="fx-eyes" aria-hidden="true">{eye}{eye}</span></a>')
+
+
+def tone(c):
+    return 'sh-t-' + TONE.get(c['slug']['uz'], 'plain')
+
+
+def framed(c, shots, lang, zoom=False, lazy=True):
+    """Screenshots in a browser window, or in phones for mobile products."""
+    cls, out = ('sh-phone', '') if c.get('device') == 'phone' else ('sh-frame', '')
+    for src, alt in shots:
+        img = f'<img src="/{a(src)}" alt="{a(alt[lang])}"{" loading=" + chr(34) + "lazy" + chr(34) if lazy else ""}/>'
+        out += (f'<a class="{cls} sh-zoom" href="/{a(src)}" data-lightbox="1">{img}</a>' if zoom else f'<span class="{cls}">{img}</span>')
+    return f'<span class="sh-phones">{out}</span>' if cls == 'sh-phone' else out
+
+
+def shots_of(c):
+    cover = [(c['cover'], c['cover_alt'])] if c.get('cover') else []
+    return cover + [(g['src'], g['alt']) for g in c.get('gallery') or []]
+
+
+def project_card(c, lang):
+    shots = shots_of(c)
+    art = framed(c, shots if c.get('device') == 'phone' else shots[:1], lang)
+    facts = ''.join(f'<li>{t(h[0])}</li>' for h in c['highlights'][lang][:3])
+    return f'''<a href="{a(case_url(c, lang))}" class="sh-card {tone(c)}"><span class="sh-card-text"><h3>{t(c['title'][lang])}</h3>
+<p>{t(c['summary'][lang])}</p><ul class="sh-facts">{facts}</ul><span class="sh-more">{t(UI[lang]['open'])}</span></span><span class="sh-card-art">{art}</span></a>'''
+
+
+def case(c, lang, nxt):
+    u, ui = UI[lang], CASES['ui'][lang]
+    meta = [(ui['client'], c['client'][lang]), (ui['sector'], c['sector'][lang]),
+            (ui['status'], c['status'][lang]), (ui['year'], c['year'])]
+    meta_html = '<dl class="row mt-5 mb-0 s_nv_meta">' + ''.join(
+        f'<div class="col-6 col-lg-3 pt16"><dt class="small fw-normal">{t(k)}</dt><dd class="mb-0">{t(v)}</dd></div>' for k, v in meta) + '</dl>'
+    shots = shots_of(c)
+    phone = c.get('device') == 'phone'
+    art = f'<div class="sh-hero-art">{framed(c, shots if phone else shots[:1], lang, zoom=True, lazy=False)}</div>' if shots else ''
+    visit = f'<p class="mt-4 mb-0"><a class="sh-visit" href="{a(c["url"])}" target="_blank" rel="noopener">{t(u["visit"])}</a></p>' if c.get('url') else ''
+    body = f'''<section class="sh-hero {tone(c)}" data-snippet="s_title" data-name="Title"><div class="container">
+<nav aria-label="breadcrumb"><ol class="breadcrumb mb-4 small"><li class="breadcrumb-item"><a href="{a(links(lang)['work'])}">{t(u['menu'][0])}</a></li></ol></nav>
+<h1 id="hero-title">{t(c['title'][lang])}</h1><p class="lead mb-0">{t(c['summary'][lang])}</p>{visit}{meta_html}{art}</div></section>'''
+    for label, key in ((ui['challenge'], 'challenge'), (ui['solution'], 'solution'), (ui['result'], 'result')):
+        paras = ''.join(f'<p class="lead">{t(p)}</p>' for p in c[key][lang])
+        body += f'''<section class="s_title_split pt64 pb32" data-snippet="s_title_split" data-name="Title Split"><div class="container"><div class="row border-top pt48">
+<div class="col-lg-4"><h2 class="h3-fs">{t(label)}</h2></div><div class="col-lg-7 offset-lg-1">{paras}</div></div></div></section>'''
+    points = ''.join(f'<li><h3>{t(h)}</h3><p>{t(p)}</p></li>' for h, p in c['highlights'][lang])
+    more = [] if phone else shots[1:]
+    if more:
+        figs = ''.join(f'<figure class="{tone(c)}">{framed(c, [x], lang, zoom=True)}<figcaption>{t(x[1][lang])}</figcaption></figure>' for x in more)
+        body += f'''<section class="sh-scroll o_cc o_cc1" data-snippet="s_features"><div class="container"><div class="row">
+<div class="col-lg-4 sh-points-col mb-5"><h2 class="display-5-fs mb-4">{t(c['highlights_title'][lang])}</h2><ul class="sh-points">{points}</ul></div>
+<div class="col-lg-8 ps-lg-5"><div class="sh-shots">{figs}</div></div></div></div></section>'''
+    else:
+        body += cards(c['highlights_title'][lang], c['highlights'][lang])
+    badges = ''.join(f'<span class="s_badge badge s_nv_badge me-2 mb-2 fw-normal">{t(s)}</span>' for s in c['stack'])
+    body += f'''<section class="s_text_block pt64 pb32" data-snippet="s_text_block"><div class="container"><div class="row border-top pt48">
+<div class="col-lg-4"><h2 class="h3-fs">{t(ui['stack'])}</h2></div><div class="col-lg-7 offset-lg-1 fs-5">{badges}</div></div></div></section>
+<section class="s_projects_list pt48 pb96" data-snippet="s_projects_list"><div class="container">
+<a href="{a(case_url(nxt, lang))}" class="sh-next {tone(nxt)}"><span><small>{t(ui['next'])}</small><b>{t(nxt['title'][lang])}</b></span><span class="sh-next-art">{framed(nxt, shots_of(nxt)[:1], lang)}</span></a></div></section>'''
+    body += cta_band(lang)
+    return body, f"{c['title'][lang]} — Novera", c['summary'][lang]
 
 
 # -- home --------------------------------------------------------------------
@@ -206,13 +315,17 @@ def home(lang):
     radios = ''.join(f'''<div class="form-check form-check-inline me-3 mb-2"><input class="form-check-input" type="radio" name="service" id="svc-{i}" value="{a(v)}"{' checked="checked"' if i == 0 else ''}/>
 <label class="form-check-label" for="svc-{i}">{t(tr(v))}</label></div>''' for i, v in enumerate(('Web platforma', 'Mobil ilova', 'Integratsiya', 'AI va data', 'Boshqa')))
     steps_cta = f'<a href="#boshlash" class="btn btn-lg btn-primary">{t(tr("Birinchi qadamni qo‘yamiz"))}</a>'
-    body = f'''
+    cases = {c['slug']['uz']: c for c in CASES['cases']}
+    stack = ''.join(project_card(cases[k], lang) for k in FEATURED)
+    rows = ''.join(f'''<div class="col-lg-12 pt32 pb24 border-bottom"><a href="{a(case_url(c, lang))}" class="row text-reset text-decoration-none align-items-baseline s_nv_row">
+<div class="col-12 col-lg-8"><h3 class="display-5-fs mb-0">{t(c['short'][lang])}</h3></div><div class="col-12 col-lg-4 text-lg-end"><span class="s_nv_muted">{t(c['sector'][lang])}</span></div></a></div>''' for c in CASES['cases'] if c['slug']['uz'] not in FEATURED)
+    body = preloader() + f'''
 <section class="s_split_intro o_cc o_cc5 pt128 pb96 s_nv_hero" data-snippet="s_split_intro" data-name="Split Intro">
   <div class="container"><div class="row align-items-center">
     <div class="col-lg-6 pb48 o_animate o_anim_fade_in o_anim_from_bottom">
       <h1 class="display-1 mb-4" id="hero-title">{two_lines('Katta g‘oyalar.', 'Aniq yechimlar.', lang)}</h1>
       <p class="lead mb-5 s_nv_measure">{t(tr('IT autsorsing va dasturlash: biznesingizning keyingi bosqichi uchun web, mobil va aqlli tizimlarni yaratamiz.'))}</p>
-      <p class="mb-0"><a href="#boshlash" class="btn btn-lg btn-secondary">{t(u['cta'])}</a> <a href="#yechimlar" class="btn btn-lg btn-outline-light ms-2">{t(tr('Yechimlarni ko‘rish'))}</a></p>
+      <div class="d-flex flex-wrap align-items-center gap-3">{metal_btn('#boshlash', u['cta'])}{glass_btn('#ishlar', u['menu'][0])}</div>
     </div>
     <div class="col-lg-6 o_animate o_anim_fade_in">
       <img src="/assets/novera-sculpture-900.webp" srcset="{srcset('novera-sculpture')}" sizes="(min-width: 992px) 50vw, 100vw" class="img img-fluid s_nv_sculpture" alt="{a(tr('Bog‘langan tizimlarni ifodalovchi yashil va kumush rangli abstrakt haykal'))}" fetchpriority="high"/>
@@ -225,6 +338,10 @@ def home(lang):
     <div class="col-lg-6 text-lg-end">{directions}</div>
   </div></div>
 </section>
+<section class="s_title_split pt128 pb48" id="ishlar" data-snippet="s_title_split" data-name="Title Split"><div class="container"><div class="row"><div class="col-lg-7"><h2 class="display-3-fs">{t(CASES['ui'][lang]['title'])}</h2></div>
+<div class="col-lg-4 offset-lg-1 d-flex align-items-end"><p class="lead mb-0">{t(u['work_p'])}</p></div></div></div></section>
+<section class="s_projects_grid pb48" data-snippet="s_projects_grid" data-name="Projects Grid"><div class="container"><div class="sh-stack">{stack}</div></div></section>
+<section class="s_projects_list pt32 pb64" data-snippet="s_projects_list" data-name="Projects List"><div class="container"><div class="row">{rows}</div></div></section>
 <section class="s_cards_grid pt96 pb80" id="yechimlar" data-snippet="s_cards_grid" data-name="Cards Grid">
   <div class="container">
     <div class="row mb-4"><div class="col-lg-7"><h2 class="display-4-fs">{two_lines('Vazifa sizniki.', 'Yechim — birgalikda.', lang)}</h2></div>
@@ -239,7 +356,7 @@ def home(lang):
     <div class="row">{fmt}</div>
   </div>
 </section>
-<section class="s_text_cover o_cc o_cc5 pt96 pb96" data-snippet="s_text_cover" data-name="Text Cover">
+<section class="s_text_cover o_cc o_cc5 pt128 pb128 s_nv_mist" data-snippet="s_text_cover" data-name="Text Cover">
   <div class="container"><h2 class="display-3-fs s_nv_measure_h">{two_lines('Shunchaki ishlaydigan emas.', 'Ishingizni yengillash\xadtiradigan.', lang)}</h2>
   <div class="row mt-4">{principles}</div></div>
 </section>
@@ -346,6 +463,8 @@ def build():
 
     for lang in LANGS:
         add(HOME[lang], lang, 'home', home(lang))
+        for i, c in enumerate(CASES['cases']):
+            add(case_url(c, lang), lang, 'case:' + c['slug']['uz'], case(c, lang, CASES['cases'][(i + 1) % len(CASES['cases'])]))
         for k in SVC_ORDER:
             add(SVC[k]['slug'][lang], lang, 'svc:' + k, service(SVC[k], lang))
         add(PAGES_JSON['about']['slug'][lang], lang, 'about', about(lang))

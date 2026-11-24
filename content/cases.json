@@ -12,7 +12,10 @@
       "challenge": "Vazifa",
       "solution": "Yechim",
       "result": "Natija",
-      "next": "Keyingi loyiha"
+      "next": "Keyingi loyiha",
+      "status": "Holat",
+      "highlights": "Asosiy imkoniyatlar",
+      "stack": "Texnologiyalar"
     },
     "en": {
       "label": "Work",
@@ -25,7 +28,10 @@
       "challenge": "Challenge",
       "solution": "Solution",
       "result": "Result",
-      "next": "Next project"
+      "next": "Next project",
+      "status": "Status",
+      "highlights": "Key features",
+      "stack": "Technology"
     },
     "ru": {
       "label": "Работы",
@@ -38,8 +44,2045 @@
       "challenge": "Задача",
       "solution": "Решение",
       "result": "Результат",
-      "next": "Следующий проект"
+      "next": "Следующий проект",
+      "status": "Статус",
+      "highlights": "Ключевые возможности",
+      "stack": "Технологии"
     }
   },
-  "cases": []
+  "cases": [
+    {
+      "slug": {
+        "uz": "ijara-tolovlari",
+        "en": "rental-payments",
+        "ru": "arendnye-platezhi"
+      },
+      "year": 2026,
+      "services": [
+        "integration",
+        "web"
+      ],
+      "short": {
+        "uz": "Ijara markazi",
+        "en": "Rental hub",
+        "ru": "Центр аренды"
+      },
+      "client": {
+        "uz": "Davlat mulki ijarasi sohasidagi tashkilot",
+        "en": "A state property rental organisation",
+        "ru": "Организация в сфере аренды госимущества"
+      },
+      "sector": {
+        "uz": "Davlat sektori, to‘lovlar",
+        "en": "Public sector, payments",
+        "ru": "Госсектор, платежи"
+      },
+      "status": {
+        "uz": "Joriy etish bosqichida",
+        "en": "Being rolled out",
+        "ru": "На этапе внедрения"
+      },
+      "title": {
+        "uz": "Ijara to‘lovlari uchun billing va to‘lov orkestratsiyasi",
+        "en": "Billing and payment orchestration for rent payments",
+        "ru": "Биллинг и оркестрация платежей за аренду"
+      },
+      "summary": {
+        "uz": "Ijarachi Payme’da shartnoma raqamini kiritib, qarzini ko‘radi va to‘laydi. Tizim to‘lovni qarzga taqsimlaydi, soliq cheki chiqaradi va hammasini tashkilot kabinetida real vaqtda ko‘rsatadi.",
+        "en": "A tenant enters the contract number in Payme, sees the debt and pays. The system allocates the payment to the debt, issues a fiscal receipt and shows everything in the organisation’s dashboard in real time.",
+        "ru": "Арендатор вводит номер договора в Payme, видит задолженность и платит. Система распределяет платёж по долгу, выпускает фискальный чек и в реальном времени показывает всё в кабинете организации."
+      },
+      "challenge": {
+        "uz": [
+          "Davlat mulki ijarasi bo‘yicha shartnomalar va qarzlar hududiy boshqarmalarda Excel jadvallarida yuritiladi. Ijarachi qarzini bilishi, to‘lovi esa to‘g‘ri shartnomaga va to‘g‘ri davrga yozilishi kerak.",
+          "Hisob aniq, takroriy so‘rovlarga chidamli bo‘lishi va har bir rol faqat o‘ziga tegishli ma’lumotni ko‘rishi talab qilindi."
+        ],
+        "en": [
+          "Contracts and debts for state property rent are kept in Excel by regional offices. Tenants need to know what they owe, and every payment has to land on the right contract and the right period.",
+          "Accounting had to be exact and safe against repeated requests, and every role could see only its own data."
+        ],
+        "ru": [
+          "Договоры и задолженности по аренде госимущества ведутся в Excel в территориальных управлениях. Арендатор должен знать свой долг, а платёж — попадать на нужный договор и период.",
+          "Учёт должен быть точным и устойчивым к повторным запросам, а каждая роль — видеть только свои данные."
+        ]
+      },
+      "solution": {
+        "uz": [
+          "Payme rasmiy protokoli orqali qarzni ko‘rsatish va to‘lovni qabul qilish: takroriy so‘rov ikkinchi to‘lov yaratmaydi, bekor qilingan to‘lov taqsimoti qaytariladi.",
+          "To‘lov eng eski qarzdan boshlab yopiladi: avval asosiy qarz, keyin penya, ortig‘i avans bo‘lib qoladi. Barcha summalar tiyinda butun son sifatida saqlanadi, yaxlitlash xatosi bo‘lmaydi.",
+          "Tashkilot reyestrini Excel’da yuklaydi: tizim ustunlarni o‘zi taniydi, avval o‘zgarishlarni ko‘rsatadi va faqat tasdiqlangandan keyin qo‘llaydi."
+        ],
+        "en": [
+          "Debt lookup and payments through Payme’s official protocol: a repeated request never creates a second payment, and a cancelled payment reverses its allocation.",
+          "Payments close the oldest debt first: principal, then penalties, with any surplus kept as an advance. All amounts are stored as whole tiyin, so there are no rounding errors.",
+          "Organisations upload their register in Excel: the system recognises the columns, previews the changes and applies them only after confirmation."
+        ],
+        "ru": [
+          "Показ долга и приём платежей по официальному протоколу Payme: повторный запрос не создаёт второй платёж, отмена возвращает распределение.",
+          "Платёж закрывает самый старый долг: сначала основной, затем пеню, остаток становится авансом. Все суммы хранятся в тийинах целым числом — без ошибок округления.",
+          "Организация загружает реестр в Excel: система сама распознаёт столбцы, показывает изменения и применяет их только после подтверждения."
+        ]
+      },
+      "result": {
+        "uz": [
+          "Arxitektura respublika miqyosiga mo‘ljallangan: har bir hududiy boshqarma alohida tashkilot, yangi hudud yoki soha kod yozmasdan qo‘shiladi.",
+          "Tizim ishlab chiqilgan va joriy etish bosqichida: to‘lov va soliq xizmatlari bilan ulanish ishlari yakunlanmoqda."
+        ],
+        "en": [
+          "The architecture is built for nationwide scale: each regional office is a separate organisation, and a new region or sector is added without code.",
+          "The system is built and being rolled out; connections with the payment and tax services are being finalised."
+        ],
+        "ru": [
+          "Архитектура рассчитана на масштаб республики: каждое управление — отдельная организация, новый регион или отрасль добавляются без кода.",
+          "Система разработана и находится на этапе внедрения: завершаются подключения к платёжному и налоговому сервисам."
+        ]
+      },
+      "highlights_title": {
+        "uz": "Hisob va nazorat bitta tizimda.",
+        "en": "Accounting and control in one system.",
+        "ru": "Учёт и контроль в одной системе."
+      },
+      "highlights": {
+        "uz": [
+          [
+            "Payme integratsiyasi",
+            "Qarzni ko‘rsatish, to‘lov, bekor qilish va solishtirish — rasmiy protokol bo‘yicha."
+          ],
+          [
+            "Soliq cheki",
+            "Chek fiskal ma’lumotlar operatori API orqali, kassa apparatisiz va navbat orqali chiqariladi."
+          ],
+          [
+            "Rollar va ruxsatlar",
+            "Tashkilot, auditor va to‘lov tizimi xodimi faqat ruxsat etilgan ma’lumotni ko‘radi; cheklov serverda."
+          ],
+          [
+            "Oylik hisob-kitob",
+            "Oy yakuni hisobotlari XLSX va PDF ko‘rinishida; imzolangan oy raqamlari keyin o‘zgarmaydi."
+          ],
+          [
+            "SMS eslatmalar",
+            "To‘lovdan keyin chek havolasi va muddatdan oldin eslatma; tungi soatlarda yuborilmaydi."
+          ],
+          [
+            "E-IMZO",
+            "Elektron raqamli imzo bilan kirish tayyor va sozlama orqali yoqiladi."
+          ]
+        ],
+        "en": [
+          [
+            "Payme integration",
+            "Debt lookup, payment, cancellation and reconciliation under the official protocol."
+          ],
+          [
+            "Fiscal receipts",
+            "Receipts are issued through the fiscal data operator’s API, without a cash register, via a queue."
+          ],
+          [
+            "Roles and permissions",
+            "Organisations, auditors and payment staff see only what they are allowed to; enforced on the server."
+          ],
+          [
+            "Monthly settlement",
+            "Month-end reports in XLSX and PDF; figures for a signed month never change afterwards."
+          ],
+          [
+            "SMS reminders",
+            "Receipt link after payment and a reminder before the due date; nothing is sent at night."
+          ],
+          [
+            "E-IMZO",
+            "Sign-in with a digital signature is ready and switched on by configuration."
+          ]
+        ],
+        "ru": [
+          [
+            "Интеграция с Payme",
+            "Показ долга, оплата, отмена и сверка — по официальному протоколу."
+          ],
+          [
+            "Фискальный чек",
+            "Чек выпускается через API оператора фискальных данных, без кассового аппарата, через очередь."
+          ],
+          [
+            "Роли и доступ",
+            "Организация, аудитор и сотрудник платёжной системы видят только разрешённое; ограничение на сервере."
+          ],
+          [
+            "Ежемесячный расчёт",
+            "Отчёты за месяц в XLSX и PDF; цифры подписанного месяца потом не меняются."
+          ],
+          [
+            "SMS-напоминания",
+            "Ссылка на чек после оплаты и напоминание до срока; ночью не отправляются."
+          ],
+          [
+            "E-IMZO",
+            "Вход по электронной подписи готов и включается настройкой."
+          ]
+        ]
+      },
+      "stack": [
+        "Python 3.12",
+        "FastAPI",
+        "SQLAlchemy 2",
+        "PostgreSQL",
+        "arq",
+        "React",
+        "Vite",
+        "nginx",
+        "Payme API",
+        "E-IMZO"
+      ],
+      "cover": "assets/work/ijara-1.webp",
+      "cover_alt": {
+        "uz": "To‘lovlar reyestri: shartnoma, hudud, summa, yig‘im va fiskal belgi (demo ma’lumot)",
+        "en": "Payments register: contract, region, amount, fee and fiscal mark (demo data)",
+        "ru": "Реестр платежей: договор, регион, сумма, сбор и фискальный признак (демо-данные)"
+      },
+      "gallery": [
+        {
+          "src": "assets/work/ijara-2.webp",
+          "alt": {
+            "uz": "Boshqaruv paneli: bugungi tushum, muddati o‘tgan qarz va faol shartnomalar (demo ma’lumot)",
+            "en": "Dashboard: today’s collections, overdue debt and active contracts (demo data)",
+            "ru": "Панель: поступления за день, просроченный долг и активные договоры (демо-данные)"
+          }
+        }
+      ]
+    },
+    {
+      "slug": {
+        "uz": "inna-ai",
+        "en": "inna-ai",
+        "ru": "inna-ai"
+      },
+      "year": 2026,
+      "services": [
+        "ai"
+      ],
+      "short": {
+        "uz": "INNA AI",
+        "en": "INNA AI",
+        "ru": "INNA AI"
+      },
+      "client": {
+        "uz": "O‘z mahsulotimiz",
+        "en": "Our own product",
+        "ru": "Собственный продукт"
+      },
+      "sector": {
+        "uz": "Sun’iy intellekt, mijozlarga xizmat",
+        "en": "Artificial intelligence, customer service",
+        "ru": "Искусственный интеллект, клиентский сервис"
+      },
+      "status": {
+        "uz": "Ishlab chiqilgan",
+        "en": "Built",
+        "ru": "Разработан"
+      },
+      "title": {
+        "uz": "INNA AI — ovozli va matnli AI agentlar platformasi",
+        "en": "INNA AI — a platform for voice and text AI agents",
+        "ru": "INNA AI — платформа голосовых и текстовых AI-агентов"
+      },
+      "summary": {
+        "uz": "Kompaniyalar uchun 24/7 javob beradigan AI agent, shaxsiy AI yordamchi va qo‘ng‘iroqlarni tahlil qiluvchi coaching API — bitta multi-tenant platformada.",
+        "en": "A 24/7 AI agent for companies, a personal AI assistant and a coaching API that analyses calls — on one multi-tenant platform.",
+        "ru": "AI-агент для компаний, отвечающий 24/7, персональный AI-ассистент и coaching API для анализа звонков — на одной multi-tenant платформе."
+      },
+      "challenge": {
+        "uz": [
+          "Mijozlar murojaati telefon, Telegram va boshqa kanallar orqali kun-u tun keladi, operatorlar esa hammasiga tez javob bera olmaydi. Qo‘ng‘iroqlar sifatini qo‘lda nazorat qilish ham ko‘p vaqt oladi."
+        ],
+        "en": [
+          "Customer requests arrive day and night by phone, Telegram and other channels, and operators cannot answer all of them quickly. Checking call quality by hand takes a lot of time too."
+        ],
+        "ru": [
+          "Обращения клиентов приходят круглосуточно по телефону, в Telegram и другие каналы, и операторы не успевают быстро отвечать всем. Ручной контроль качества звонков тоже отнимает много времени."
+        ]
+      },
+      "solution": {
+        "uz": [
+          "Telefon (Twilio, SIP.uz), Telegram va Slack orqali ishlaydigan AI agent: kompaniya bilim bazasi asosida javob beradi, chiqish qo‘ng‘iroqlarini amalga oshiradi va lidlarni yig‘adi.",
+          "Past kechikishli ovozli konveyer: qo‘ng‘iroq WebSocket orqali real vaqtda qayta ishlanadi.",
+          "B2C yo‘nalishi — uzoq muddatli xotira, vazifalar va kalendar integratsiyasiga ega shaxsiy AI yordamchi.",
+          "Coaching API har bir qo‘ng‘iroqni tahlil qilib, sifat bahosi va operator uchun tavsiyalar beradi. Telegram boti agentning kanallaridan biri sifatida ishlaydi."
+        ],
+        "en": [
+          "An AI agent working over the phone (Twilio, SIP.uz), Telegram and Slack: it answers from the company’s knowledge base, makes outbound calls and collects leads.",
+          "A low-latency voice pipeline: calls are processed in real time over WebSocket.",
+          "On the consumer side, a personal AI assistant with long-term memory, tasks and calendar integration.",
+          "The coaching API analyses every call and returns a quality score and recommendations for the operator. The Telegram bot works as one of the agent’s channels."
+        ],
+        "ru": [
+          "AI-агент, работающий по телефону (Twilio, SIP.uz), в Telegram и Slack: отвечает по базе знаний компании, совершает исходящие звонки и собирает лиды.",
+          "Голосовой конвейер с низкой задержкой: звонок обрабатывается в реальном времени через WebSocket.",
+          "Для B2C — персональный AI-ассистент с долговременной памятью, задачами и интеграцией с календарём.",
+          "Coaching API анализирует каждый звонок и выдаёт оценку качества и рекомендации оператору. Telegram-бот работает как один из каналов агента."
+        ]
+      },
+      "result": {
+        "uz": [
+          "Savdo kompaniyasida Telegram va telefon orqali 24/7 avtomatik javob tizimi joriy etilgach, javob vaqti 80% qisqardi va mijoz qoniqishi 40% oshdi.",
+          "Coaching API va sifat scoring tizimi joriy etilgach, savdo samaradorligi 35% oshdi. AI Persona foydalanuvchilarida samaradorlik 60% oshdi."
+        ],
+        "en": [
+          "After a retail company introduced 24/7 automatic answers over Telegram and phone, response time fell by 80% and customer satisfaction rose by 40%.",
+          "After the coaching API and quality scoring were introduced, sales efficiency rose by 35%. AI Persona users became 60% more productive."
+        ],
+        "ru": [
+          "После внедрения круглосуточных автоответов в Telegram и по телефону у торговой компании время ответа сократилось на 80%, удовлетворённость клиентов выросла на 40%.",
+          "После внедрения coaching API и оценки качества эффективность продаж выросла на 35%. Продуктивность пользователей AI Persona выросла на 60%."
+        ]
+      },
+      "results": {
+        "uz": [
+          [
+            "80%",
+            "javob vaqti qisqardi"
+          ],
+          [
+            "40%",
+            "mijoz qoniqishi oshdi"
+          ],
+          [
+            "35%",
+            "savdo samaradorligi oshdi"
+          ]
+        ],
+        "en": [
+          [
+            "80%",
+            "faster response time"
+          ],
+          [
+            "40%",
+            "higher customer satisfaction"
+          ],
+          [
+            "35%",
+            "higher sales efficiency"
+          ]
+        ],
+        "ru": [
+          [
+            "80%",
+            "сокращение времени ответа"
+          ],
+          [
+            "40%",
+            "рост удовлетворённости клиентов"
+          ],
+          [
+            "35%",
+            "рост эффективности продаж"
+          ]
+        ]
+      },
+      "highlights_title": {
+        "uz": "Bitta yadro, uchta mahsulot.",
+        "en": "One core, three products.",
+        "ru": "Одно ядро, три продукта."
+      },
+      "highlights": {
+        "uz": [
+          [
+            "AI Agent (B2B)",
+            "Telefon, Telegram va Slack kanallari, chiqish qo‘ng‘iroqlari, lidlar va jonli monitoring paneli."
+          ],
+          [
+            "AI Persona (B2C)",
+            "Xotira, vazifalar, rejalashtirilgan eslatmalar, kalendar va pochta integratsiyasi."
+          ],
+          [
+            "Coaching API",
+            "Qo‘ng‘iroqlar tahlili, sifat bahosi va har bir xodim uchun avtomatik tavsiyalar."
+          ],
+          [
+            "Bilim bazasi",
+            "Hujjatlar asosida javob beradigan RAG konveyeri, PostgreSQL va pgvector."
+          ],
+          [
+            "Multi-tenant",
+            "Har bir mijoz uchun izolyatsiyalangan muhit va superadmin kuzatuv paneli."
+          ]
+        ],
+        "en": [
+          [
+            "AI Agent (B2B)",
+            "Phone, Telegram and Slack channels, outbound calls, leads and a live monitoring dashboard."
+          ],
+          [
+            "AI Persona (B2C)",
+            "Memory, tasks, scheduled reminders, calendar and email integration."
+          ],
+          [
+            "Coaching API",
+            "Call analysis, quality scoring and automatic recommendations for every employee."
+          ],
+          [
+            "Knowledge base",
+            "A RAG pipeline that answers from documents, on PostgreSQL and pgvector."
+          ],
+          [
+            "Multi-tenant",
+            "An isolated environment for every client and a superadmin observability panel."
+          ]
+        ],
+        "ru": [
+          [
+            "AI Agent (B2B)",
+            "Каналы телефон, Telegram и Slack, исходящие звонки, лиды и панель живого мониторинга."
+          ],
+          [
+            "AI Persona (B2C)",
+            "Память, задачи, запланированные напоминания, интеграция с календарём и почтой."
+          ],
+          [
+            "Coaching API",
+            "Анализ звонков, оценка качества и автоматические рекомендации каждому сотруднику."
+          ],
+          [
+            "База знаний",
+            "RAG-конвейер с ответами по документам на PostgreSQL и pgvector."
+          ],
+          [
+            "Multi-tenant",
+            "Изолированная среда для каждого клиента и панель наблюдения суперадмина."
+          ]
+        ]
+      },
+      "stack": [
+        "Python",
+        "FastAPI",
+        "Next.js",
+        "Gemini",
+        "PostgreSQL",
+        "pgvector",
+        "Twilio",
+        "SIP.uz",
+        "WebSocket",
+        "Google Cloud Run"
+      ],
+      "cover": "assets/work/inna-1.webp",
+      "cover_alt": {
+        "uz": "INNA AI bosh sahifasi: ovoz, Telegram va web orqali mijozlar bilan gaplashadigan AI agent",
+        "en": "INNA AI landing page: an AI agent that talks to customers via voice, Telegram and web",
+        "ru": "Главная страница INNA AI: AI-агент, который общается с клиентами голосом, в Telegram и на сайте"
+      },
+      "gallery": [
+        {
+          "src": "assets/work/inna-2.webp",
+          "alt": {
+            "uz": "INNA AI: ovozli qo‘ng‘iroq, Telegram va savdo murabbiyi bir oynada",
+            "en": "INNA AI: voice calls, Telegram and the sales coach in one view",
+            "ru": "INNA AI: голосовые звонки, Telegram и коуч продаж в одном окне"
+          }
+        },
+        {
+          "src": "assets/work/inna-3.webp",
+          "alt": {
+            "uz": "B2B Coaching API: suhbatni baholash va tavsiyalar",
+            "en": "B2B Coaching API: conversation scoring and suggestions",
+            "ru": "B2B Coaching API: оценка разговора и рекомендации"
+          }
+        }
+      ]
+    },
+    {
+      "slug": {
+        "uz": "hubfield",
+        "en": "hubfield",
+        "ru": "hubfield"
+      },
+      "year": 2026,
+      "services": [
+        "ai",
+        "web"
+      ],
+      "short": {
+        "uz": "hubfield",
+        "en": "hubfield",
+        "ru": "hubfield"
+      },
+      "client": {
+        "uz": "O‘z mahsulotimiz",
+        "en": "Our own product",
+        "ru": "Собственный продукт"
+      },
+      "sector": {
+        "uz": "Sun’iy intellekt, kontent",
+        "en": "Artificial intelligence, content",
+        "ru": "Искусственный интеллект, контент"
+      },
+      "status": {
+        "uz": "Ishga tushirilgan",
+        "en": "Live",
+        "ru": "Запущен"
+      },
+      "title": {
+        "uz": "hubfield — o‘zbek tilidagi AI studiya",
+        "en": "hubfield — an AI studio in Uzbek",
+        "ru": "hubfield — AI-студия на узбекском языке"
+      },
+      "summary": {
+        "uz": "Rasmni jonlantirish, gapiruvchi avatar, video, ismli qo‘shiq va marketplace infografikasi bitta joyda. Sayt va Telegram Mini App, to‘lov so‘mda.",
+        "en": "Animate a photo, make a talking avatar, video, a personal song or a marketplace infographic in one place. A website and a Telegram Mini App, paid in soums.",
+        "ru": "Оживление фото, говорящий аватар, видео, именная песня и инфографика для маркетплейсов в одном месте. Сайт и Telegram Mini App, оплата в сумах."
+      },
+      "challenge": {
+        "uz": [
+          "Kuchli AI modellar turli xizmatlarda tarqoq, interfeysi ingliz tilida va to‘lovi chet el kartasini talab qiladi."
+        ],
+        "en": [
+          "Strong AI models are spread across services, with English interfaces and foreign-card payments."
+        ],
+        "ru": [
+          "Сильные AI-модели разбросаны по разным сервисам, интерфейс на английском, а оплата требует зарубежной карты."
+        ]
+      },
+      "solution": {
+        "uz": [
+          "Studiya o‘zbekcha shablonlar bilan ishlaydi: rasm yuklanadi yoki matn yoziladi, qolganini tizim qiladi.",
+          "Server kreditni hisoblaydi, modelga yuboradi va xato bo‘lsa kreditni qaytaradi. Natija Telegram’ga keladi."
+        ],
+        "en": [
+          "The studio works with Uzbek templates: upload a photo or type a text and the system does the rest.",
+          "The server counts credits, sends the job to a model and refunds it on failure. Results arrive in Telegram."
+        ],
+        "ru": [
+          "Студия работает на узбекских шаблонах: загрузите фото или напишите текст, остальное сделает система.",
+          "Сервер считает кредиты, отправляет задачу модели и возвращает кредит при ошибке. Результат приходит в Telegram."
+        ]
+      },
+      "result": {
+        "uz": [
+          "400 dan ortiq AI model va 150 ta tayyor effekt bitta hisob va bitta balansda."
+        ],
+        "en": [
+          "More than 400 AI models and 150 ready effects under one account and one balance."
+        ],
+        "ru": [
+          "Более 400 AI-моделей и 150 готовых эффектов в одном аккаунте и на одном балансе."
+        ]
+      },
+      "highlights_title": {
+        "uz": "Dunyo modellari, o‘zbekcha interfeys.",
+        "en": "World-class models, an Uzbek interface.",
+        "ru": "Мировые модели, узбекский интерфейс."
+      },
+      "highlights": {
+        "uz": [
+          [
+            "Rasmni jonlantirish",
+            "Oddiy rasm 5 soniyalik videoga aylanadi."
+          ],
+          [
+            "Gapiruvchi avatar",
+            "Rasmdagi odam matn yoki ovoz bilan gapiradi."
+          ],
+          [
+            "Ismli qo‘shiq",
+            "AI o‘zbekcha so‘z yozib kuylaydi."
+          ],
+          [
+            "Infografika",
+            "Uzum, Wildberries va Ozon uchun kartochka."
+          ],
+          [
+            "Telegram Mini App",
+            "Sayt bilan bitta hisob va balans."
+          ]
+        ],
+        "en": [
+          [
+            "Animate a photo",
+            "A still becomes a five-second video."
+          ],
+          [
+            "Talking avatar",
+            "The person in the photo speaks your text or voice."
+          ],
+          [
+            "Personal song",
+            "AI writes Uzbek lyrics and sings them."
+          ],
+          [
+            "Infographics",
+            "Cards for Uzum, Wildberries and Ozon."
+          ],
+          [
+            "Telegram Mini App",
+            "One account and balance with the site."
+          ]
+        ],
+        "ru": [
+          [
+            "Оживление фото",
+            "Обычный снимок становится пятисекундным видео."
+          ],
+          [
+            "Говорящий аватар",
+            "Человек на фото говорит вашим текстом или голосом."
+          ],
+          [
+            "Именная песня",
+            "AI пишет слова на узбекском и поёт их."
+          ],
+          [
+            "Инфографика",
+            "Карточки для Uzum, Wildberries и Ozon."
+          ],
+          [
+            "Telegram Mini App",
+            "Один аккаунт и баланс с сайтом."
+          ]
+        ]
+      },
+      "stack": [
+        "Next.js",
+        "FastAPI",
+        "Telegram Mini App",
+        "Kling",
+        "Veo",
+        "Suno"
+      ],
+      "url": "https://hubfield.uz/",
+      "cover": "assets/work/hubfield-1.webp",
+      "cover_alt": {
+        "uz": "hubfield bosh sahifasi",
+        "en": "hubfield home page",
+        "ru": "Главная страница hubfield"
+      },
+      "gallery": [
+        {
+          "src": "assets/work/hubfield-2.webp",
+          "alt": {
+            "uz": "hubfield studiyasi",
+            "en": "The hubfield studio",
+            "ru": "Студия hubfield"
+          }
+        },
+        {
+          "src": "assets/work/hubfield-3.webp",
+          "alt": {
+            "uz": "Imkoniyatlar va trend effektlar",
+            "en": "Features and trend effects",
+            "ru": "Возможности и трендовые эффекты"
+          }
+        }
+      ]
+    },
+    {
+      "slug": {
+        "uz": "ohma-katalog",
+        "en": "ohma-catalogue",
+        "ru": "ohma-katalog"
+      },
+      "year": 2026,
+      "services": [
+        "web",
+        "integration"
+      ],
+      "short": {
+        "uz": "OHMA",
+        "en": "OHMA",
+        "ru": "OHMA"
+      },
+      "client": {
+        "uz": "OHMA, transformatorlar",
+        "en": "OHMA, transformers",
+        "ru": "OHMA, трансформаторы"
+      },
+      "sector": {
+        "uz": "Sanoat, energetika",
+        "en": "Industry, power",
+        "ru": "Промышленность, энергетика"
+      },
+      "status": {
+        "uz": "Ishga tushirilgan",
+        "en": "Live",
+        "ru": "Запущен"
+      },
+      "title": {
+        "uz": "OHMA — transformatorlar muhandislik katalogi",
+        "en": "OHMA — an engineering catalogue for transformers",
+        "ru": "OHMA — инженерный каталог трансформаторов"
+      },
+      "summary": {
+        "uz": "Seriya va modellar, gabarit chizmalari, konfigurator va onlayn opros varaqlari bitta saytda. Tijorat taklifi brauzerning o‘zida PDF bo‘lib chiqadi.",
+        "en": "Series and models, dimensional drawings, a configurator and online questionnaires on one site. A commercial offer is produced as a PDF in the browser.",
+        "ru": "Серии и модели, габаритные чертежи, конфигуратор и онлайн-опросные листы на одном сайте. Коммерческое предложение собирается в PDF прямо в браузере."
+      },
+      "challenge": {
+        "uz": [
+          "Transformator tanlash uchun quvvat, kuchlanish, o‘lcham va chizma kerak. Odatda bular alohida PDF kataloglarda tarqoq turadi."
+        ],
+        "en": [
+          "Choosing a transformer takes power, voltage, dimensions and a drawing. These are usually scattered across separate PDF catalogues."
+        ],
+        "ru": [
+          "Чтобы подобрать трансформатор, нужны мощность, напряжение, размеры и чертёж. Обычно всё это разбросано по отдельным PDF-каталогам."
+        ]
+      },
+      "solution": {
+        "uz": [
+          "Har bir model sahifasi ma’lumotlar bazasidan yig‘iladi: texnik jadval, GOST uslubidagi chizmalar va opros varag‘i.",
+          "Konfigurator yuklamaga qarab modelni tanlaydi va uning chizmasini ko‘rsatadi. So‘rovlar Telegram’ga keladi."
+        ],
+        "en": [
+          "Every model page is built from data: a technical table, GOST-style drawings and a questionnaire.",
+          "The configurator picks a model for the load and shows its drawing. Requests arrive in Telegram."
+        ],
+        "ru": [
+          "Каждая страница модели собирается из данных: техническая таблица, чертежи в стиле ГОСТ и опросный лист.",
+          "Конфигуратор подбирает модель по нагрузке и показывает её чертёж. Заявки приходят в Telegram."
+        ]
+      },
+      "result": {
+        "uz": [
+          "Katalogda 104 ta model va 381 ta avtomatik chizma. Sayt rus, o‘zbek va ingliz tillarida ishlaydi."
+        ],
+        "en": [
+          "The catalogue holds 104 models and 381 automatic drawings. The site runs in Russian, Uzbek and English."
+        ],
+        "ru": [
+          "В каталоге 104 модели и 381 автоматический чертёж. Сайт работает на русском, узбекском и английском."
+        ]
+      },
+      "highlights_title": {
+        "uz": "Katalog muhandis tilida gapiradi.",
+        "en": "A catalogue that speaks engineer.",
+        "ru": "Каталог на языке инженера."
+      },
+      "highlights": {
+        "uz": [
+          [
+            "Avtomatik chizmalar",
+            "Old, yon va ustdan ko‘rinish model o‘lchamlaridan chiziladi."
+          ],
+          [
+            "Konfigurator",
+            "Quvvat yoki yuklama bo‘yicha mos modelni tanlaydi."
+          ],
+          [
+            "KP brauzerda",
+            "Tijorat taklifi A4 PDF bo‘lib chiqadi."
+          ],
+          [
+            "Onlayn opros varag‘i",
+            "To‘ldirib yuborish yoki chop etish mumkin."
+          ]
+        ],
+        "en": [
+          [
+            "Automatic drawings",
+            "Front, side and top views are drawn from the model’s dimensions."
+          ],
+          [
+            "Configurator",
+            "Finds a model by power or load."
+          ],
+          [
+            "Offer in the browser",
+            "The commercial offer comes out as an A4 PDF."
+          ],
+          [
+            "Online questionnaire",
+            "Fill it in and send it, or print it."
+          ]
+        ],
+        "ru": [
+          [
+            "Автоматические чертежи",
+            "Виды спереди, сбоку и сверху строятся по размерам модели."
+          ],
+          [
+            "Конфигуратор",
+            "Подбирает модель по мощности или нагрузке."
+          ],
+          [
+            "КП в браузере",
+            "Коммерческое предложение выходит в PDF формата A4."
+          ],
+          [
+            "Онлайн-опросный лист",
+            "Можно заполнить и отправить или распечатать."
+          ]
+        ]
+      },
+      "stack": [
+        "JavaScript",
+        "SVG",
+        "Django",
+        "PostgreSQL",
+        "Docker",
+        "Telegram Bot API"
+      ],
+      "url": "https://ohma.uz/",
+      "cover": "assets/work/ohma-1.webp",
+      "cover_alt": {
+        "uz": "OHMA sayti bosh sahifasi",
+        "en": "OHMA home page",
+        "ru": "Главная страница OHMA"
+      },
+      "gallery": [
+        {
+          "src": "assets/work/ohma-2.webp",
+          "alt": {
+            "uz": "Transformator konfiguratori va tanlangan model chizmasi",
+            "en": "Transformer configurator with the chosen model’s drawing",
+            "ru": "Конфигуратор трансформатора с чертежом выбранной модели"
+          }
+        },
+        {
+          "src": "assets/work/ohma-3.webp",
+          "alt": {
+            "uz": "Katalog: seriyalar va chizmalar",
+            "en": "Catalogue: series and drawings",
+            "ru": "Каталог: серии и чертежи"
+          }
+        }
+      ]
+    },
+    {
+      "slug": {
+        "uz": "gofrokarton-erp",
+        "en": "corrugated-erp",
+        "ru": "erp-gofroproizvodstvo"
+      },
+      "year": 2026,
+      "services": [
+        "web",
+        "integration"
+      ],
+      "short": {
+        "uz": "Ishlab chiqarish ERP",
+        "en": "Factory ERP",
+        "ru": "ERP завода"
+      },
+      "client": {
+        "uz": "Gofrokarton ishlab chiqaruvchi korxona",
+        "en": "A corrugated board manufacturer",
+        "ru": "Производитель гофрокартона"
+      },
+      "sector": {
+        "uz": "Ishlab chiqarish",
+        "en": "Manufacturing",
+        "ru": "Производство"
+      },
+      "status": {
+        "uz": "Foydalanishda",
+        "en": "In use",
+        "ru": "В эксплуатации"
+      },
+      "title": {
+        "uz": "Gofrokarton ishlab chiqarish korxonasi uchun ERP",
+        "en": "ERP for a corrugated board factory",
+        "ru": "ERP для завода гофрокартона"
+      },
+      "summary": {
+        "uz": "Buyurtmalar, ombor, kassa, mijozlar qarzdorligi va tasdiqlash zanjiri bitta tizimda; Telegram Mini App orqali telefondan ham boshqariladi.",
+        "en": "Orders, warehouse, cash desk, customer debts and the approval chain in one system, also managed from a phone through a Telegram Mini App.",
+        "ru": "Заказы, склад, касса, задолженность клиентов и цепочка согласований в одной системе; управление и с телефона через Telegram Mini App."
+      },
+      "challenge": {
+        "uz": [
+          "Korxona buyurtmalar, ombor qoldiqlari, kassa va mijozlar bilan hisob-kitobni turli jadvallarda yuritardi. Buyurtma qaysi bosqichdaligini va kim qancha qarzdorligini tez bilish qiyin edi."
+        ],
+        "en": [
+          "The factory kept orders, stock, the cash desk and customer accounts in separate spreadsheets. It was hard to see quickly which stage an order was at and who owed how much."
+        ],
+        "ru": [
+          "Завод вёл заказы, складские остатки, кассу и расчёты с клиентами в разных таблицах. Было трудно быстро понять, на каком этапе заказ и кто сколько должен."
+        ]
+      },
+      "solution": {
+        "uz": [
+          "Buyurtmalar ishlab chiqarish bosqichlari bo‘yicha Kanban taxtasida yuritiladi; kartochka bir tugma bilan keyingi bosqichga o‘tadi.",
+          "Ombor FIFO tamoyili bo‘yicha hisoblanadi, kassa va yetkazib berishlar buyurtmalarga bog‘langan.",
+          "Telegram bot tasdiqlash zanjirini yuritadi, Mini App orqali tizim telefondan ochiladi.",
+          "Mavjud ma’lumotlar eski tizimdan ko‘chirildi va mijozlar bazasi takrorlardan tozalandi."
+        ],
+        "en": [
+          "Orders move across a Kanban board by production stage; a card advances to the next stage with one click.",
+          "Stock is costed on a FIFO basis, and the cash desk and deliveries are linked to orders.",
+          "A Telegram bot runs the approval chain, and the system opens on a phone as a Mini App.",
+          "Existing data was migrated from the old system and duplicate customers were merged."
+        ],
+        "ru": [
+          "Заказы ведутся на Kanban-доске по этапам производства; карточка переходит на следующий этап одной кнопкой.",
+          "Склад учитывается по FIFO, касса и доставки привязаны к заказам.",
+          "Telegram-бот ведёт цепочку согласований, через Mini App система открывается с телефона.",
+          "Данные перенесены из старой системы, дубликаты клиентов объединены."
+        ]
+      },
+      "result": {
+        "uz": [
+          "Korxona ishi bitta tizimga ko‘chirildi: buyurtma holati, ombor qoldig‘i va mijoz qarzdorligi real vaqtda ko‘rinadi.",
+          "Bosqichlar va maydonlar kodda emas, sozlamada turadi — bu yondashuv boshqa sohalarga moslashadigan universal ERP uchun asos bo‘ldi."
+        ],
+        "en": [
+          "The factory now runs on one system: order status, stock and customer debt are visible in real time.",
+          "Stages and fields live in configuration rather than code, an approach that became the basis for a universal ERP for other industries."
+        ],
+        "ru": [
+          "Работа завода перенесена в одну систему: статус заказа, остатки и долги клиентов видны в реальном времени.",
+          "Этапы и поля хранятся в настройках, а не в коде — этот подход стал основой универсальной ERP для других отраслей."
+        ]
+      },
+      "highlights_title": {
+        "uz": "Sexdan kassagacha bitta ma’lumot.",
+        "en": "One source of truth from shop floor to cash desk.",
+        "ru": "Единые данные от цеха до кассы."
+      },
+      "highlights": {
+        "uz": [
+          [
+            "Kanban buyurtmalar",
+            "Bosqichlar jarayonga qarab sozlanadi, kartochka bir tugma bilan suriladi."
+          ],
+          [
+            "FIFO ombor",
+            "Qoldiq va tannarx kirim tartibi bo‘yicha hisoblanadi."
+          ],
+          [
+            "Kassa va qarzdorlik",
+            "Mijoz bo‘yicha to‘lovlar, qarz va yetkazib berishlar."
+          ],
+          [
+            "Rollar",
+            "JWT avtorizatsiya va rolga asoslangan ruxsatlar."
+          ],
+          [
+            "Telegram Mini App",
+            "Tasdiqlash zanjiri va telefondan ishlash."
+          ],
+          [
+            "AI yordamida sozlash",
+            "Biznesni oddiy tilda tasvirlash orqali bosqichlar va maydonlarni yaratish."
+          ]
+        ],
+        "en": [
+          [
+            "Kanban orders",
+            "Stages follow the process; a card moves on with one click."
+          ],
+          [
+            "FIFO warehouse",
+            "Stock and cost follow the order of receipts."
+          ],
+          [
+            "Cash and debts",
+            "Payments, debts and deliveries per customer."
+          ],
+          [
+            "Roles",
+            "JWT authentication and role-based permissions."
+          ],
+          [
+            "Telegram Mini App",
+            "Approval chain and work from a phone."
+          ],
+          [
+            "AI-assisted setup",
+            "Describe the business in plain language to generate stages and fields."
+          ]
+        ],
+        "ru": [
+          [
+            "Kanban-заказы",
+            "Этапы настраиваются под процесс, карточка двигается одной кнопкой."
+          ],
+          [
+            "Склад FIFO",
+            "Остатки и себестоимость считаются по порядку поступлений."
+          ],
+          [
+            "Касса и долги",
+            "Платежи, задолженность и доставки по клиенту."
+          ],
+          [
+            "Роли",
+            "JWT-авторизация и права на основе ролей."
+          ],
+          [
+            "Telegram Mini App",
+            "Цепочка согласований и работа с телефона."
+          ],
+          [
+            "Настройка с AI",
+            "Описание бизнеса простым языком создаёт этапы и поля."
+          ]
+        ]
+      },
+      "stack": [
+        "Python",
+        "FastAPI",
+        "SQLAlchemy",
+        "PostgreSQL",
+        "JavaScript",
+        "Telegram Bot API",
+        "Telegram Mini App"
+      ],
+      "cover": "assets/work/erp-1.webp",
+      "cover_alt": {
+        "uz": "Boshqaruv paneli: savdo, qarzlar, ombor ogohlantirishlari (demo ma’lumot)",
+        "en": "Dashboard: sales, debts and stock alerts (demo data)",
+        "ru": "Панель управления: продажи, долги и складские предупреждения (демо-данные)"
+      },
+      "gallery": [
+        {
+          "src": "assets/work/erp-2.webp",
+          "alt": {
+            "uz": "Buyurtmalar: o‘lcham, qatlam, narx va ishlab chiqarish bosqichlari (demo ma’lumot)",
+            "en": "Orders: size, ply, price and production stages (demo data)",
+            "ru": "Заказы: размер, слойность, цена и этапы производства (демо-данные)"
+          }
+        },
+        {
+          "src": "assets/work/erp-3.webp",
+          "alt": {
+            "uz": "Ombor: xomashyo partiyalari va tayyor mahsulot (demo ma’lumot)",
+            "en": "Warehouse: raw material lots and finished goods (demo data)",
+            "ru": "Склад: партии сырья и готовая продукция (демо-данные)"
+          }
+        }
+      ]
+    },
+    {
+      "slug": {
+        "uz": "cad-ai",
+        "en": "cad-ai",
+        "ru": "cad-ai"
+      },
+      "year": 2026,
+      "services": [
+        "ai"
+      ],
+      "short": {
+        "uz": "cad-ai",
+        "en": "cad-ai",
+        "ru": "cad-ai"
+      },
+      "client": {
+        "uz": "Ichki loyihamiz",
+        "en": "Our in-house project",
+        "ru": "Внутренний проект"
+      },
+      "sector": {
+        "uz": "Muhandislik, sun’iy intellekt",
+        "en": "Engineering, artificial intelligence",
+        "ru": "Инжиниринг, искусственный интеллект"
+      },
+      "status": {
+        "uz": "Faol rivojlanmoqda",
+        "en": "In active development",
+        "ru": "В активной разработке"
+      },
+      "title": {
+        "uz": "cad-ai — AI boshqaradigan muhandislik chizmalari",
+        "en": "cad-ai — AI-driven engineering drawings",
+        "ru": "cad-ai — инженерные чертежи под управлением AI"
+      },
+      "summary": {
+        "uz": "Tabiiy tildagi so‘rovni o‘lchamlari tekshirilgan, ishlab chiqarishga yaroqli CAD faylga aylantiradigan tizim.",
+        "en": "A system that turns a plain-language request into a CAD file with verified dimensions, ready for production.",
+        "ru": "Система, превращающая запрос на естественном языке в CAD-файл с проверенными размерами, пригодный для производства."
+      },
+      "challenge": {
+        "uz": [
+          "Muhandislik chizmasi aniq bo‘lishi shart: chiroyli, ammo o‘lchami noto‘g‘ri chizma ishlab chiqarishda xatoga olib keladi. Oddiy AI generatsiyasi bunday kafolat bermaydi."
+        ],
+        "en": [
+          "An engineering drawing has to be exact: a good-looking drawing with a wrong dimension causes errors in production. Plain AI generation gives no such guarantee."
+        ],
+        "ru": [
+          "Инженерный чертёж должен быть точным: красивый чертёж с неверным размером приводит к ошибкам в производстве. Обычная AI-генерация таких гарантий не даёт."
+        ]
+      },
+      "solution": {
+        "uz": [
+          "AI faqat 16 ta ruxsat etilgan vosita orqali chizadi; har bir amal yozish va saqlash chegaralari bilan cheklangan.",
+          "Ikki boshqaruv usuli — desktop AI ilovalari MCP protokoli orqali yoki lokal LLM (Ollama, LM Studio) — bitta vositalar qatlamidan foydalanadi.",
+          "Chizmadagi o‘lchamlar chizmaning o‘zidan qayta o‘lchab tasdiqlanadi va validator tomonidan tekshiriladi."
+        ],
+        "en": [
+          "The AI draws only through 16 permitted tools; every action is bounded by write and save limits.",
+          "Two ways to control it — desktop AI apps over the MCP protocol or a local LLM (Ollama, LM Studio) — share one tool layer.",
+          "Dimensions are re-measured from the drawing itself and checked by a validator."
+        ],
+        "ru": [
+          "AI чертит только через 16 разрешённых инструментов; каждое действие ограничено правами на запись и сохранение.",
+          "Два способа управления — десктопные AI-приложения по протоколу MCP или локальная LLM (Ollama, LM Studio) — используют один слой инструментов.",
+          "Размеры заново измеряются по самому чертежу и проверяются валидатором."
+        ]
+      },
+      "result": {
+        "uz": [
+          "Natija DXF formatida — AutoCAD uni to‘liq o‘qiydi, Windows talab qilinmaydi.",
+          "Asosiy bosqichlar yakunlangan, 167 ta avtomatik test o‘tadi."
+        ],
+        "en": [
+          "Output is DXF, which AutoCAD reads fully; Windows is not required.",
+          "The core phases are complete and 167 automated tests pass."
+        ],
+        "ru": [
+          "Результат — DXF, который AutoCAD читает полностью; Windows не требуется.",
+          "Основные этапы завершены, проходят 167 автоматических тестов."
+        ]
+      },
+      "results": {
+        "uz": [
+          [
+            "167",
+            "avtomatik test"
+          ],
+          [
+            "16",
+            "ruxsat etilgan AI vositasi"
+          ],
+          [
+            "2",
+            "boshqaruv usuli"
+          ]
+        ],
+        "en": [
+          [
+            "167",
+            "automated tests"
+          ],
+          [
+            "16",
+            "permitted AI tools"
+          ],
+          [
+            "2",
+            "ways to control"
+          ]
+        ],
+        "ru": [
+          [
+            "167",
+            "автоматических тестов"
+          ],
+          [
+            "16",
+            "разрешённых AI-инструментов"
+          ],
+          [
+            "2",
+            "способа управления"
+          ]
+        ]
+      },
+      "highlights_title": {
+        "uz": "Chiroyli emas — to‘g‘ri chizma.",
+        "en": "Not just good-looking — correct.",
+        "ru": "Не просто красивый — правильный чертёж."
+      },
+      "highlights": {
+        "uz": [
+          [
+            "Deterministik natija",
+            "Bir xil so‘rov bir xil, tekshirilgan chizma beradi."
+          ],
+          [
+            "MCP server",
+            "Desktop AI ilovalaridan to‘g‘ridan-to‘g‘ri boshqarish."
+          ],
+          [
+            "Lokal LLM",
+            "Ma’lumot tashqariga chiqmasdan, o‘z serveringizdagi modellar bilan ishlash."
+          ],
+          [
+            "O‘lcham validatori",
+            "Qatlamlar va o‘lchamlar chizmaning o‘zidan tekshiriladi."
+          ]
+        ],
+        "en": [
+          [
+            "Deterministic output",
+            "The same request gives the same verified drawing."
+          ],
+          [
+            "MCP server",
+            "Direct control from desktop AI apps."
+          ],
+          [
+            "Local LLM",
+            "Work with models on your own server, without data leaving it."
+          ],
+          [
+            "Dimension validator",
+            "Layers and dimensions are checked from the drawing itself."
+          ]
+        ],
+        "ru": [
+          [
+            "Детерминированный результат",
+            "Один и тот же запрос даёт один и тот же проверенный чертёж."
+          ],
+          [
+            "MCP-сервер",
+            "Прямое управление из десктопных AI-приложений."
+          ],
+          [
+            "Локальная LLM",
+            "Работа с моделями на вашем сервере без передачи данных наружу."
+          ],
+          [
+            "Валидатор размеров",
+            "Слои и размеры проверяются по самому чертежу."
+          ]
+        ]
+      },
+      "stack": [
+        "Python",
+        "ezdxf",
+        "MCP",
+        "Ollama",
+        "LM Studio",
+        "AutoCAD COM/.NET"
+      ],
+      "cover": "assets/work/cad-1.webp",
+      "cover_alt": {
+        "uz": "cad-ai chizgan lift shaxtasi rejasi (demo loyiha)",
+        "en": "Lift shaft plan drawn by cad-ai (demo project)",
+        "ru": "План лифтовой шахты, построенный cad-ai (демо-проект)"
+      }
+    },
+    {
+      "slug": {
+        "uz": "tijorat-taklifi-boti",
+        "en": "proposal-bot",
+        "ru": "bot-kommercheskih-predlozheniy"
+      },
+      "year": 2026,
+      "services": [
+        "integration",
+        "ai"
+      ],
+      "short": {
+        "uz": "Tijorat taklifi boti",
+        "en": "Proposal bot",
+        "ru": "Бот КП"
+      },
+      "client": {
+        "uz": "Elektr jihozlari ishlab chiqaruvchi kompaniya",
+        "en": "An electrical equipment manufacturer",
+        "ru": "Производитель электрооборудования"
+      },
+      "sector": {
+        "uz": "Sanoat, savdo",
+        "en": "Industry, sales",
+        "ru": "Промышленность, продажи"
+      },
+      "status": {
+        "uz": "Ishlab chiqilgan",
+        "en": "Built",
+        "ru": "Разработан"
+      },
+      "title": {
+        "uz": "Elektr jihozlari ishlab chiqaruvchisi uchun tijorat taklifi boti",
+        "en": "A commercial proposal bot for an electrical equipment manufacturer",
+        "ru": "Бот коммерческих предложений для производителя электрооборудования"
+      },
+      "summary": {
+        "uz": "Savdo menejeri katalogdan mahsulot va miqdorni tanlaydi — bot to‘rt tilda, PDF, Word va Excel formatida to‘liq tijorat taklifini yig‘ib beradi.",
+        "en": "A sales manager picks products and quantities from the catalogue, and the bot assembles a complete proposal in four languages as PDF, Word and Excel.",
+        "ru": "Менеджер выбирает товары и количество из каталога — бот собирает полное коммерческое предложение на четырёх языках в PDF, Word и Excel."
+      },
+      "challenge": {
+        "uz": [
+          "Transformator podstansiyalari va taqsimlash qurilmalari bo‘yicha tijorat takliflari texnik ilovalar, spetsifikatsiya va narxlar bilan qo‘lda tayyorlanardi. Har bir taklif turli til va valyutada kerak bo‘lishi mumkin edi."
+        ],
+        "en": [
+          "Proposals for transformer substations and switchgear were assembled by hand, with technical appendices, specifications and prices. Each one could be needed in a different language and currency."
+        ],
+        "ru": [
+          "Коммерческие предложения по трансформаторным подстанциям и распределительным устройствам собирались вручную — с техническими приложениями, спецификацией и ценами. Каждое могло понадобиться на другом языке и в другой валюте."
+        ]
+      },
+      "solution": {
+        "uz": [
+          "Mahsulotlar katalogi bot ichida yuritiladi: to‘rt tildagi nom, narx, birlik, QQS va texnik tarkib.",
+          "Narx ro‘yxati va zavod hisob-kitobi Excel fayllari dastur tomonidan aniq qoidalar bo‘yicha o‘qiladi, takrorlar birlashtiriladi.",
+          "Taklif muqova, texnik ilovalar va narxlangan spetsifikatsiya bilan avtomatik yig‘iladi."
+        ],
+        "en": [
+          "The product catalogue lives inside the bot: names in four languages, price, unit, VAT and the technical bill of materials.",
+          "Price lists and factory costing sheets in Excel are parsed by fixed rules, and duplicates are merged.",
+          "The proposal is assembled automatically with a cover page, technical appendices and a priced specification."
+        ],
+        "ru": [
+          "Каталог товаров ведётся прямо в боте: названия на четырёх языках, цена, единица, НДС и технический состав.",
+          "Прайс-листы и заводские просчёты в Excel разбираются программой по чётким правилам, дубликаты объединяются.",
+          "Предложение собирается автоматически: обложка, технические приложения и спецификация с ценами."
+        ]
+      },
+      "result": {
+        "uz": [
+          "Taklif o‘zbek, rus, ingliz va xitoy tillarida, PDF, Word va Excel formatlarida, UZS, USD yoki CNY valyutasida tayyorlanadi."
+        ],
+        "en": [
+          "Proposals are produced in Uzbek, Russian, English and Chinese, as PDF, Word and Excel, in UZS, USD or CNY."
+        ],
+        "ru": [
+          "Предложения готовятся на узбекском, русском, английском и китайском, в форматах PDF, Word и Excel, в UZS, USD или CNY."
+        ]
+      },
+      "results": {
+        "uz": [
+          [
+            "4",
+            "til"
+          ],
+          [
+            "3",
+            "hujjat formati"
+          ],
+          [
+            "3",
+            "valyuta"
+          ]
+        ],
+        "en": [
+          [
+            "4",
+            "languages"
+          ],
+          [
+            "3",
+            "document formats"
+          ],
+          [
+            "3",
+            "currencies"
+          ]
+        ],
+        "ru": [
+          [
+            "4",
+            "языка"
+          ],
+          [
+            "3",
+            "формата документов"
+          ],
+          [
+            "3",
+            "валюты"
+          ]
+        ]
+      },
+      "highlights_title": {
+        "uz": "Katalogdan tayyor hujjatgacha.",
+        "en": "From catalogue to finished document.",
+        "ru": "От каталога до готового документа."
+      },
+      "highlights": {
+        "uz": [
+          [
+            "Katalog bot ichida",
+            "Mahsulot qo‘shish, tahrirlash va o‘chirish chatning o‘zida."
+          ],
+          [
+            "Fayldan import",
+            "Narx ro‘yxati yoki zavod hisob-kitobi yuklanadi, narxlar yangilanadi."
+          ],
+          [
+            "Qidiruv",
+            "Mahsulotni nomi yoki kodi bo‘yicha topish, istalgan chatdan inline rejim."
+          ],
+          [
+            "Ko‘p tilli hujjatlar",
+            "Bitta taklif to‘rt tilda va uch formatda."
+          ]
+        ],
+        "en": [
+          [
+            "Catalogue in the bot",
+            "Add, edit and delete products right in the chat."
+          ],
+          [
+            "File import",
+            "Upload a price list or costing sheet and prices are refreshed."
+          ],
+          [
+            "Search",
+            "Find products by name or code, with inline mode from any chat."
+          ],
+          [
+            "Multilingual documents",
+            "One proposal in four languages and three formats."
+          ]
+        ],
+        "ru": [
+          [
+            "Каталог в боте",
+            "Добавление, правка и удаление товаров прямо в чате."
+          ],
+          [
+            "Импорт из файла",
+            "Загрузка прайс-листа или просчёта обновляет цены."
+          ],
+          [
+            "Поиск",
+            "Поиск товара по названию или коду, inline-режим из любого чата."
+          ],
+          [
+            "Многоязычные документы",
+            "Одно предложение на четырёх языках и в трёх форматах."
+          ]
+        ]
+      },
+      "stack": [
+        "Python",
+        "aiogram",
+        "SQLAlchemy",
+        "WeasyPrint",
+        "Jinja2",
+        "python-docx",
+        "openpyxl",
+        "Gemini"
+      ]
+    },
+    {
+      "slug": {
+        "uz": "uzum-slot-bot",
+        "en": "uzum-slot-bot",
+        "ru": "uzum-slot-bot"
+      },
+      "year": 2026,
+      "services": [
+        "integration"
+      ],
+      "short": {
+        "uz": "Slot bot",
+        "en": "Slot bot",
+        "ru": "Слот-бот"
+      },
+      "client": {
+        "uz": "Uzum Market sotuvchilari",
+        "en": "Uzum Market sellers",
+        "ru": "Продавцы Uzum Market"
+      },
+      "sector": {
+        "uz": "E-commerce, logistika",
+        "en": "E-commerce, logistics",
+        "ru": "E-commerce, логистика"
+      },
+      "status": {
+        "uz": "Ishlab chiqilgan",
+        "en": "Built",
+        "ru": "Разработан"
+      },
+      "title": {
+        "uz": "Uzum Market sotuvchilari uchun slot band qilish boti",
+        "en": "A slot booking bot for Uzum Market sellers",
+        "ru": "Бот бронирования слотов для продавцов Uzum Market"
+      },
+      "summary": {
+        "uz": "Telegram bot Uzum Seller API orqali omborga topshirish uchun bo‘sh slotlarni orqa fonda kuzatadi va slot topilishi bilan sotuvchiga xabar beradi.",
+        "en": "A Telegram bot that watches for free warehouse delivery slots through the Uzum Seller API in the background and notifies the seller as soon as one appears.",
+        "ru": "Telegram-бот через Uzum Seller API в фоне отслеживает свободные слоты сдачи на склад и сразу сообщает продавцу о найденном слоте."
+      },
+      "challenge": {
+        "uz": [
+          "Marketpleys omboriga tovar topshirish uchun slot band qilish kerak, bo‘sh slotlar esa tez tugaydi. Sotuvchilar ularni qo‘lda qayta-qayta tekshirishga majbur edi."
+        ],
+        "en": [
+          "Delivering goods to the marketplace warehouse requires a booked slot, and free slots go quickly. Sellers had to keep checking for them by hand."
+        ],
+        "ru": [
+          "Чтобы сдать товар на склад маркетплейса, нужен забронированный слот, а свободные слоты быстро заканчиваются. Продавцам приходилось вручную проверять их снова и снова."
+        ]
+      },
+      "solution": {
+        "uz": [
+          "Sotuvchi o‘z Uzum Seller API tokeni bilan ro‘yxatdan o‘tadi va do‘kon ID hamda nakladnoy raqami bilan vazifa yaratadi.",
+          "Orqa fondagi tekshiruvchi bo‘sh slotlarni muntazam qidiradi va topilishi bilan Telegram’da xabar yuboradi.",
+          "Vazifalar va holat bot ichida boshqariladi."
+        ],
+        "en": [
+          "The seller registers with their Uzum Seller API token and creates a task with the shop ID and the delivery note number.",
+          "A background checker keeps searching for free slots and sends a Telegram message the moment one is found.",
+          "Tasks and their status are managed inside the bot."
+        ],
+        "ru": [
+          "Продавец регистрируется со своим токеном Uzum Seller API и создаёт задачу с ID магазина и номером накладной.",
+          "Фоновый проверяльщик регулярно ищет свободные слоты и сразу пишет в Telegram, когда слот найден.",
+          "Задачи и их статус управляются прямо в боте."
+        ]
+      },
+      "result": {
+        "uz": [
+          "Sotuvchi slotni qo‘lda kuzatmaydi: bot buni uning o‘rniga qiladi va kerakli payt xabar beradi."
+        ],
+        "en": [
+          "Sellers no longer watch for slots by hand: the bot does it for them and alerts them at the right moment."
+        ],
+        "ru": [
+          "Продавцу больше не нужно следить за слотами вручную: бот делает это за него и сообщает в нужный момент."
+        ]
+      },
+      "highlights_title": {
+        "uz": "Slotni kutish — botning ishi.",
+        "en": "Waiting for slots is the bot’s job.",
+        "ru": "Ждать слот — работа бота."
+      },
+      "highlights": {
+        "uz": [
+          [
+            "Uzum Seller API",
+            "Sotuvchining o‘z tokeni orqali rasmiy API bilan ishlash."
+          ],
+          [
+            "Orqa fonda tekshiruv",
+            "Bo‘sh slotlar doimiy qidiriladi."
+          ],
+          [
+            "Bir nechta vazifa",
+            "Har bir nakladnoy uchun alohida vazifa va holat."
+          ],
+          [
+            "Darhol xabar",
+            "Slot topilishi bilan Telegram bildirishnomasi."
+          ]
+        ],
+        "en": [
+          [
+            "Uzum Seller API",
+            "Works with the official API using the seller’s own token."
+          ],
+          [
+            "Background checks",
+            "Free slots are searched continuously."
+          ],
+          [
+            "Multiple tasks",
+            "A separate task and status for each delivery note."
+          ],
+          [
+            "Instant alerts",
+            "A Telegram notification the moment a slot is found."
+          ]
+        ],
+        "ru": [
+          [
+            "Uzum Seller API",
+            "Работа с официальным API по токену продавца."
+          ],
+          [
+            "Фоновая проверка",
+            "Свободные слоты ищутся постоянно."
+          ],
+          [
+            "Несколько задач",
+            "Отдельная задача и статус для каждой накладной."
+          ],
+          [
+            "Мгновенное уведомление",
+            "Сообщение в Telegram, как только найден слот."
+          ]
+        ]
+      },
+      "stack": [
+        "Python",
+        "aiogram",
+        "SQLite",
+        "Uzum Seller API"
+      ]
+    },
+    {
+      "slug": {
+        "uz": "klub-hisobi",
+        "en": "club-accounting",
+        "ru": "uchet-kluba"
+      },
+      "year": 2026,
+      "services": [
+        "web",
+        "integration"
+      ],
+      "short": {
+        "uz": "Klub hisobi",
+        "en": "Club accounting",
+        "ru": "Учёт клуба"
+      },
+      "client": {
+        "uz": "Billiard klubi",
+        "en": "A billiard club",
+        "ru": "Бильярдный клуб"
+      },
+      "sector": {
+        "uz": "Xizmat ko‘rsatish",
+        "en": "Hospitality",
+        "ru": "Сфера услуг"
+      },
+      "status": {
+        "uz": "Ishlab chiqilgan",
+        "en": "Built",
+        "ru": "Разработан"
+      },
+      "title": {
+        "uz": "Billiard klubi uchun kirim-chiqim hisobi",
+        "en": "Income and expense accounting for a billiard club",
+        "ru": "Учёт доходов и расходов для бильярдного клуба"
+      },
+      "summary": {
+        "uz": "Eski Excel faylning o‘rnini bosadigan web-ilova va Telegram Mini App: barcha kirim-chiqim bitta jadvalda, hisobotlar esa avtomatik.",
+        "en": "A web app and Telegram Mini App that replace an old Excel file: every income and expense in one table, with reports built automatically.",
+        "ru": "Веб-приложение и Telegram Mini App вместо старого Excel-файла: все доходы и расходы в одной таблице, отчёты строятся автоматически."
+      },
+      "challenge": {
+        "uz": [
+          "Klub kundalik kirim va chiqimni Excel faylda yuritardi. Qo‘lda yozilgan yig‘indilar buzilib qolar, bo‘limlar va xodimlar bo‘yicha hisobni ko‘rish qiyin edi."
+        ],
+        "en": [
+          "The club kept daily income and expenses in an Excel file. Hand-written totals broke, and it was hard to see figures by department or employee."
+        ],
+        "ru": [
+          "Клуб вёл ежедневные доходы и расходы в Excel. Итоги, записанные вручную, ломались, а учёт по разделам и сотрудникам было трудно увидеть."
+        ]
+      },
+      "solution": {
+        "uz": [
+          "Barcha yozuvlar bitta jadvalga tushadi; bo‘lim, kunlik, oylik va umumiy hisobotlar shu jadvaldan avtomatik hisoblanadi.",
+          "Doimiy to‘lovlar (ijara, kommunal, maoshlar) reja sifatida yuritiladi va faktga bog‘lanadi — xarajat ikki marta sanalmaydi.",
+          "Bar uchun tannarx va foyda oy boshidagi va oxiridagi qoldiq asosida hisoblanadi.",
+          "Eski Excel ma’lumotlari yangi tizimga import qilindi."
+        ],
+        "en": [
+          "Every entry goes into one table; department, daily, monthly and overall reports are calculated from it automatically.",
+          "Recurring payments (rent, utilities, salaries) are planned and linked to actual spending, so nothing is counted twice.",
+          "Bar cost and profit are calculated from opening and closing stock.",
+          "The old Excel data was imported into the new system."
+        ],
+        "ru": [
+          "Все записи попадают в одну таблицу; отчёты по разделам, за день, месяц и в целом считаются из неё автоматически.",
+          "Постоянные платежи (аренда, коммунальные, зарплаты) ведутся как план и связываются с фактом — расход не учитывается дважды.",
+          "Себестоимость и прибыль бара считаются по остаткам на начало и конец месяца.",
+          "Данные из старого Excel импортированы в новую систему."
+        ]
+      },
+      "result": {
+        "uz": [
+          "Egasi har kuni soat 23:00 da Telegram’da qisqa hisobot oladi, hisobotlarni Excel’ga yuklab olish mumkin. Interfeys o‘zbek (kirill) va rus tillarida."
+        ],
+        "en": [
+          "The owner gets a short Telegram report every day at 23:00, and reports can be exported to Excel. The interface is in Uzbek (Cyrillic) and Russian."
+        ],
+        "ru": [
+          "Владелец каждый день в 23:00 получает короткий отчёт в Telegram, отчёты выгружаются в Excel. Интерфейс на узбекском (кириллица) и русском."
+        ]
+      },
+      "highlights_title": {
+        "uz": "Excel o‘rniga bitta to‘g‘ri jadval.",
+        "en": "One reliable table instead of Excel.",
+        "ru": "Одна надёжная таблица вместо Excel."
+      },
+      "highlights": {
+        "uz": [
+          [
+            "Tez kiritish",
+            "Tez summa tugmalari, bo‘lim, xodim va “Saqlash va yana” rejimi."
+          ],
+          [
+            "Xodimlar",
+            "Har bir xodim oyda qancha olgani: oylik, obed va premiya alohida."
+          ],
+          [
+            "Hisobotlar",
+            "Sof foyda, o‘tgan oy bilan solishtirish va Excel eksport."
+          ],
+          [
+            "Telegram bot",
+            "Mini App tugmasi, /bugun hisoboti va kunlik xulosa."
+          ]
+        ],
+        "en": [
+          [
+            "Quick entry",
+            "Amount shortcuts, department, employee and a “save and add another” mode."
+          ],
+          [
+            "Staff",
+            "What each employee received in a month: salary, meals and bonus separately."
+          ],
+          [
+            "Reports",
+            "Net profit, month-on-month comparison and Excel export."
+          ],
+          [
+            "Telegram bot",
+            "Mini App button, a /today report and a daily summary."
+          ]
+        ],
+        "ru": [
+          [
+            "Быстрый ввод",
+            "Кнопки сумм, раздел, сотрудник и режим «Сохранить и ещё»."
+          ],
+          [
+            "Сотрудники",
+            "Сколько получил каждый сотрудник за месяц: зарплата, обед и премия отдельно."
+          ],
+          [
+            "Отчёты",
+            "Чистая прибыль, сравнение с прошлым месяцем и выгрузка в Excel."
+          ],
+          [
+            "Telegram-бот",
+            "Кнопка Mini App, отчёт /сегодня и ежедневная сводка."
+          ]
+        ]
+      },
+      "stack": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Prisma",
+        "PostgreSQL",
+        "grammY",
+        "Telegram Mini App",
+        "ExcelJS"
+      ]
+    },
+    {
+      "slug": {
+        "uz": "barter-marketpleysi",
+        "en": "barter-marketplace",
+        "ru": "barter-marketpleys"
+      },
+      "year": 2026,
+      "services": [
+        "web"
+      ],
+      "short": {
+        "uz": "Barter ilovasi",
+        "en": "Barter app",
+        "ru": "Бартер-приложение"
+      },
+      "client": {
+        "uz": "Barter platformasi",
+        "en": "A barter platform",
+        "ru": "Бартерная платформа"
+      },
+      "sector": {
+        "uz": "Marketpleys, mobil ilova",
+        "en": "Marketplace, mobile app",
+        "ru": "Маркетплейс, мобильное приложение"
+      },
+      "status": {
+        "uz": "Nashrga tayyorlanmoqda",
+        "en": "Preparing for release",
+        "ru": "Готовится к релизу"
+      },
+      "title": {
+        "uz": "Naqd pulsiz ayirboshlash uchun barter marketpleysi",
+        "en": "A barter marketplace for cashless exchange",
+        "ru": "Бартерный маркетплейс для обмена без денег"
+      },
+      "summary": {
+        "uz": "iOS, Android va web uchun bitta Flutter ilova: foydalanuvchilar e’lon joylaydi, taklif yuboradi va tovar yoki xizmatni pulsiz ayirboshlaydi.",
+        "en": "One Flutter app for iOS, Android and the web: people post listings, send offers and exchange goods or services without money.",
+        "ru": "Одно Flutter-приложение для iOS, Android и веба: пользователи размещают объявления, отправляют предложения и обмениваются товарами и услугами без денег."
+      },
+      "challenge": {
+        "uz": [
+          "Barter g‘oyasi ishonch va qulaylikka bog‘liq: foydalanuvchi e’lonni tez joylashi, mos taklifni topishi va kelishuvni xavfsiz yakunlashi kerak. Ilova bir vaqtda uchta platformada ishlashi talab qilindi."
+        ],
+        "en": [
+          "Barter depends on trust and convenience: people need to post quickly, find a matching offer and close the deal safely. The app had to work on three platforms at once."
+        ],
+        "ru": [
+          "Бартер держится на доверии и удобстве: нужно быстро разместить объявление, найти подходящее предложение и безопасно завершить сделку. Приложение должно было работать сразу на трёх платформах."
+        ]
+      },
+      "solution": {
+        "uz": [
+          "Bitta Flutter kod bazasi iOS, Android va web uchun; o‘zbek, rus va ingliz tillari.",
+          "Lenta, e’lon, taklif va kelishuv, profil va SMS orqali kirish modullari; shikoyat va bloklash, hisobni o‘chirish imkoniyati.",
+          "FastAPI va PostgreSQL asosidagi backend, ixtiyoriy AI yordamchi xizmati."
+        ],
+        "en": [
+          "One Flutter codebase for iOS, Android and the web, in Uzbek, Russian and English.",
+          "Feed, listings, offers and trades, profiles and SMS sign-in; reporting, blocking and account deletion.",
+          "A FastAPI and PostgreSQL backend with an optional AI assistant service."
+        ],
+        "ru": [
+          "Одна кодовая база Flutter для iOS, Android и веба; узбекский, русский и английский.",
+          "Лента, объявления, предложения и сделки, профиль и вход по SMS; жалобы, блокировка и удаление аккаунта.",
+          "Бэкенд на FastAPI и PostgreSQL, опциональный AI-ассистент."
+        ]
+      },
+      "result": {
+        "uz": [
+          "Ilova iOS simulyatori va web’da muvaffaqiyatli yig‘iladi, avtomatik testlar o‘tadi. App Store va Google Play’ga nashr qilish uchun yakuniy sozlamalar tayyorlanmoqda."
+        ],
+        "en": [
+          "The app builds successfully for the iOS simulator and the web, and automated tests pass. Final settings for App Store and Google Play release are being prepared."
+        ],
+        "ru": [
+          "Приложение успешно собирается для симулятора iOS и веба, автотесты проходят. Готовятся финальные настройки для публикации в App Store и Google Play."
+        ]
+      },
+      "highlights_title": {
+        "uz": "Bitta kod, uchta platforma.",
+        "en": "One codebase, three platforms.",
+        "ru": "Один код, три платформы."
+      },
+      "highlights": {
+        "uz": [
+          [
+            "Lenta va e’lonlar",
+            "Kategoriyalar, qidiruv va e’lon yaratish."
+          ],
+          [
+            "Taklif va kelishuv",
+            "Ayirboshlash taklifi, muloqot va kelishuv holati."
+          ],
+          [
+            "Xavfsizlik",
+            "SMS orqali kirish, shikoyat, bloklash va hisobni o‘chirish."
+          ],
+          [
+            "Uch til",
+            "O‘zbek, rus va ingliz tillari, qulay va accessible interfeys."
+          ]
+        ],
+        "en": [
+          [
+            "Feed and listings",
+            "Categories, search and listing creation."
+          ],
+          [
+            "Offers and trades",
+            "Exchange offers, chat and deal status."
+          ],
+          [
+            "Safety",
+            "SMS sign-in, reporting, blocking and account deletion."
+          ],
+          [
+            "Three languages",
+            "Uzbek, Russian and English, with an accessible interface."
+          ]
+        ],
+        "ru": [
+          [
+            "Лента и объявления",
+            "Категории, поиск и создание объявлений."
+          ],
+          [
+            "Предложения и сделки",
+            "Предложение обмена, чат и статус сделки."
+          ],
+          [
+            "Безопасность",
+            "Вход по SMS, жалобы, блокировка и удаление аккаунта."
+          ],
+          [
+            "Три языка",
+            "Узбекский, русский и английский, доступный интерфейс."
+          ]
+        ]
+      },
+      "stack": [
+        "Flutter",
+        "Dart",
+        "FastAPI",
+        "PostgreSQL",
+        "Docker",
+        "Firebase"
+      ],
+      "cover": "assets/work/barter-1.webp",
+      "cover_alt": {
+        "uz": "Ilova bosh sahifasi: qidiruv, kategoriyalar va e’lonlar (demo ma’lumot)",
+        "en": "App home: search, categories and listings (demo data)",
+        "ru": "Главный экран приложения: поиск, категории и объявления (демо-данные)"
+      },
+      "gallery": [
+        {
+          "src": "assets/work/barter-2.webp",
+          "alt": {
+            "uz": "Ilova bilan tanishuv ekrani",
+            "en": "App onboarding screen",
+            "ru": "Экран знакомства с приложением"
+          }
+        }
+      ],
+      "device": "phone"
+    },
+    {
+      "slug": {
+        "uz": "kiberqalqon",
+        "en": "kiberqalqon",
+        "ru": "kiberqalqon"
+      },
+      "year": 2026,
+      "services": [
+        "web"
+      ],
+      "short": {
+        "uz": "KiberQalqon",
+        "en": "KiberQalqon",
+        "ru": "KiberQalqon"
+      },
+      "client": {
+        "uz": "Bizning konsept",
+        "en": "Our concept",
+        "ru": "Собственный концепт"
+      },
+      "sector": {
+        "uz": "Kiberxavfsizlik",
+        "en": "Cybersecurity",
+        "ru": "Кибербезопасность"
+      },
+      "status": {
+        "uz": "Interaktiv prototip",
+        "en": "Interactive prototype",
+        "ru": "Интерактивный прототип"
+      },
+      "title": {
+        "uz": "KiberQalqon — kiberxavfsizlik boshqaruv paneli prototipi",
+        "en": "KiberQalqon — a cybersecurity dashboard prototype",
+        "ru": "KiberQalqon — прототип панели управления кибербезопасностью"
+      },
+      "summary": {
+        "uz": "Xavfsizlik operatsiyalari markazi (SOC) uchun boshqaruv paneli konsepsiyasi: ogohlantirishlar, tahdidlar xaritasi va javob choralari bitta ekranda.",
+        "en": "A dashboard concept for a security operations centre (SOC): alerts, a threat map and response actions on one screen.",
+        "ru": "Концепция панели для центра мониторинга безопасности (SOC): оповещения, карта угроз и меры реагирования на одном экране."
+      },
+      "challenge": {
+        "uz": [
+          "Potensial xaridor va investorlarga SIEM, XDR va SOAR qatlamlarini birlashtirgan platforma qanday ko‘rinishi va ishlashini oldindan ko‘rsatish kerak edi."
+        ],
+        "en": [
+          "Potential buyers and investors needed to see in advance how a platform combining SIEM, XDR and SOAR layers would look and work."
+        ],
+        "ru": [
+          "Потенциальным покупателям и инвесторам нужно было заранее показать, как будет выглядеть и работать платформа, объединяющая слои SIEM, XDR и SOAR."
+        ]
+      },
+      "solution": {
+        "uz": [
+          "O‘zbekiston xaritasida hodisalar va har bir ogohlantirish uchun batafsil panel: IP egasi va geolokatsiya, MITRE ATT&CK klassifikatsiyasi, kill chain bosqichi va texnik loglar.",
+          "20 ta kiberxavfsizlik atamasini o‘zbek tilida tushuntiruvchi lug‘at, qorong‘i va yorug‘ rejim."
+        ],
+        "en": [
+          "Incidents on a map of Uzbekistan and a detail panel for every alert: IP owner and geolocation, MITRE ATT&CK classification, kill chain stage and technical logs.",
+          "A glossary explaining 20 cybersecurity terms in Uzbek, with dark and light modes."
+        ],
+        "ru": [
+          "Инциденты на карте Узбекистана и подробная панель для каждого оповещения: владелец IP и геолокация, классификация MITRE ATT&CK, этап kill chain и технические логи.",
+          "Глоссарий из 20 терминов кибербезопасности на узбекском, тёмная и светлая темы."
+        ]
+      },
+      "result": {
+        "uz": [
+          "Prototip mahsulot g‘oyasini taqdimotlarda ko‘rsatish uchun tayyorlandi. Undagi barcha ma’lumotlar namunaviy — real tizimlarga ulanmagan."
+        ],
+        "en": [
+          "The prototype was built to show the product idea in presentations. All of its data is sample data and it is not connected to real systems."
+        ],
+        "ru": [
+          "Прототип подготовлен, чтобы показывать идею продукта на презентациях. Все данные в нём демонстрационные, к реальным системам он не подключён."
+        ]
+      },
+      "highlights_title": {
+        "uz": "G‘oyani kod yozishdan oldin ko‘rsatish.",
+        "en": "Showing the idea before building it.",
+        "ru": "Показать идею до разработки."
+      },
+      "highlights": {
+        "uz": [
+          [
+            "Tahdidlar xaritasi",
+            "GeoJSON asosidagi O‘zbekiston xaritasi va hodisalar."
+          ],
+          [
+            "Ogohlantirish tafsiloti",
+            "Reputatsiya xavfi, MITRE ATT&CK va bajarilgan javob choralari."
+          ],
+          [
+            "Atamalar lug‘ati",
+            "Har bir atama o‘zbek tilida izohlangan, qidiruv bilan."
+          ],
+          [
+            "Ikki rejim",
+            "Qorong‘i va yorug‘ ko‘rinish."
+          ]
+        ],
+        "en": [
+          [
+            "Threat map",
+            "A GeoJSON map of Uzbekistan with incidents."
+          ],
+          [
+            "Alert details",
+            "Reputation risk, MITRE ATT&CK and the response taken."
+          ],
+          [
+            "Glossary",
+            "Every term explained in Uzbek, with search."
+          ],
+          [
+            "Two modes",
+            "Dark and light themes."
+          ]
+        ],
+        "ru": [
+          [
+            "Карта угроз",
+            "Карта Узбекистана на GeoJSON с инцидентами."
+          ],
+          [
+            "Детали оповещения",
+            "Репутационный риск, MITRE ATT&CK и принятые меры."
+          ],
+          [
+            "Глоссарий",
+            "Каждый термин объяснён на узбекском, с поиском."
+          ],
+          [
+            "Две темы",
+            "Тёмная и светлая."
+          ]
+        ]
+      },
+      "stack": [
+        "React 18",
+        "Vite",
+        "GeoJSON"
+      ],
+      "cover": "assets/work/kiber-2.webp",
+      "cover_alt": {
+        "uz": "Hujum xaritasi: hududlar bo‘yicha real vaqt hujum oqimlari (prototip, demo ma’lumot)",
+        "en": "Attack map: live attack flows by region (prototype, demo data)",
+        "ru": "Карта атак: потоки атак по регионам в реальном времени (прототип, демо-данные)"
+      },
+      "gallery": [
+        {
+          "src": "assets/work/kiber-1.webp",
+          "alt": {
+            "uz": "Umumiy ko‘rinish: ogohlantirishlar, endpointlar, incidentlar va AI tahlilchi",
+            "en": "Overview: alerts, endpoints, incidents and the AI analyst",
+            "ru": "Обзор: оповещения, конечные точки, инциденты и AI-аналитик"
+          }
+        },
+        {
+          "src": "assets/work/kiber-3.webp",
+          "alt": {
+            "uz": "SOAR: avtomatik javob playbooklari va bajarilish holati",
+            "en": "SOAR: automated response playbooks and their status",
+            "ru": "SOAR: плейбуки автоматического реагирования и их статус"
+          }
+        }
+      ]
+    }
+  ]
 }
